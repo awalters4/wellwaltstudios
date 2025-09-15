@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <WellWaltStudios
         siteName="Well Walt Studios"
-        logo="/logo.png"
+        logo="/favicon.ico"
         heroImage="/me.jpg"
         githubLink="https://github.com/awells4"
         igLink="https://instagram.com/wellwaltstudios"
