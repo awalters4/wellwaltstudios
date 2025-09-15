@@ -76,24 +76,32 @@ export default function WellWaltStudios() {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-primary text-textDark flex flex-col md:flex-row items-center justify-between px-8 py-20 rounded-b-3xl">
-        <div className="md:w-1/2 mb-10 md:mb-0">
-          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-            Hi, I’m Ariel.
-          </h1>
-          <p className="text-lg md:text-xl">
-            I bridge technology, strategy, and storytelling to help businesses
-            and entrepreneurs scale effectively.
-          </p>
-        </div>
-        <div className="md:w-1/2 flex justify-center">
-          <img
-            src="/me.jpg"
-            alt="Ariel Walters"
-            className="rounded-3xl shadow-xl w-72 md:w-96"
-          />
-        </div>
-      </section>
+<section className="bg-primary text-textDark flex flex-col md:flex-row items-center justify-between px-8 py-20 rounded-b-3xl">
+  <div className="md:w-1/2 mb-10 md:mb-0">
+    <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
+      Hi, I’m Ariel — a software engineer and founder of Well Walt Studios.
+    </h1>
+    <p className="text-lg md:text-xl mb-4">
+      I design, build, and maintain the tools that help businesses run smarter. 
+      From custom apps and automation systems to AI-powered productivity platforms, 
+      I specialize in turning ideas into reliable software.
+    </p>
+    <p className="text-lg md:text-xl">
+      With a background spanning IT support, web/mobile development, and technical consulting, 
+      I bring both hands-on engineering and big-picture strategy to every project. 
+      Whether you’re scaling a startup, streamlining operations, or launching something new — 
+      I build the tech that makes it possible.
+    </p>
+  </div>
+  <div className="md:w-1/2 flex justify-center">
+    <img
+      src="/me.jpg"
+      alt="Ariel Walters"
+      className="rounded-3xl shadow-xl w-72 md:w-96"
+    />
+  </div>
+</section>
+
 
       {/* Current Projects Section*/}
       <section className="bg-secondary px-8 py-20">
