@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import { FaGithub, FaInstagram, FaFilePdf } from "react-icons/fa";
 import WorkWithMeModal from "./WorkWithMeModal";
+import WWSFooter from "./WWSFooter";
 
 Modal.setAppElement("#root");
 
@@ -210,6 +211,8 @@ export default function WellWaltStudios() {
 
       {/* Work With Me Modal */}
             <WorkWithMeModal isOpen={modalIsOpen} onClose={closeModal} />
+
+            <WWSFooter />
     </div>
   );
 }
