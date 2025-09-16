@@ -13,8 +13,7 @@ module.exports = {
         textGray: '#666666',
       },
       fontFamily: {
-        heading: ['Outfit', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
+        tech: ['"Share Tech Mono"', 'monospace'],
       },
       borderRadius: {
         xl: '1rem',

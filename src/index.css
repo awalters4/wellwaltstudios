@@ -7,7 +7,7 @@
 
 /* Body default font */
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Share Tech Mono', monospace;
   background-color: #FFF8F2; /* bgWarm */
   color: #333333; /* textDark */
 }
