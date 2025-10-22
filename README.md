@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Well Walt Studios
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Official website for Well Walt Studios - a tech consulting and software development studio founded by Ariel Walters.
+
+## About
+
+Well Walt Studios combines technology, strategy, and storytelling to deliver meaningful outcomes for businesses and entrepreneurs. We specialize in tech consulting, web/app development, and AI-powered productivity solutions.
+
+## Services
+
+- **Tech Audit** - Deep audit of digital systems with actionable improvement plans
+- **Consultations** - 60-minute tech strategy sessions for founders and creators
+- **Fractional CTO Services** - Ongoing technical leadership for startups and small businesses
+- **Development** - Custom web and app development (React, React Native, Supabase, AWS, Tailwind)
+
+## Tech Stack
+
+- **Frontend**: React, React Router, Tailwind CSS
+- **Styling**: Glassmorphism effects, gradient backgrounds, custom animations
+- **Icons**: React Icons
+- **Forms**: Formspree integration
+- **Deployment**: TBD
+
+## Project Structure
+
+```
+src/
+├── App.js              # Main app with routing
+├── WellWaltStudios.js  # Homepage component
+├── Blog.js             # Blog/story page
+├── WorkWithMeModal.js  # Contact form modal
+└── WWSFooter.js        # Footer component
+```
 
 ## Available Scripts
 
-In the project directory, you can run:
-
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Runs the app in development mode at [http://localhost:3000](http://localhost:3000)
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the app for production to the `build` folder
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `npm test`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Launches the test runner in interactive watch mode
 
-### `npm run eject`
+## Current Projects
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Aurova** - AI-powered habit tracking and productivity app (Fall 2025)
+- **Bluetree** - College and university marketplace platform (January 2026)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Completed Work
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Gypsy** - AI tarot card reader ([Live](https://awells4.github.io/tarot-reader/))
+- **NBFJA Food Map** - Interactive map of Black-owned farms and food co-ops ([Live](https://blackfoodjustice.org/food-map-director))
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Contact
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Website: [wellwaltstudios.com](https://wellwaltstudios.com)
+- Instagram: [@wellwaltstudios](https://instagram.com/wellwaltstudios)
+- GitHub: [@awells4](https://github.com/awells4)
