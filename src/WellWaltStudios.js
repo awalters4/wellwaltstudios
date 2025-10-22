@@ -134,11 +134,11 @@ export default function WellWaltStudios() {
   </div>
   <div className="md:w-1/2 flex justify-center relative z-10">
     <div className="relative">
-      <div className="absolute inset-0 bg-gradient-pink-purple rounded-3xl blur-2xl opacity-30 animate-glow"></div>
+      <div className="absolute -inset-4 bg-gradient-pink-purple rounded-3xl blur-3xl opacity-20 animate-glow"></div>
       <img
         src="/me.jpg"
         alt="Ariel Walters"
-        className="rounded-3xl shadow-xl w-72 md:w-96 relative z-10 border-4 border-white/50"
+        className="rounded-3xl shadow-2xl w-72 md:w-96 relative z-10 border-4 border-white/80 object-cover hover:scale-105 transition-transform duration-500"
       />
     </div>
   </div>
