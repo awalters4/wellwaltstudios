@@ -60,7 +60,7 @@ export default function WellWaltStudios() {
             <FaFilePdf size={20} />
           </a>
           <a
-            href="https://github.com/awells4"
+            href="https://github.com/awalters4"
             className="text-textGray hover:text-pink transition-colors"
           >
             <FaGithub size={20} />
@@ -136,7 +136,7 @@ export default function WellWaltStudios() {
     <div className="relative">
       <div className="absolute -inset-4 bg-gradient-pink-purple rounded-3xl blur-3xl opacity-20 animate-glow"></div>
       <img
-        src="/me.jpg"
+        src="/main.png"
         alt="Ariel Walters"
         className="rounded-3xl shadow-2xl w-72 md:w-96 relative z-10 border-4 border-white/80 object-cover hover:scale-105 transition-transform duration-500"
       />
@@ -382,7 +382,7 @@ export default function WellWaltStudios() {
                 <div className="group relative bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-glass border border-pink-light/30 hover:scale-105 hover:shadow-glow-pink transition-all duration-300">
                   <div className="absolute inset-0 bg-gradient-pink-gold opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300"></div>
                   <a
-                    href="https://awells4.github.io/tarot-reader/"
+                    href="https://awalters4.github.io/gypsy/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="relative z-10"
