@@ -2,12 +2,19 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import { FaGithub, FaInstagram, FaFilePdf, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import WorkWithMeModal from "./WorkWithMeModal";
+import TechAuditModal from "./components/TechAuditModal";
+import HourlyConsultingModal from "./components/HourlyConsultingModal";
+import DepositBookingModal from "./components/DepositBookingModal";
 import WWSFooter from "./WWSFooter";
 
 Modal.setAppElement("#root");
 
 export default function WellWaltStudios() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [techAuditModalOpen, setTechAuditModalOpen] = useState(false);
+  const [hourlyModalOpen, setHourlyModalOpen] = useState(false);
+  const [fractionalCTOModalOpen, setFractionalCTOModalOpen] = useState(false);
+  const [developmentModalOpen, setDevelopmentModalOpen] = useState(false);
   const [completedWorkOpen, setCompletedWorkOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -124,12 +131,13 @@ export default function WellWaltStudios() {
       >
         About WWS
       </a>
-      <a
-        href="/blog"
-        className="inline-block bg-white/70 backdrop-blur-sm border-2 border-pink text-textDark px-8 py-3 rounded-xl shadow-glass hover:shadow-glow-pink hover:scale-105 transition-all duration-300"
+      <button
+        disabled
+        title="Coming Soon"
+        className="inline-block bg-white/70 backdrop-blur-sm border-2 border-gray-300 text-gray-400 px-8 py-3 rounded-xl shadow-glass cursor-not-allowed opacity-60"
       >
         Ariel's Story
-      </a>
+      </button>
     </div>
   </div>
   <div className="md:w-1/2 flex justify-center relative z-10">
@@ -173,15 +181,13 @@ export default function WellWaltStudios() {
             <p className="mb-4 text-sm text-textGray italic">
               Optional add-on: I can handle the implementation for you (custom quote).
             </p>
-            <p className="text-2xl font-bold mb-6 bg-gradient-pink-gold bg-clip-text text-transparent relative z-10">Starting at $250</p>
-            <a
-              href="https://app.squareup.com/appointments/book/1us1ykx3aktri0/LFTMYHAESXCX5/start"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block text-center bg-gradient-pink-purple text-white px-6 py-3 rounded-xl shadow-glow-pink hover:scale-105 hover:shadow-glow-gold transition-all duration-300 relative z-10"
+            <p className="text-2xl font-bold mb-6 bg-gradient-pink-gold bg-clip-text text-transparent relative z-10">$300</p>
+            <button
+              onClick={() => setTechAuditModalOpen(true)}
+              className="block w-full text-center bg-gradient-pink-purple text-white px-6 py-3 rounded-xl shadow-glow-pink hover:scale-105 hover:shadow-glow-gold transition-all duration-300 relative z-10"
             >
-              Book a Tech Audit
-            </a>
+              Schedule a Tech Audit
+            </button>
           </div>
 
           {/* Consultations */}
@@ -191,7 +197,7 @@ export default function WellWaltStudios() {
               Consultations
             </h3>
             <p className="mb-4 text-textGray leading-relaxed">
-              A 60-minute "ask me anything" tech strategy session for founders, creators, or teams who need clarity.
+              An "ask me anything" tech strategy session for founders, creators, or teams who need clarity.
             </p>
             <p className="mb-4 text-textGray leading-relaxed">
               We can talk through web/app strategy, automation, integrations, scaling, or next steps for your project.
@@ -202,15 +208,13 @@ export default function WellWaltStudios() {
             <p className="mb-6 text-textGray leading-relaxed">
               Includes a short follow-up email with action notes.
             </p>
-            <p className="text-2xl font-bold mb-6 bg-gradient-pink-gold bg-clip-text text-transparent relative z-10">$175 flat</p>
-            <a
-              href="https://app.squareup.com/appointments/book/1us1ykx3aktri0/LFTMYHAESXCX5/start"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block text-center bg-gradient-pink-purple text-white px-6 py-3 rounded-xl shadow-glow-pink hover:scale-105 hover:shadow-glow-gold transition-all duration-300 relative z-10"
+            <p className="text-2xl font-bold mb-6 bg-gradient-pink-gold bg-clip-text text-transparent relative z-10">$200/hr</p>
+            <button
+              onClick={() => setHourlyModalOpen(true)}
+              className="block w-full text-center bg-gradient-pink-purple text-white px-6 py-3 rounded-xl shadow-glow-pink hover:scale-105 hover:shadow-glow-gold transition-all duration-300 relative z-10"
             >
-              Book a Consultation
-            </a>
+              Schedule a Consultation
+            </button>
           </div>
 
           {/* Fractional CTO Services */}
@@ -220,9 +224,6 @@ export default function WellWaltStudios() {
               Fractional CTO Services
             </h3>
             <p className="mb-4 text-textGray leading-relaxed">
-              Ongoing technical leadership and strategy for startups, founders, or small businesses that need expert guidance without a full-time CTO.
-            </p>
-            <p className="mb-4 text-textGray leading-relaxed">
               I help with tech stack decisions, product roadmaps, team direction, and overall system architecture.
             </p>
             <p className="mb-4 text-textGray leading-relaxed">
@@ -231,15 +232,12 @@ export default function WellWaltStudios() {
             <p className="mb-6 text-textGray leading-relaxed">
               <strong>Perfect for:</strong> Solo founders who need a technical co-pilot, early-stage startups building their first product, or established small businesses (up to 20 people) who want expert guidance without hiring a full-time CTO.
             </p>
-            <p className="text-2xl font-bold mb-6 bg-gradient-pink-gold bg-clip-text text-transparent relative z-10">Starting at $1,500/month</p>
-            <a
-              href="https://app.squareup.com/appointments/book/1us1ykx3aktri0/LFTMYHAESXCX5/start"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block text-center bg-gradient-pink-purple text-white px-6 py-3 rounded-xl shadow-glow-pink hover:scale-105 hover:shadow-glow-gold transition-all duration-300 relative z-10"
+            <button
+              onClick={() => setFractionalCTOModalOpen(true)}
+              className="block w-full text-center bg-gradient-pink-purple text-white px-6 py-3 rounded-xl shadow-glow-pink hover:scale-105 hover:shadow-glow-gold transition-all duration-300 relative z-10"
             >
-              Inquire About Fractional CTO Services
-            </a>
+              Get Started with Fractional CTO
+            </button>
           </div>
 
           {/* Development */}
@@ -263,15 +261,12 @@ export default function WellWaltStudios() {
             <p className="mb-6 text-textGray leading-relaxed">
               <strong>Timeline:</strong> Most projects range from 4 weeks to 12 months depending on scope.
             </p>
-            <p className="text-2xl font-bold mb-6 bg-gradient-pink-gold bg-clip-text text-transparent relative z-10">Custom Quotes Available</p>
-            <a
-              href="https://app.squareup.com/appointments/book/1us1ykx3aktri0/LFTMYHAESXCX5/start"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block text-center bg-gradient-pink-purple text-white px-6 py-3 rounded-xl shadow-glow-pink hover:scale-105 hover:shadow-glow-gold transition-all duration-300 relative z-10"
+            <button
+              onClick={() => setDevelopmentModalOpen(true)}
+              className="block w-full text-center bg-gradient-pink-purple text-white px-6 py-3 rounded-xl shadow-glow-pink hover:scale-105 hover:shadow-glow-gold transition-all duration-300 relative z-10"
             >
               Start a Project
-            </a>
+            </button>
           </div>
         </div>
 
@@ -281,16 +276,14 @@ export default function WellWaltStudios() {
             Not sure what you need?
           </h3>
           <p className="text-lg text-textGray mb-6">
-            Book a quick consultation and we'll figure it out together.
+            Send me a message and we'll figure it out together.
           </p>
-          <a
-            href="https://app.squareup.com/appointments/book/1us1ykx3aktri0/LFTMYHAESXCX5/start"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={openModal}
             className="inline-block bg-gradient-pink-gold text-textDark font-semibold px-8 py-3 rounded-xl shadow-glow-gold hover:scale-105 hover:shadow-xl transition-all duration-300"
           >
-            Schedule a Consultation
-          </a>
+            Get In Touch
+          </button>
         </div>
       </section>
 
@@ -425,10 +418,22 @@ export default function WellWaltStudios() {
         </div>
       </section>
 
-      {/* Work With Me Modal */}
-            <WorkWithMeModal isOpen={modalIsOpen} onClose={closeModal} />
+      {/* Modals */}
+      <WorkWithMeModal isOpen={modalIsOpen} onClose={closeModal} />
+      <TechAuditModal isOpen={techAuditModalOpen} onClose={() => setTechAuditModalOpen(false)} />
+      <HourlyConsultingModal isOpen={hourlyModalOpen} onClose={() => setHourlyModalOpen(false)} />
+      <DepositBookingModal
+        isOpen={fractionalCTOModalOpen}
+        onClose={() => setFractionalCTOModalOpen(false)}
+        serviceType="fractional-cto"
+      />
+      <DepositBookingModal
+        isOpen={developmentModalOpen}
+        onClose={() => setDevelopmentModalOpen(false)}
+        serviceType="development"
+      />
 
-            <WWSFooter />
+      <WWSFooter />
     </div>
   );
 }
