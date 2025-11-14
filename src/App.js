@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import WellWaltStudios from "./WellWaltStudios";
 import Blog from "./Blog";
+import LaunchKit from "./LaunchKit";
+import Aurova from "./Aurova";
+import BehindTheBuild from "./BehindTheBuild";
 
 function App() {
   return (
@@ -11,6 +14,9 @@ function App() {
         <Routes>
           <Route path="/" element={<WellWaltStudios />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/behind-the-build" element={<BehindTheBuild />} />
+          <Route path="/products/launch-kit" element={<LaunchKit />} />
+          <Route path="/projects/aurova" element={<Aurova />} />
         </Routes>
         <Analytics />
       </div>
