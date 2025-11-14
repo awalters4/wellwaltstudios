@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import { FaGithub, FaInstagram, FaFilePdf, FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { FaGithub, FaInstagram, FaFilePdf } from "react-icons/fa";
 import WorkWithMeModal from "./WorkWithMeModal";
 import TechAuditModal from "./components/TechAuditModal";
 import HourlyConsultingModal from "./components/HourlyConsultingModal";
@@ -15,7 +16,7 @@ export default function WellWaltStudios() {
   const [hourlyModalOpen, setHourlyModalOpen] = useState(false);
   const [fractionalCTOModalOpen, setFractionalCTOModalOpen] = useState(false);
   const [developmentModalOpen, setDevelopmentModalOpen] = useState(false);
-  const [completedWorkOpen, setCompletedWorkOpen] = useState(false);
+  const [behindTheBuildModalOpen, setBehindTheBuildModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -132,11 +133,10 @@ export default function WellWaltStudios() {
         About WWS
       </a>
       <button
-        disabled
-        title="Coming Soon"
-        className="inline-block bg-white/70 backdrop-blur-sm border-2 border-gray-300 text-gray-400 px-8 py-3 rounded-xl shadow-glass cursor-not-allowed opacity-60"
+        onClick={() => setBehindTheBuildModalOpen(true)}
+        className="inline-block bg-white/70 backdrop-blur-sm border-2 border-pink-light/50 text-textDark px-8 py-3 rounded-xl shadow-glass hover:scale-105 hover:border-purple transition-all duration-300"
       >
-        Ariel's Story
+        Behind the Build
       </button>
     </div>
   </div>
@@ -300,33 +300,56 @@ export default function WellWaltStudios() {
             productivity solutions.
           </p>
 
-          {/* Current Projects */}
-          <div className="max-w-5xl mx-auto mb-16">
+          {/* Projects */}
+          <div className="max-w-5xl mx-auto">
             <h3 className="text-2xl font-heading font-bold mb-4 text-center bg-gradient-pink-purple bg-clip-text text-transparent">
-              Current Projects
+              Projects
             </h3>
             <p className="text-center text-textGray mb-8">Building the future, one app at a time.</p>
-            <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               {/* Aurova */}
               <div className="group relative bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-glass border border-pink-light/30 text-center hover:scale-105 hover:shadow-glow-pink transition-all duration-300">
                 <div className="absolute inset-0 bg-gradient-pink-gold opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300"></div>
-                <a
-                  href="https://aurovabyaw.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative z-10"
+                <Link
+                  to="/projects/aurova"
+                  className="relative z-10 block"
                 >
                   <img
                     src="/aurova-icon.svg"
                     alt="Aurova App"
                     className="mx-auto mb-4 rounded-xl w-28 shadow-md group-hover:shadow-glow-gold transition-shadow duration-300"
                   />
+                  <h3 className="text-xl font-heading font-semibold mb-2 relative z-10">Aurova</h3>
+                  <p className="text-sm text-textGray relative z-10">
+                    AI-powered habit tracking and productivity app launching{" "}
+                    <strong className="text-pink">Fall 2025</strong>.
+                  </p>
+                  <p className="text-xs text-purple font-semibold mt-3 relative z-10">
+                    Learn more →
+                  </p>
+                </Link>
+              </div>
+
+              {/* Gypsy */}
+              <div className="group relative bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-glass border border-pink-light/30 text-center hover:scale-105 hover:shadow-glow-pink transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-pink-gold opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300"></div>
+                <a
+                  href="https://awalters4.github.io/gypsy/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative z-10 block"
+                >
+                  <div className="mx-auto mb-4 rounded-xl w-28 h-28 bg-gradient-pink-purple flex items-center justify-center shadow-md group-hover:shadow-glow-gold transition-shadow duration-300">
+                    <span className="text-4xl">🔮</span>
+                  </div>
+                  <h3 className="text-xl font-heading font-semibold mb-2 relative z-10">Gypsy</h3>
+                  <p className="text-sm text-textGray relative z-10">
+                    AI-powered tarot card reader with custom spreads and personalized interpretations. <strong className="text-green-600">Launched</strong>.
+                  </p>
+                  <p className="text-xs text-purple font-semibold mt-3 relative z-10">
+                    Try it now →
+                  </p>
                 </a>
-                <h3 className="text-xl font-heading font-semibold mb-2 relative z-10">Aurova</h3>
-                <p className="text-sm text-textGray relative z-10">
-                  AI-powered habit tracking and productivity app launching{" "}
-                  <strong className="text-pink">Fall 2025</strong>.
-                </p>
               </div>
 
               {/* Bluetree */}
@@ -339,81 +362,13 @@ export default function WellWaltStudios() {
                     className="mx-auto mb-4 w-32 h-auto object-contain shadow-md group-hover:shadow-glow-gold transition-shadow duration-300"
                     style={{maxHeight: '112px'}}
                   />
+                  <h3 className="text-xl font-heading font-semibold mb-2 relative z-10">Bluetree</h3>
+                  <p className="text-sm text-textGray relative z-10">
+                    College and university marketplace platform connecting students with products and services. Launching <strong className="text-gold-dark">January 2026</strong>.
+                  </p>
                 </div>
-                <h3 className="text-xl font-heading font-semibold mb-2 relative z-10">Bluetree</h3>
-                <p className="text-sm text-textGray relative z-10">
-                  College and university marketplace platform connecting students with products and services. Launching <strong className="text-gold-dark">January 2026</strong>.
-                </p>
               </div>
             </div>
-          </div>
-
-          {/* Completed Work Collapsed Section */}
-          <div className="max-w-5xl mx-auto">
-            <button
-              onClick={() => setCompletedWorkOpen(!completedWorkOpen)}
-              className="w-full flex items-center justify-between bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-glass border border-pink-light/30 hover:border-purple-light transition-all duration-300 group"
-            >
-              <div className="flex items-center gap-3">
-                <h3 className="text-2xl font-heading font-semibold bg-gradient-pink-purple bg-clip-text text-transparent">
-                  Completed Work
-                </h3>
-                <span className="text-sm text-textGray">
-                  ({completedWorkOpen ? 'Click to hide' : 'Click to view past projects'})
-                </span>
-              </div>
-              {completedWorkOpen ? (
-                <FaChevronUp className="text-purple text-xl group-hover:text-pink transition-colors" />
-              ) : (
-                <FaChevronDown className="text-purple text-xl group-hover:text-pink transition-colors" />
-              )}
-            </button>
-
-            {completedWorkOpen && (
-              <div className="mt-6 grid md:grid-cols-2 gap-6 animate-fade-in">
-                {/* Gypsy */}
-                <div className="group relative bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-glass border border-pink-light/30 hover:scale-105 hover:shadow-glow-pink transition-all duration-300">
-                  <div className="absolute inset-0 bg-gradient-pink-gold opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300"></div>
-                  <a
-                    href="https://awalters4.github.io/gypsy/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative z-10"
-                  >
-                    <div className="mx-auto mb-4 rounded-xl w-28 h-28 bg-gradient-pink-purple flex items-center justify-center shadow-md group-hover:shadow-glow-gold transition-shadow duration-300">
-                      <span className="text-4xl">🔮</span>
-                    </div>
-                  </a>
-                  <h3 className="text-xl font-heading font-semibold mb-2 text-center relative z-10">Gypsy</h3>
-                  <p className="text-sm text-textGray text-center relative z-10">
-                    AI-powered tarot card reader with custom spreads and personalized interpretations. <strong className="text-green-600">Launched</strong>.
-                  </p>
-                </div>
-
-                {/* NBFJA */}
-                <div className="group relative bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-glass border border-pink-light/30 hover:scale-105 hover:shadow-glow-pink transition-all duration-300">
-                  <div className="absolute inset-0 bg-gradient-pink-gold opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300"></div>
-                  <a
-                    href="https://blackfoodjustice.org/food-map-director"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative z-10"
-                  >
-                    <img
-                      src="/nbfja-app.png"
-                      alt="NBFJA Food Map"
-                      className="mx-auto mb-4 rounded-xl w-28 shadow-md group-hover:shadow-glow-gold transition-shadow duration-300"
-                    />
-                  </a>
-                  <h3 className="text-xl font-heading font-semibold mb-2 text-center relative z-10">
-                    NBFJA Food Map
-                  </h3>
-                  <p className="text-sm text-textGray text-center relative z-10">
-                    Interactive map connecting people with Black-owned farms and food cooperatives across the US. <strong className="text-green-600">Launched</strong>.
-                  </p>
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </section>
@@ -432,6 +387,71 @@ export default function WellWaltStudios() {
         onClose={() => setDevelopmentModalOpen(false)}
         serviceType="development"
       />
+
+      {/* Behind the Build Modal */}
+      <Modal
+        isOpen={behindTheBuildModalOpen}
+        onRequestClose={() => setBehindTheBuildModalOpen(false)}
+        className="bg-white rounded-2xl p-8 max-w-2xl mx-auto mt-20 shadow-2xl border-2 border-pink-light/30 relative"
+        overlayClassName="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-start justify-center z-50 overflow-y-auto py-10"
+      >
+        <button
+          onClick={() => setBehindTheBuildModalOpen(false)}
+          className="absolute top-4 right-4 text-textGray hover:text-pink transition-colors text-2xl font-bold w-10 h-10 flex items-center justify-center rounded-full hover:bg-pink-light/20"
+        >
+          ×
+        </button>
+
+        <div className="text-center mb-6">
+          <h2 className="text-3xl font-heading font-bold mb-4 bg-gradient-pink-purple bg-clip-text text-transparent">
+            Behind the Build
+          </h2>
+          <p className="text-lg text-textGray leading-relaxed mb-6">
+            Your one-stop shop for all news and information about Well Walt Studios.
+          </p>
+        </div>
+
+        <div className="space-y-6 mb-8">
+          {/* Blog Posts */}
+          <div className="bg-gradient-to-br from-primary/10 to-secondary/10 p-6 rounded-xl border border-pink-light/20">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="text-3xl">📝</span>
+              <h3 className="text-xl font-heading font-semibold">Blog Posts</h3>
+            </div>
+            <p className="text-textGray">
+              In-depth articles on tech, entrepreneurship, and building in public.
+            </p>
+          </div>
+
+          {/* YouTube Vlogs */}
+          <div className="bg-gradient-to-br from-primary/10 to-secondary/10 p-6 rounded-xl border border-pink-light/20">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="text-3xl">🎥</span>
+              <h3 className="text-xl font-heading font-semibold">YouTube Vlogs</h3>
+            </div>
+            <p className="text-textGray">
+              Watch the journey unfold with behind-the-scenes videos and tutorials.
+            </p>
+          </div>
+
+          {/* Studio Notes */}
+          <div className="bg-gradient-to-br from-primary/10 to-secondary/10 p-6 rounded-xl border border-pink-light/20">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="text-3xl">💭</span>
+              <h3 className="text-xl font-heading font-semibold">Studio Notes</h3>
+            </div>
+            <p className="text-textGray">
+              Short messages from Ariel — quick updates, insights, and thoughts from the founder.
+            </p>
+          </div>
+        </div>
+
+        <div className="text-center pt-6 border-t border-pink-light/30">
+          <p className="text-textGray italic text-sm">
+            Coming soon...
+          </p>
+        </div>
+      </Modal>
 
       <WWSFooter />
     </div>
