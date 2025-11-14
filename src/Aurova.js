@@ -20,11 +20,16 @@ export default function Aurova() {
     setSubmitted(true);
   };
 
-  // Placeholder screenshots - replace with actual screenshots later
+  // App screenshots
   const screenshots = [
-    { id: 1, src: "/aurova-icon.svg", alt: "Aurova Screenshot 1" },
-    { id: 2, src: "/aurova-icon.svg", alt: "Aurova Screenshot 2" },
-    { id: 3, src: "/aurova-icon.svg", alt: "Aurova Screenshot 3" },
+    { id: 1, src: "/screenshot1.jpg", alt: "Aurova Dashboard" },
+    { id: 2, src: "/screenshot2.jpg", alt: "Aurova Habit Tracking" },
+    { id: 3, src: "/screenshot3.PNG", alt: "Aurova Streak View" },
+    { id: 4, src: "/screenshot4.PNG", alt: "Aurova Daily Check-in" },
+    { id: 5, src: "/screenshot5.PNG", alt: "Aurova Progress Calendar" },
+    { id: 6, src: "/screenshot6.PNG", alt: "Aurova Analytics" },
+    { id: 7, src: "/screenshot7.PNG", alt: "Aurova Settings" },
+    { id: 8, src: "/screenshot8.jpg", alt: "Aurova Profile" },
   ];
 
   const nextScreenshot = () => {
