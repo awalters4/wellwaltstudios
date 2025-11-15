@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function BookingCalendar({ duration, onSelectSlot, selectedSlot }) {
+export default function BookingCalendar({ duration, onSelectSlot, selectedSlot, serviceType }) {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [availableSlots, setAvailableSlots] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
@@ -38,6 +38,19 @@ export default function BookingCalendar({ duration, onSelectSlot, selectedSlot }
     today.setHours(0, 0, 0, 0);
 
     if (date < today) return false;
+
+    // Set max date based on service type
+    const maxDate = new Date();
+    if (serviceType === 'tech-audit') {
+      // Tech Audit only available until end of year 2025
+      maxDate.setFullYear(2025, 11, 31); // December 31, 2025
+    } else {
+      // Dev and CTO available through March 2026
+      maxDate.setFullYear(2026, 2, 31); // March 31, 2026
+    }
+    maxDate.setHours(23, 59, 59, 999);
+
+    if (date > maxDate) return false;
 
     const dayOfWeek = date.getDay();
     // Monday=1, Tuesday=2, Wednesday=3, Thursday=4, Saturday=6
@@ -78,7 +91,12 @@ export default function BookingCalendar({ duration, onSelectSlot, selectedSlot }
       while (currentTime + duration <= endTime) {
         const hour = Math.floor(currentTime / 60);
         const min = currentTime % 60;
-        const timeStr = `${hour.toString().padStart(2, '0')}:${min.toString().padStart(2, '0')}`;
+
+        // Convert to 12-hour format
+        const hour12 = hour % 12 || 12;
+        const ampm = hour >= 12 ? 'PM' : 'AM';
+        const timeStr = `${hour12}:${min.toString().padStart(2, '0')} ${ampm}`;
+
         slots.push(timeStr);
 
         // For 2-hour blocks, don't add buffer (just move to next 2-hour slot)

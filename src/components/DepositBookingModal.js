@@ -133,6 +133,7 @@ export default function DepositBookingModal({ isOpen, onClose, serviceType }) {
               duration={120}
               onSelectSlot={setSelectedSlot}
               selectedSlot={selectedSlot}
+              serviceType={serviceType}
             />
           </div>
 
@@ -145,6 +146,7 @@ export default function DepositBookingModal({ isOpen, onClose, serviceType }) {
               value={formData.name}
               onChange={handleFormChange}
               required
+              autoComplete="name"
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-pink focus:outline-none"
             />
             <input
@@ -154,6 +156,7 @@ export default function DepositBookingModal({ isOpen, onClose, serviceType }) {
               value={formData.email}
               onChange={handleFormChange}
               required
+              autoComplete="email"
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-pink focus:outline-none"
             />
             <input
@@ -163,6 +166,7 @@ export default function DepositBookingModal({ isOpen, onClose, serviceType }) {
               value={formData.phone}
               onChange={handleFormChange}
               required
+              autoComplete="tel"
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-pink focus:outline-none"
             />
             <textarea
@@ -172,6 +176,7 @@ export default function DepositBookingModal({ isOpen, onClose, serviceType }) {
               onChange={handleFormChange}
               rows="4"
               required
+              autoComplete="off"
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-pink focus:outline-none"
             />
           </div>

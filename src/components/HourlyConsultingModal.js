@@ -123,6 +123,7 @@ export default function HourlyConsultingModal({ isOpen, onClose }) {
               duration={duration}
               onSelectSlot={setSelectedSlot}
               selectedSlot={selectedSlot}
+              serviceType="hourly-consulting"
             />
           </div>
 
@@ -135,6 +136,7 @@ export default function HourlyConsultingModal({ isOpen, onClose }) {
               value={formData.name}
               onChange={handleFormChange}
               required
+              autoComplete="name"
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-pink focus:outline-none"
             />
             <input
@@ -144,6 +146,7 @@ export default function HourlyConsultingModal({ isOpen, onClose }) {
               value={formData.email}
               onChange={handleFormChange}
               required
+              autoComplete="email"
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-pink focus:outline-none"
             />
             <input
@@ -153,6 +156,7 @@ export default function HourlyConsultingModal({ isOpen, onClose }) {
               value={formData.phone}
               onChange={handleFormChange}
               required
+              autoComplete="tel"
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-pink focus:outline-none"
             />
             <textarea
@@ -161,6 +165,7 @@ export default function HourlyConsultingModal({ isOpen, onClose }) {
               value={formData.notes}
               onChange={handleFormChange}
               rows="3"
+              autoComplete="off"
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-pink focus:outline-none"
             />
           </div>
