@@ -13,11 +13,25 @@ export default function Aurova() {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Integrate with ConvertKit, Gumroad, or Lemon Squeezy for Aurova mailing list
-    console.log("Email submitted for Aurova launch:", email);
-    setSubmitted(true);
+
+    try {
+      const res = await fetch("https://formspree.io/f/xdklvjnk", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+        setEmail("");
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      alert('Something went wrong. Please try again.');
+    }
   };
 
   // App screenshots
@@ -321,6 +335,7 @@ export default function Aurova() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email"
                     required
+                    autoComplete="email"
                     className="w-full px-6 py-4 rounded-xl border-2 border-pink-light/30 focus:border-purple focus:outline-none transition-colors text-lg"
                   />
                 </div>
