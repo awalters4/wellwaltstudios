@@ -94,7 +94,7 @@ export default function WellWaltStudios() {
             <FaFilePdf size={20} />
           </a>
           <a
-            href="https://github.com/awells4"
+            href="https://github.com/awalters44"
             className="text-textGray hover:text-pink"
           >
             <FaGithub size={20} />
@@ -321,7 +321,7 @@ export default function WellWaltStudios() {
                   />
                   <h3 className="text-xl font-heading font-semibold mb-2 relative z-10">Aurova</h3>
                   <p className="text-sm text-textGray relative z-10">
-                    AI-powered habit tracking and productivity app launching{" "}
+                    The ultimate habit tracking and productivity app launching{" "}
                     <strong className="text-pink">Fall 2025</strong>.
                   </p>
                   <p className="text-xs text-purple font-semibold mt-3 relative z-10">
@@ -334,7 +334,7 @@ export default function WellWaltStudios() {
               <div className="group relative bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-glass border border-pink-light/30 text-center hover:scale-105 hover:shadow-glow-pink transition-all duration-300">
                 <div className="absolute inset-0 bg-gradient-pink-gold opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300"></div>
                 <a
-                  href="https://awalters4.github.io/gypsy/"
+                  href="https://gypsy-xi.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="relative z-10 block"
