@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import WWSFooter from "./WWSFooter";
 
@@ -6,41 +6,40 @@ import WWSFooter from "./WWSFooter";
 const mockPosts = [
   {
     id: "1",
-    type: "article",
-    title: "From Fighter Jets to Founder: My Journey into Tech",
-    slug: "fighter-jets-to-founder",
-    excerpt: "How 13 years of building complex systems led me to start Well Walt Studios and help entrepreneurs turn ideas into reality.",
-    content: null,
+    type: "studio-note",
+    title: "Welcome to Behind the Build",
+    slug: "welcome-behind-the-build",
+    excerpt: "This is the hub for everything happening inside Well Walt Studios...",
+    content: "This is the hub for everything happening inside Well Walt Studios — the wins, the challenges, the experiments, and the evolution.\n\nYou'll see:\n\n✦ Studio Notes: quick updates and thoughts from me\n✦ Blogs: the deeper breakdowns — the why, the how, and the lessons\n✦ Vlogs: real-time building, behind-the-scenes work, and product walkthroughs\n✦ Embedded social posts: snapshots of what I'm making day-to-day\n\nIt's all raw, transparent, and straight from the middle of the build. Thanks for tuning in — there's a lot coming.",
     embedUrl: null,
-    tags: ["article", "founder-letters"],
-    createdAt: "2025-11-10T10:00:00Z"
+    tags: ["studio-notes", "welcome"],
+    createdAt: "2025-11-21T15:00:00Z"
   },
   {
     id: "2",
-    type: "video",
-    title: "Building Aurova: Habit Tracking App Dev Diary #1",
-    slug: "aurova-dev-diary-1",
-    excerpt: "Watch as I build the streak system and notification framework for Aurova.",
-    content: null,
-    embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    tags: ["video", "aurova"],
-    createdAt: "2025-11-08T14:30:00Z"
-  },
-  {
-    id: "3",
     type: "studio-note",
-    title: "Shipped the booking system today",
-    slug: "shipped-booking-system",
-    excerpt: "Just deployed the new Stripe integration for client bookings. Feels good to ship. 🚀",
-    content: "Just deployed the new Stripe integration for client bookings. Feels good to ship. 🚀",
+    title: "Here's What We Did This Week",
+    slug: "weekly-update-nov-21",
+    excerpt: "Updates across Gypsy, Aurova, WellWaltStudios, and a productivity ecosystem...",
+    content: "Here's what we accomplished this week:\n\n✦ Pushed a fresh update to Gypsy and started laying the groundwork for the mobile app.\n✦ Expanded Aurova with friendships, integrations, and new workflow features.\n✦ Revamped the Well Walt Studios site and rolled out updated service offerings.\n✦ Started building the foundation for a full productivity + home tech ecosystem.\n\nIf you're not locked in yet… you're about to want to be.",
     embedUrl: null,
-    tags: ["studio-notes", "shipping"],
-    createdAt: "2025-11-07T09:15:00Z"
+    tags: ["studio-notes", "weekly-update", "gypsy", "aurova"],
+    createdAt: "2025-11-21T10:00:00Z"
   }
 ];
 
 export default function BehindTheBuild() {
   const [activeFilter, setActiveFilter] = useState("all");
+  const [daysUntilBlog, setDaysUntilBlog] = useState(0);
+
+  // Calculate days until first blog
+  useEffect(() => {
+    const blogDate = new Date('2025-11-23T10:10:00-06:00'); // CST
+    const today = new Date();
+    const diffTime = blogDate - today;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    setDaysUntilBlog(diffDays > 0 ? diffDays : 0);
+  }, []);
 
   const filters = [
     { id: "all", label: "All" },
@@ -112,9 +111,7 @@ export default function BehindTheBuild() {
             Behind the Build
           </h1>
           <p className="text-xl md:text-2xl text-textGray mb-8 leading-relaxed">
-            Articles, vlogs, and studio notes from the founder.
-            <br />
-            Your one-stop shop for all news and information about Well Walt Studios.
+            Unfiltered updates on the work, the wins, and the human behind the build — in real time.
           </p>
         </div>
       </section>
@@ -140,8 +137,33 @@ export default function BehindTheBuild() {
         </div>
       </section>
 
+      {/* Countdown Section */}
+      <section className="px-8 py-12 max-w-4xl mx-auto">
+        <div className="bg-gradient-to-br from-purple/10 to-pink/10 p-8 rounded-2xl border-2 border-purple/20 shadow-glass text-center">
+          <h3 className="text-2xl md:text-3xl font-heading font-bold mb-4 bg-gradient-pink-purple bg-clip-text text-transparent">
+            First Blog Coming Soon
+          </h3>
+          <p className="text-lg text-textGray mb-6">
+            "Why I Built Aurova"
+          </p>
+          <div className="inline-flex items-center gap-4 bg-white/80 px-8 py-4 rounded-xl shadow-glass">
+            <div className="text-center">
+              <div className="text-5xl font-heading font-bold bg-gradient-pink-purple bg-clip-text text-transparent">
+                {daysUntilBlog}
+              </div>
+              <div className="text-sm text-textGray mt-2">
+                {daysUntilBlog === 1 ? 'day' : 'days'}
+              </div>
+            </div>
+          </div>
+          <p className="text-sm text-textGray mt-4">
+            Sunday, November 23 @ 10:10 AM CST
+          </p>
+        </div>
+      </section>
+
       {/* Content Feed */}
-      <section className="px-8 py-20 max-w-4xl mx-auto">
+      <section className="px-8 py-12 max-w-4xl mx-auto">
         <div className="space-y-8">
           {filteredPosts.length === 0 ? (
             <div className="text-center py-20">
@@ -185,9 +207,15 @@ export default function BehindTheBuild() {
                 )}
 
                 {/* Post Excerpt/Content */}
-                <p className="text-lg text-textGray leading-relaxed mb-6">
-                  {post.excerpt}
-                </p>
+                {post.type === "studio-note" && post.content ? (
+                  <div className="text-lg text-textGray leading-relaxed mb-6 whitespace-pre-line">
+                    {post.content}
+                  </div>
+                ) : (
+                  <p className="text-lg text-textGray leading-relaxed mb-6">
+                    {post.excerpt}
+                  </p>
+                )}
 
                 {/* Read More / View Link (for articles) */}
                 {post.type === "article" && (

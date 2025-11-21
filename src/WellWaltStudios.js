@@ -16,7 +16,6 @@ export default function WellWaltStudios() {
   const [hourlyModalOpen, setHourlyModalOpen] = useState(false);
   const [fractionalCTOModalOpen, setFractionalCTOModalOpen] = useState(false);
   const [developmentModalOpen, setDevelopmentModalOpen] = useState(false);
-  const [behindTheBuildModalOpen, setBehindTheBuildModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -132,12 +131,12 @@ export default function WellWaltStudios() {
       >
         About WWS
       </a>
-      <button
-        onClick={() => setBehindTheBuildModalOpen(true)}
+      <Link
+        to="/behind-the-build"
         className="inline-block bg-white/70 backdrop-blur-sm border-2 border-pink-light/50 text-textDark px-8 py-3 rounded-xl shadow-glass hover:scale-105 hover:border-purple transition-all duration-300"
       >
         Behind the Build
-      </button>
+      </Link>
     </div>
   </div>
   <div className="md:w-1/2 flex justify-center relative z-10">
@@ -387,71 +386,6 @@ export default function WellWaltStudios() {
         onClose={() => setDevelopmentModalOpen(false)}
         serviceType="development"
       />
-
-      {/* Behind the Build Modal */}
-      <Modal
-        isOpen={behindTheBuildModalOpen}
-        onRequestClose={() => setBehindTheBuildModalOpen(false)}
-        className="bg-white rounded-2xl p-8 max-w-2xl mx-auto mt-20 shadow-2xl border-2 border-pink-light/30 relative"
-        overlayClassName="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-start justify-center z-50 overflow-y-auto py-10"
-      >
-        <button
-          onClick={() => setBehindTheBuildModalOpen(false)}
-          className="absolute top-4 right-4 text-textGray hover:text-pink transition-colors text-2xl font-bold w-10 h-10 flex items-center justify-center rounded-full hover:bg-pink-light/20"
-        >
-          ×
-        </button>
-
-        <div className="text-center mb-6">
-          <h2 className="text-3xl font-heading font-bold mb-4 bg-gradient-pink-purple bg-clip-text text-transparent">
-            Behind the Build
-          </h2>
-          <p className="text-lg text-textGray leading-relaxed mb-6">
-            Your one-stop shop for all news and information about Well Walt Studios.
-          </p>
-        </div>
-
-        <div className="space-y-6 mb-8">
-          {/* Blog Posts */}
-          <div className="bg-gradient-to-br from-primary/10 to-secondary/10 p-6 rounded-xl border border-pink-light/20">
-            <div className="flex items-center gap-3 mb-3">
-              <span className="text-3xl">📝</span>
-              <h3 className="text-xl font-heading font-semibold">Blog Posts</h3>
-            </div>
-            <p className="text-textGray">
-              In-depth articles on tech, entrepreneurship, and building in public.
-            </p>
-          </div>
-
-          {/* YouTube Vlogs */}
-          <div className="bg-gradient-to-br from-primary/10 to-secondary/10 p-6 rounded-xl border border-pink-light/20">
-            <div className="flex items-center gap-3 mb-3">
-              <span className="text-3xl">🎥</span>
-              <h3 className="text-xl font-heading font-semibold">YouTube Vlogs</h3>
-            </div>
-            <p className="text-textGray">
-              Watch the journey unfold with behind-the-scenes videos and tutorials.
-            </p>
-          </div>
-
-          {/* Studio Notes */}
-          <div className="bg-gradient-to-br from-primary/10 to-secondary/10 p-6 rounded-xl border border-pink-light/20">
-            <div className="flex items-center gap-3 mb-3">
-              <span className="text-3xl">💭</span>
-              <h3 className="text-xl font-heading font-semibold">Studio Notes</h3>
-            </div>
-            <p className="text-textGray">
-              Short messages from Ariel — quick updates, insights, and thoughts from the founder.
-            </p>
-          </div>
-        </div>
-
-        <div className="text-center pt-6 border-t border-pink-light/30">
-          <p className="text-textGray italic text-sm">
-            Coming soon...
-          </p>
-        </div>
-      </Modal>
 
       <WWSFooter />
     </div>
