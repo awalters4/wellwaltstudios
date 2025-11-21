@@ -101,6 +101,14 @@ export default function BehindTheBuild() {
             Well Walt Studios
           </span>
         </Link>
+        <nav className="flex items-center space-x-6">
+          <Link
+            to="/"
+            className="text-textGray hover:text-pink transition-colors font-semibold"
+          >
+            ← Back to Home
+          </Link>
+        </nav>
       </header>
 
       {/* Hero Section */}
