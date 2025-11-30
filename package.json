@@ -24,7 +24,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "btb": "node btb.js",
+    "blog": "node btb.js blog",
+    "vlog": "node btb.js vlog",
+    "note": "node btb.js note",
+    "embed": "node btb.js embed"
   },
   "browserslist": {
     "production": [
