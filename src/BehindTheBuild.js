@@ -145,31 +145,6 @@ export default function BehindTheBuild() {
         </div>
       </section>
 
-      {/* Countdown Section */}
-      <section className="px-8 py-12 max-w-4xl mx-auto">
-        <div className="bg-gradient-to-br from-purple/10 to-pink/10 p-8 rounded-2xl border-2 border-purple/20 shadow-glass text-center">
-          <h3 className="text-2xl md:text-3xl font-heading font-bold mb-4 bg-gradient-pink-purple bg-clip-text text-transparent">
-            First Blog Coming Soon
-          </h3>
-          <p className="text-lg text-textGray mb-6">
-            "Why I Built Aurova"
-          </p>
-          <div className="inline-flex items-center gap-4 bg-white/80 px-8 py-4 rounded-xl shadow-glass">
-            <div className="text-center">
-              <div className="text-5xl font-heading font-bold bg-gradient-pink-purple bg-clip-text text-transparent">
-                {daysUntilBlog}
-              </div>
-              <div className="text-sm text-textGray mt-2">
-                {daysUntilBlog === 1 ? 'day' : 'days'}
-              </div>
-            </div>
-          </div>
-          <p className="text-sm text-textGray mt-4">
-            Sunday, November 23 @ 10:10 AM CST
-          </p>
-        </div>
-      </section>
-
       {/* Content Feed */}
       <section className="px-8 py-12 max-w-4xl mx-auto">
         <div className="space-y-8">
