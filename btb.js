@@ -9,7 +9,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const BTB_FILE = path.join(__dirname, 'src', 'BehindTheBuild.js');
+const BTB_FILE = path.join(__dirname, 'src', 'data', 'posts.js');
 
 // Helper to prompt user
 function prompt(question) {
@@ -75,14 +75,14 @@ function convertToYouTubeEmbed(url) {
   return url;
 }
 
-// Read and parse the BehindTheBuild.js file
+// Read and parse the posts.js file
 function readBTBFile() {
   const content = fs.readFileSync(BTB_FILE, 'utf8');
 
   // Extract mockPosts array
-  const match = content.match(/const mockPosts = (\[[\s\S]*?\n\]);/);
+  const match = content.match(/export const mockPosts = (\[[\s\S]*?\n\]);/);
   if (!match) {
-    throw new Error('Could not find mockPosts array in BehindTheBuild.js');
+    throw new Error('Could not find mockPosts array in posts.js');
   }
 
   // Parse the array (this is a bit hacky but works for our use case)
@@ -104,8 +104,8 @@ function writeBTBFile(content, posts) {
 
   // Replace old mockPosts with new one
   const newContent = content.replace(
-    /const mockPosts = \[[\s\S]*?\n\];/,
-    `const mockPosts = ${postsStr};`
+    /export const mockPosts = \[[\s\S]*?\n\];/,
+    `export const mockPosts = ${postsStr};`
   );
 
   fs.writeFileSync(BTB_FILE, newContent, 'utf8');
@@ -143,7 +143,8 @@ async function addBlog() {
   writeBTBFile(fileContent, posts);
 
   console.log('\n✅ Blog post added successfully!');
-  console.log(`   Slug: ${slug}\n`);
+  console.log(`   Slug: ${slug}`);
+  console.log(`   View at: /behind-the-build/${slug}\n`);
 }
 
 async function addVlog() {

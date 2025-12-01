@@ -6,6 +6,7 @@ import Blog from "./Blog";
 import LaunchKit from "./LaunchKit";
 import Aurova from "./Aurova";
 import BehindTheBuild from "./BehindTheBuild";
+import ArticlePage from "./ArticlePage";
 import Privacy from "./Privacy";
 import Terms from "./Terms";
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<WellWaltStudios />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/behind-the-build" element={<BehindTheBuild />} />
+          <Route path="/behind-the-build/:slug" element={<ArticlePage />} />
           <Route path="/products/launch-kit" element={<LaunchKit />} />
           <Route path="/projects/aurova" element={<Aurova />} />
           <Route path="/privacy" element={<Privacy />} />
