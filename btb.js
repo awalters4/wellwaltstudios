@@ -117,7 +117,7 @@ async function addBlog() {
 
   const title = await prompt('Title: ');
   const subtitle = await prompt('Subtitle/Excerpt: ');
-  const tagsInput = await prompt('Tags (comma-separated): ');
+  const tagsInput = await prompt('Tags (comma-separated, e.g. aurova, gypsy, femalefounder) - don\'t add #: ');
 
   console.log('\nContent (paste your blog content, then press Ctrl+D or type END on a new line):');
   const content = await promptMultiline('');
@@ -151,7 +151,7 @@ async function addVlog() {
 
   const title = await prompt('Title: ');
   const subtitle = await prompt('Subtitle/Excerpt: ');
-  const tagsInput = await prompt('Tags (comma-separated): ');
+  const tagsInput = await prompt('Tags (comma-separated, e.g. aurova, gypsy, femalefounder) - don\'t add #: ');
   const youtubeUrl = await prompt('YouTube video URL: ');
 
   const tags = parseTags(tagsInput);
@@ -181,7 +181,7 @@ async function addNote() {
   console.log('\n📌 Adding a studio note...\n');
 
   const title = await prompt('Title: ');
-  const tagsInput = await prompt('Tags (comma-separated): ');
+  const tagsInput = await prompt('Tags (comma-separated, e.g. aurova, gypsy, femalefounder) - don\'t add #: ');
 
   console.log('\nNote content (paste your note, then press Ctrl+D or type END on a new line):');
   const content = await promptMultiline('');
@@ -214,7 +214,7 @@ async function addEmbed() {
   const platform = await prompt('Platform (tiktok/instagram): ');
   const caption = await prompt('Caption: ');
   const url = await prompt('Post URL: ');
-  const tagsInput = await prompt('Tags (comma-separated, optional): ');
+  const tagsInput = await prompt('Tags (comma-separated, optional, e.g. aurova, gypsy, femalefounder) - don\'t add #: ');
 
   const tags = parseTags(tagsInput);
 
