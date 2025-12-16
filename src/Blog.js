@@ -111,7 +111,7 @@ export default function Blog() {
             </p>
             <ul className="list-disc pl-6 space-y-2">
               <li>
-                <strong>Aurova</strong> — an AI-powered habit tracker and productivity app launching Fall 2025
+                <strong>Aurova</strong> — an AI-powered habit tracker and productivity app launching December 19, 2025
               </li>
               <li>
                 <strong>Gypsy</strong> — an AI tarot card reader with custom spreads (available now!)
