@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import { Link } from "react-router-dom";
 import { FaGithub, FaInstagram, FaFilePdf } from "react-icons/fa";
@@ -6,6 +6,7 @@ import WorkWithMeModal from "./WorkWithMeModal";
 import TechAuditModal from "./components/TechAuditModal";
 import HourlyConsultingModal from "./components/HourlyConsultingModal";
 import DepositBookingModal from "./components/DepositBookingModal";
+import AurovaLaunchModal from "./components/AurovaLaunchModal";
 import WWSFooter from "./WWSFooter";
 
 Modal.setAppElement("#root");
@@ -16,6 +17,7 @@ export default function WellWaltStudios() {
   const [hourlyModalOpen, setHourlyModalOpen] = useState(false);
   const [fractionalCTOModalOpen, setFractionalCTOModalOpen] = useState(false);
   const [developmentModalOpen, setDevelopmentModalOpen] = useState(false);
+  const [aurovaLaunchModalOpen, setAurovaLaunchModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -25,6 +27,17 @@ export default function WellWaltStudios() {
     notes: "",
   });
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    // Show Aurova launch modal on mount (only once per session)
+    const hasSeenModal = sessionStorage.getItem('hasSeenAurovaModal');
+    if (!hasSeenModal) {
+      const timer = setTimeout(() => {
+        setAurovaLaunchModalOpen(true);
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   const openModal = () => setModalIsOpen(true);
   const closeModal = () => {
@@ -121,8 +134,8 @@ export default function WellWaltStudios() {
       Hi, I'm Ariel — a software engineer and founder of <span className="bg-gradient-pink-purple bg-clip-text text-transparent">Well Walt Studios</span>.
     </h1>
     <p className="text-lg md:text-xl mb-8 text-textGray leading-relaxed">
-      I build the tools that help businesses run smarter: custom apps, automation systems, and AI-powered platforms.
-      With 13 years of experience, I bring hands-on engineering and big-picture strategy to every project.
+      I build tools to fill the gaps I see — from habit trackers to AI-powered platforms.
+      With 13 years of experience, I combine hands-on engineering with strategic thinking to create products that solve real problems.
     </p>
     <div className="flex flex-wrap gap-4">
       <a
@@ -158,64 +171,10 @@ export default function WellWaltStudios() {
           Services
         </h2>
         <p className="text-lg text-center max-w-3xl mx-auto mb-12 text-textGray">
-          Every client is different — that's why Well Walt Studios offers multiple ways to get the tech support you actually need. Whether it's a quick audit or a full partnership, I'll help you turn your tech from chaotic to cohesive.
+          While I primarily focus on building my own products, I also offer select consulting and development services for the right projects.
         </p>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {/* Tech Audit */}
-          <div className="group relative bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-glass border-2 border-transparent hover:border-pink-light hover:scale-105 transition-all duration-300">
-            <div className="absolute inset-0 bg-gradient-pink-gold opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity"></div>
-            <h3 className="text-2xl font-heading font-semibold mb-4 relative z-10">
-              Tech Audit
-            </h3>
-            <p className="mb-4 text-textGray leading-relaxed">
-              A deep audit of your digital systems — whether it's your website, app, or overall tech stack.
-            </p>
-            <p className="mb-4 text-textGray leading-relaxed">
-              I'll look at performance, integrations, usability, and where you might be overpaying for overlapping tools or unnecessary subscriptions.
-            </p>
-            <p className="mb-6 text-textGray leading-relaxed">
-              You'll get a personalized <strong>Action Plan</strong> with clear next steps to streamline your systems, improve performance, and cut costs.
-            </p>
-            <p className="mb-4 text-sm text-textGray italic">
-              Optional add-on: I can handle the implementation for you (custom quote).
-            </p>
-            <p className="text-2xl font-bold mb-6 bg-gradient-pink-gold bg-clip-text text-transparent relative z-10">$300</p>
-            <button
-              onClick={() => setTechAuditModalOpen(true)}
-              className="block w-full text-center bg-gradient-pink-purple text-white px-6 py-3 rounded-xl shadow-glow-pink hover:scale-105 hover:shadow-glow-gold transition-all duration-300 relative z-10"
-            >
-              Schedule a Tech Audit
-            </button>
-          </div>
-
-          {/* Consultations */}
-          <div className="group relative bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-glass border-2 border-transparent hover:border-pink-light hover:scale-105 transition-all duration-300">
-            <div className="absolute inset-0 bg-gradient-pink-gold opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity"></div>
-            <h3 className="text-2xl font-heading font-semibold mb-4 relative z-10">
-              Consultations
-            </h3>
-            <p className="mb-4 text-textGray leading-relaxed">
-              An "ask me anything" tech strategy session for founders, creators, or teams who need clarity.
-            </p>
-            <p className="mb-4 text-textGray leading-relaxed">
-              We can talk through web/app strategy, automation, integrations, scaling, or next steps for your project.
-            </p>
-            <p className="mb-4 text-textGray leading-relaxed">
-              Choose from topics like <strong>Website Strategy</strong>, <strong>App Development Direction</strong>, <strong>Systems Audit</strong>, <strong>Tech Stack Decisions</strong>, <strong>Scaling Readiness</strong>, or <strong>Bug Troubleshooting</strong> — or bring your own.
-            </p>
-            <p className="mb-6 text-textGray leading-relaxed">
-              Includes a short follow-up email with action notes.
-            </p>
-            <p className="text-2xl font-bold mb-6 bg-gradient-pink-gold bg-clip-text text-transparent relative z-10">$200/hr</p>
-            <button
-              onClick={() => setHourlyModalOpen(true)}
-              className="block w-full text-center bg-gradient-pink-purple text-white px-6 py-3 rounded-xl shadow-glow-pink hover:scale-105 hover:shadow-glow-gold transition-all duration-300 relative z-10"
-            >
-              Schedule a Consultation
-            </button>
-          </div>
-
           {/* Fractional CTO Services */}
           <div className="group relative bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-glass border-2 border-transparent hover:border-pink-light hover:scale-105 transition-all duration-300">
             <div className="absolute inset-0 bg-gradient-pink-gold opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity"></div>
@@ -228,9 +187,10 @@ export default function WellWaltStudios() {
             <p className="mb-4 text-textGray leading-relaxed">
               Packages can range from light advisory (a few hours/month) to deeper engagement (weekly check-ins, code reviews, or sprint planning).
             </p>
-            <p className="mb-6 text-textGray leading-relaxed">
+            <p className="mb-4 text-textGray leading-relaxed">
               <strong>Perfect for:</strong> Solo founders who need a technical co-pilot, early-stage startups building their first product, or established small businesses (up to 20 people) who want expert guidance without hiring a full-time CTO.
             </p>
+            <p className="text-2xl font-bold mb-6 bg-gradient-pink-gold bg-clip-text text-transparent relative z-10">Starting at $250/hr</p>
             <button
               onClick={() => setFractionalCTOModalOpen(true)}
               className="block w-full text-center bg-gradient-pink-purple text-white px-6 py-3 rounded-xl shadow-glow-pink hover:scale-105 hover:shadow-glow-gold transition-all duration-300 relative z-10"
@@ -255,11 +215,12 @@ export default function WellWaltStudios() {
               <strong>Stack:</strong> React, React Native, Supabase, AWS, and Tailwind.
             </p>
             <p className="mb-4 text-textGray leading-relaxed">
-              Each build includes discovery, design, development, and launch support. I'm not just a developer — I design solutions that actually make businesses run smoother.
+              Each build includes discovery, design, development, and launch support. I'm not just a developer — I design solutions that solve real problems.
             </p>
-            <p className="mb-6 text-textGray leading-relaxed">
+            <p className="mb-4 text-textGray leading-relaxed">
               <strong>Timeline:</strong> Most projects range from 4 weeks to 12 months depending on scope.
             </p>
+            <p className="text-2xl font-bold mb-6 bg-gradient-pink-gold bg-clip-text text-transparent relative z-10">Starting at $250/hr</p>
             <button
               onClick={() => setDevelopmentModalOpen(true)}
               className="block w-full text-center bg-gradient-pink-purple text-white px-6 py-3 rounded-xl shadow-glow-pink hover:scale-105 hover:shadow-glow-gold transition-all duration-300 relative z-10"
@@ -277,12 +238,20 @@ export default function WellWaltStudios() {
           <p className="text-lg text-textGray mb-6">
             Send me a message and we'll figure it out together.
           </p>
-          <button
-            onClick={openModal}
-            className="inline-block bg-gradient-pink-gold text-textDark font-semibold px-8 py-3 rounded-xl shadow-glow-gold hover:scale-105 hover:shadow-xl transition-all duration-300"
-          >
-            Get In Touch
-          </button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              onClick={openModal}
+              className="inline-block bg-gradient-pink-gold text-textDark font-semibold px-8 py-3 rounded-xl shadow-glow-gold hover:scale-105 hover:shadow-xl transition-all duration-300"
+            >
+              Get In Touch
+            </button>
+            <button
+              onClick={() => setHourlyModalOpen(true)}
+              className="inline-block bg-gradient-pink-purple text-white font-semibold px-8 py-3 rounded-xl shadow-glow-pink hover:scale-105 hover:shadow-xl transition-all duration-300"
+            >
+              Book a Consultation
+            </button>
+          </div>
         </div>
       </section>
 
@@ -293,10 +262,9 @@ export default function WellWaltStudios() {
             About Well Walt Studios
           </h2>
           <p className="max-w-3xl mx-auto text-lg leading-relaxed text-center text-textGray mb-12">
-            Well Walt Studios combines technology, strategy, and storytelling to
-            deliver meaningful outcomes for businesses and entrepreneurs. We
-            specialize in tech consulting, web/app development, and AI-powered
-            productivity solutions.
+            Well Walt Studios is where I build products that solve problems I see in the world.
+            From AI-powered productivity tools to habit trackers, I create software that makes life better.
+            I also take on select consulting and development projects that align with my interests and expertise.
           </p>
 
           {/* Projects */}
@@ -320,10 +288,12 @@ export default function WellWaltStudios() {
                   />
                   <h3 className="text-xl font-heading font-semibold mb-2 relative z-10">Aurova</h3>
                   <p className="text-sm text-textGray relative z-10">
-                    The ultimate habit tracking and productivity app launching{" "}
-                    <strong className="text-pink">Fall 2025</strong>.
+                    The ultimate habit tracking and productivity app.
                   </p>
-                  <p className="text-xs text-purple font-semibold mt-3 relative z-10">
+                  <p className="text-sm font-semibold mt-3 relative z-10 text-pink">
+                    Launching December 19, 2025<span className="inline-block animate-pulse">...</span>
+                  </p>
+                  <p className="text-xs text-purple font-semibold mt-2 relative z-10">
                     Learn more →
                   </p>
                 </Link>
@@ -385,6 +355,10 @@ export default function WellWaltStudios() {
         isOpen={developmentModalOpen}
         onClose={() => setDevelopmentModalOpen(false)}
         serviceType="development"
+      />
+      <AurovaLaunchModal
+        isOpen={aurovaLaunchModalOpen}
+        onClose={() => setAurovaLaunchModalOpen(false)}
       />
 
       <WWSFooter />
