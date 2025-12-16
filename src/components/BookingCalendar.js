@@ -39,6 +39,12 @@ export default function BookingCalendar({ duration, onSelectSlot, selectedSlot, 
 
     if (date < today) return false;
 
+    // Unavailable starting 12/22/2025
+    const unavailableStart = new Date(2025, 11, 22); // December 22, 2025
+    unavailableStart.setHours(0, 0, 0, 0);
+
+    if (date >= unavailableStart) return false;
+
     // Set max date based on service type
     const maxDate = new Date();
     if (serviceType === 'tech-audit') {
