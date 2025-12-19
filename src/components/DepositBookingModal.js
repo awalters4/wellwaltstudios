@@ -123,8 +123,12 @@ export default function DepositBookingModal({ isOpen, onClose, serviceType }) {
           </h2>
 
           <div className="bg-gold-light/10 border border-gold-light/30 rounded-lg p-4 mb-6">
-            <p className="text-sm text-textGray mb-2">Initial consultation (up to 2 hours) included. $1,000 deposit applies to total project costs.</p>
-            <p className="text-sm text-textGray">Hourly rate starts at $250/hr. Flat rate packages also available.</p>
+            <ul className="text-sm text-textGray space-y-1 list-disc list-inside">
+              <li>$1,000 deposit to start; applies to total project costs</li>
+              <li>Initial consultation (up to 2 hours) included</li>
+              <li>Rates begin at $250/hr</li>
+              <li>Flat rate packages may be available</li>
+            </ul>
           </div>
 
           {/* Calendar */}

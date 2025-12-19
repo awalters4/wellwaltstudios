@@ -187,10 +187,9 @@ export default function WellWaltStudios() {
             <p className="mb-4 text-textGray leading-relaxed">
               Packages can range from light advisory (a few hours/month) to deeper engagement (weekly check-ins, code reviews, or sprint planning).
             </p>
-            <p className="mb-4 text-textGray leading-relaxed">
+            <p className="mb-6 text-textGray leading-relaxed">
               <strong>Perfect for:</strong> Solo founders who need a technical co-pilot, early-stage startups building their first product, or established small businesses (up to 20 people) who want expert guidance without hiring a full-time CTO.
             </p>
-            <p className="text-2xl font-bold mb-6 bg-gradient-pink-gold bg-clip-text text-transparent relative z-10">Starting at $250/hr</p>
             <button
               onClick={() => setFractionalCTOModalOpen(true)}
               className="block w-full text-center bg-gradient-pink-purple text-white px-6 py-3 rounded-xl shadow-glow-pink hover:scale-105 hover:shadow-glow-gold transition-all duration-300 relative z-10"
@@ -217,10 +216,9 @@ export default function WellWaltStudios() {
             <p className="mb-4 text-textGray leading-relaxed">
               Each build includes discovery, design, development, and launch support. I'm not just a developer — I design solutions that solve real problems.
             </p>
-            <p className="mb-4 text-textGray leading-relaxed">
+            <p className="mb-6 text-textGray leading-relaxed">
               <strong>Timeline:</strong> Most projects range from 4 weeks to 12 months depending on scope.
             </p>
-            <p className="text-2xl font-bold mb-6 bg-gradient-pink-gold bg-clip-text text-transparent relative z-10">Starting at $250/hr</p>
             <button
               onClick={() => setDevelopmentModalOpen(true)}
               className="block w-full text-center bg-gradient-pink-purple text-white px-6 py-3 rounded-xl shadow-glow-pink hover:scale-105 hover:shadow-glow-gold transition-all duration-300 relative z-10"
@@ -291,7 +289,7 @@ export default function WellWaltStudios() {
                     The ultimate habit tracking and productivity app.
                   </p>
                   <p className="text-sm font-semibold mt-3 relative z-10 text-pink">
-                    Launching December 19, 2025<span className="inline-block animate-pulse">...</span>
+                    Now Available!
                   </p>
                   <p className="text-xs text-purple font-semibold mt-2 relative z-10">
                     Learn more →
