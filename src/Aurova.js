@@ -7,43 +7,10 @@ export default function Aurova() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [currentScreenshot, setCurrentScreenshot] = useState(0);
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  });
-
-  // Launch date: December 19, 2025 at 12:22 PM CST
-  const launchDate = new Date('2025-12-19T12:22:00-06:00');
 
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
-
-  // Countdown timer
-  useEffect(() => {
-    const calculateTimeLeft = () => {
-      const now = new Date();
-      const difference = launchDate - now;
-
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-          seconds: Math.floor((difference / 1000) % 60)
-        });
-      } else {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-      }
-    };
-
-    calculateTimeLeft();
-    const timer = setInterval(calculateTimeLeft, 1000);
-
-    return () => clearInterval(timer);
   }, []);
 
   const handleSubmit = async (e) => {
@@ -128,41 +95,22 @@ export default function Aurova() {
               <p className="text-xl md:text-2xl text-textGray mb-8 leading-relaxed text-center md:text-left">
                 The most intuitive habit tracker that helps you build lasting positive habits through visual progress tracking, streak celebrations, and personalized reminders.
               </p>
-              {/* Countdown */}
               <div className="mb-6">
                 <p className="text-center md:text-left text-pink font-bold text-xl mb-4">
-                  🚀 Launching December 19, 2025
+                  ✨ Now Available!
                 </p>
-                <div className="grid grid-cols-4 gap-3 max-w-md mx-auto md:mx-0">
-                  <div className="bg-gradient-pink-gold rounded-lg p-3 text-center">
-                    <div className="text-2xl font-bold text-white">{timeLeft.days}</div>
-                    <div className="text-xs text-white/80">Days</div>
-                  </div>
-                  <div className="bg-gradient-pink-purple rounded-lg p-3 text-center">
-                    <div className="text-2xl font-bold text-white">{timeLeft.hours}</div>
-                    <div className="text-xs text-white/80">Hours</div>
-                  </div>
-                  <div className="bg-gradient-pink-gold rounded-lg p-3 text-center">
-                    <div className="text-2xl font-bold text-white">{timeLeft.minutes}</div>
-                    <div className="text-xs text-white/80">Minutes</div>
-                  </div>
-                  <div className="bg-gradient-pink-purple rounded-lg p-3 text-center">
-                    <div className="text-2xl font-bold text-white">{timeLeft.seconds}</div>
-                    <div className="text-xs text-white/80">Seconds</div>
-                  </div>
-                </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-6">
-                <div title="Coming December 19, 2025">
-                  <button
-                    disabled
-                    className="flex items-center justify-center gap-3 bg-black text-white px-8 py-4 rounded-xl shadow-lg opacity-60 cursor-not-allowed font-semibold text-lg w-full"
-                  >
-                    <FaApple size={24} />
-                    App Store
-                  </button>
-                </div>
-                <div title="Coming December 19, 2025">
+                <a
+                  href="https://apps.apple.com/us/app/aurova/id6756036236"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-3 bg-black text-white px-8 py-4 rounded-xl shadow-lg hover:scale-105 transition-transform font-semibold text-lg w-full"
+                >
+                  <FaApple size={24} />
+                  App Store
+                </a>
+                <div title="Coming Soon">
                   <button
                     disabled
                     className="flex items-center justify-center gap-3 bg-green-600 text-white px-8 py-4 rounded-xl shadow-lg opacity-60 cursor-not-allowed font-semibold text-lg w-full"
