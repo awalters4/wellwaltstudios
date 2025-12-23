@@ -9,6 +9,8 @@ import BehindTheBuild from "./BehindTheBuild";
 import ArticlePage from "./ArticlePage";
 import Privacy from "./Privacy";
 import Terms from "./Terms";
+import GypsySupport from "./GypsySupport";
+import GypsyPrivacy from "./GypsyPrivacy";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
           <Route path="/projects/aurova" element={<Aurova />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/gypsysupport" element={<GypsySupport />} />
+          <Route path="/gypsyprivacy" element={<GypsyPrivacy />} />
         </Routes>
         <Analytics />
       </div>
