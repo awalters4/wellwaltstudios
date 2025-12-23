@@ -6,7 +6,6 @@ import WorkWithMeModal from "./WorkWithMeModal";
 import TechAuditModal from "./components/TechAuditModal";
 import HourlyConsultingModal from "./components/HourlyConsultingModal";
 import DepositBookingModal from "./components/DepositBookingModal";
-import AurovaLaunchModal from "./components/AurovaLaunchModal";
 import WWSFooter from "./WWSFooter";
 
 Modal.setAppElement("#root");
@@ -17,7 +16,6 @@ export default function WellWaltStudios() {
   const [hourlyModalOpen, setHourlyModalOpen] = useState(false);
   const [fractionalCTOModalOpen, setFractionalCTOModalOpen] = useState(false);
   const [developmentModalOpen, setDevelopmentModalOpen] = useState(false);
-  const [aurovaLaunchModalOpen, setAurovaLaunchModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -28,16 +26,6 @@ export default function WellWaltStudios() {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  useEffect(() => {
-    // Show Aurova launch modal on mount (only once per session)
-    const hasSeenModal = sessionStorage.getItem('hasSeenAurovaModal');
-    if (!hasSeenModal) {
-      const timer = setTimeout(() => {
-        setAurovaLaunchModalOpen(true);
-      }, 1000);
-      return () => clearTimeout(timer);
-    }
-  }, []);
 
   const openModal = () => setModalIsOpen(true);
   const closeModal = () => {
@@ -353,10 +341,6 @@ export default function WellWaltStudios() {
         isOpen={developmentModalOpen}
         onClose={() => setDevelopmentModalOpen(false)}
         serviceType="development"
-      />
-      <AurovaLaunchModal
-        isOpen={aurovaLaunchModalOpen}
-        onClose={() => setAurovaLaunchModalOpen(false)}
       />
 
       <WWSFooter />
