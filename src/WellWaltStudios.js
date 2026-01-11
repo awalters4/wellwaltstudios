@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import { Link } from "react-router-dom";
-import { FaGithub, FaInstagram, FaFilePdf } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaFilePdf, FaApple, FaAndroid, FaDownload, FaGlobe } from "react-icons/fa";
 import WorkWithMeModal from "./WorkWithMeModal";
 import TechAuditModal from "./components/TechAuditModal";
 import HourlyConsultingModal from "./components/HourlyConsultingModal";
@@ -16,6 +16,7 @@ export default function WellWaltStudios() {
   const [hourlyModalOpen, setHourlyModalOpen] = useState(false);
   const [fractionalCTOModalOpen, setFractionalCTOModalOpen] = useState(false);
   const [developmentModalOpen, setDevelopmentModalOpen] = useState(false);
+  const [openDownloadMenu, setOpenDownloadMenu] = useState(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -60,7 +61,6 @@ export default function WellWaltStudios() {
         <nav className="hidden md:flex items-center space-x-6">
           <a href="#services" className="text-textGray hover:text-pink transition-colors">Services</a>
           <a href="#projects" className="text-textGray hover:text-pink transition-colors">Projects</a>
-          <a href="#about" className="text-textGray hover:text-pink transition-colors">About</a>
           <a
             href="/resume.pdf"
             className="text-textGray hover:text-pink transition-colors"
@@ -119,22 +119,24 @@ export default function WellWaltStudios() {
   <div className="absolute inset-0 bg-gradient-shimmer opacity-10 animate-shimmer"></div>
   <div className="md:w-1/2 mb-10 md:mb-0 relative z-10">
     <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 leading-tight">
-      Hi, I'm Ariel — a software engineer and founder of <span className="bg-gradient-pink-purple bg-clip-text text-transparent">Well Walt Studios</span>.
+      <span className="bg-gradient-pink-purple bg-clip-text text-transparent">Well Walt Studios</span>
     </h1>
+    <p className="text-lg md:text-xl mb-4 text-textGray leading-relaxed">
+      Well Walt Studios is my personal software studio, where I design and build digital products driven by curiosity, experimentation, and real-world use.
+    </p>
+    <p className="text-lg md:text-xl mb-4 text-textGray leading-relaxed">
+      I'm a software engineer by trade, but at my core, I'm a problem-solver. I build tools around productivity, habits, and decision-making—especially where technology can reduce mental load instead of adding to it. That means AI-assisted tools that feel human, systems that are simple by design, and products that respect people's time and attention.
+    </p>
+    <p className="text-lg md:text-xl mb-4 text-textGray leading-relaxed">
+      Alongside my own products, I take on a small number of consulting and development projects each year. I'm selective on purpose. I work best with founders and teams who care about clarity, long-term thinking, and building things that actually get used.
+    </p>
     <p className="text-lg md:text-xl mb-8 text-textGray leading-relaxed">
-      I build tools to fill the gaps I see — from habit trackers to AI-powered platforms.
-      With 13 years of experience, I combine hands-on engineering with strategic thinking to create products that solve real problems.
+      Well Walt Studios isn't an agency chasing volume. It's a studio focused on thoughtful software, built with intention.
     </p>
     <div className="flex flex-wrap gap-4">
-      <a
-        href="#about"
-        className="inline-block bg-gradient-pink-gold text-textDark font-semibold px-8 py-3 rounded-xl shadow-glow-gold hover:scale-105 hover:shadow-xl transition-all duration-300"
-      >
-        About WWS
-      </a>
       <Link
         to="/behind-the-build"
-        className="inline-block bg-white/70 backdrop-blur-sm border-2 border-pink-light/50 text-textDark px-8 py-3 rounded-xl shadow-glass hover:scale-105 hover:border-purple transition-all duration-300"
+        className="inline-block bg-gradient-pink-gold text-textDark font-semibold px-8 py-3 rounded-xl shadow-glow-gold hover:scale-105 hover:shadow-xl transition-all duration-300"
       >
         Behind the Build
       </Link>
@@ -153,116 +155,51 @@ export default function WellWaltStudios() {
 </section>
 
 
-      {/* Services Section */}
-      <section id="services" className="relative bg-white px-8 py-20">
-        <h2 className="text-3xl font-heading font-bold mb-6 text-center bg-gradient-pink-purple bg-clip-text text-transparent">
-          Services
-        </h2>
-        <p className="text-lg text-center max-w-3xl mx-auto mb-12 text-textGray">
-          While I primarily focus on building my own products, I also offer select consulting and development services for the right projects.
-        </p>
-
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {/* Fractional CTO Services */}
-          <div className="group relative bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-glass border-2 border-transparent hover:border-pink-light hover:scale-105 transition-all duration-300">
-            <div className="absolute inset-0 bg-gradient-pink-gold opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity"></div>
-            <h3 className="text-2xl font-heading font-semibold mb-4 relative z-10">
-              Fractional CTO Services
-            </h3>
-            <p className="mb-4 text-textGray leading-relaxed">
-              I help with tech stack decisions, product roadmaps, team direction, and overall system architecture.
-            </p>
-            <p className="mb-4 text-textGray leading-relaxed">
-              Packages can range from light advisory (a few hours/month) to deeper engagement (weekly check-ins, code reviews, or sprint planning).
-            </p>
-            <p className="mb-6 text-textGray leading-relaxed">
-              <strong>Perfect for:</strong> Solo founders who need a technical co-pilot, early-stage startups building their first product, or established small businesses (up to 20 people) who want expert guidance without hiring a full-time CTO.
-            </p>
-            <button
-              onClick={() => setFractionalCTOModalOpen(true)}
-              className="block w-full text-center bg-gradient-pink-purple text-white px-6 py-3 rounded-xl shadow-glow-pink hover:scale-105 hover:shadow-glow-gold transition-all duration-300 relative z-10"
-            >
-              Get Started with Fractional CTO
-            </button>
-          </div>
-
-          {/* Development */}
-          <div className="group relative bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-glass border-2 border-transparent hover:border-pink-light hover:scale-105 transition-all duration-300">
-            <div className="absolute inset-0 bg-gradient-pink-gold opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity"></div>
-            <h3 className="text-2xl font-heading font-semibold mb-4 relative z-10">
-              Development
-            </h3>
-            <p className="mb-4 text-textGray leading-relaxed">
-              Custom web and app development services through Well Walt Studios.
-            </p>
-            <p className="mb-4 text-textGray leading-relaxed">
-              Focus on small-to-mid sized projects: MVPs, automation tools, client dashboards, and digital product builds.
-            </p>
-            <p className="mb-4 text-textGray leading-relaxed">
-              <strong>Stack:</strong> React, React Native, Supabase, AWS, and Tailwind.
-            </p>
-            <p className="mb-4 text-textGray leading-relaxed">
-              Each build includes discovery, design, development, and launch support. I'm not just a developer — I design solutions that solve real problems.
-            </p>
-            <p className="mb-6 text-textGray leading-relaxed">
-              <strong>Timeline:</strong> Most projects range from 4 weeks to 12 months depending on scope.
-            </p>
-            <button
-              onClick={() => setDevelopmentModalOpen(true)}
-              className="block w-full text-center bg-gradient-pink-purple text-white px-6 py-3 rounded-xl shadow-glow-pink hover:scale-105 hover:shadow-glow-gold transition-all duration-300 relative z-10"
-            >
-              Start a Project
-            </button>
-          </div>
-        </div>
-
-        {/* Not Sure CTA */}
-        <div className="text-center mt-16 bg-white/60 backdrop-blur-md p-8 rounded-2xl max-w-2xl mx-auto shadow-glass border border-gold-light/30">
-          <h3 className="text-2xl font-heading font-bold mb-4 bg-gradient-pink-purple bg-clip-text text-transparent">
-            Not sure what you need?
-          </h3>
-          <p className="text-lg text-textGray mb-6">
-            Send me a message and we'll figure it out together.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={openModal}
-              className="inline-block bg-gradient-pink-gold text-textDark font-semibold px-8 py-3 rounded-xl shadow-glow-gold hover:scale-105 hover:shadow-xl transition-all duration-300"
-            >
-              Get In Touch
-            </button>
-            <button
-              onClick={() => setHourlyModalOpen(true)}
-              className="inline-block bg-gradient-pink-purple text-white font-semibold px-8 py-3 rounded-xl shadow-glow-pink hover:scale-105 hover:shadow-xl transition-all duration-300"
-            >
-              Book a Consultation
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="relative bg-bgWarm text-textDark px-8 py-20 overflow-hidden">
+      {/* Projects Section */}
+      <section id="projects" className="relative bg-bgWarm text-textDark px-8 py-20 overflow-hidden">
         <div className="relative z-10">
-          <h2 className="text-3xl font-heading font-bold mb-6 text-center bg-gradient-pink-gold bg-clip-text text-transparent">
-            About Well Walt Studios
-          </h2>
-          <p className="max-w-3xl mx-auto text-lg leading-relaxed text-center text-textGray mb-12">
-            Well Walt Studios is where I build products that solve problems I see in the world.
-            From AI-powered productivity tools to habit trackers, I create software that makes life better.
-            I also take on select consulting and development projects that align with my interests and expertise.
-          </p>
-
-          {/* Projects */}
           <div className="max-w-5xl mx-auto">
-            <h3 className="text-2xl font-heading font-bold mb-4 text-center bg-gradient-pink-purple bg-clip-text text-transparent">
+            <h2 className="text-3xl font-heading font-bold mb-4 text-center bg-gradient-pink-purple bg-clip-text text-transparent">
               Projects
-            </h3>
+            </h2>
             <p className="text-center text-textGray mb-8">Building the future, one app at a time.</p>
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               {/* Aurova */}
               <div className="group relative bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-glass border border-pink-light/30 text-center hover:scale-105 hover:shadow-glow-pink transition-all duration-300">
                 <div className="absolute inset-0 bg-gradient-pink-gold opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300"></div>
+                <div className="absolute top-4 right-4 z-20">
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setOpenDownloadMenu(openDownloadMenu === 'aurova' ? null : 'aurova');
+                    }}
+                    className="bg-white/90 p-2 rounded-full shadow-md hover:shadow-lg transition-all"
+                  >
+                    <FaDownload className="text-pink" size={16} />
+                  </button>
+                  {openDownloadMenu === 'aurova' && (
+                    <div className="absolute right-0 mt-2 bg-white rounded-lg shadow-xl border border-pink-light/30 p-2 min-w-[120px]">
+                      <a
+                        href="https://apps.apple.com/us/app/aurova/id6449732442"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-3 py-2 hover:bg-pink-light/10 rounded transition-colors"
+                      >
+                        <FaApple size={20} />
+                        <span className="text-sm">App Store</span>
+                      </a>
+                      <a
+                        href="https://play.google.com/store/apps/details?id=com.wws.aurova"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-3 py-2 hover:bg-pink-light/10 rounded transition-colors"
+                      >
+                        <FaAndroid size={20} />
+                        <span className="text-sm">Google Play</span>
+                      </a>
+                    </div>
+                  )}
+                </div>
                 <Link
                   to="/projects/aurova"
                   className="relative z-10 block"
@@ -279,15 +216,44 @@ export default function WellWaltStudios() {
                   <p className="text-sm font-semibold mt-3 relative z-10 text-pink">
                     Now Available!
                   </p>
-                  <p className="text-xs text-purple font-semibold mt-2 relative z-10">
-                    Learn more →
-                  </p>
                 </Link>
               </div>
 
               {/* Gypsy */}
               <div className="group relative bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-glass border border-pink-light/30 text-center hover:scale-105 hover:shadow-glow-pink transition-all duration-300">
                 <div className="absolute inset-0 bg-gradient-pink-gold opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300"></div>
+                <div className="absolute top-4 right-4 z-20">
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setOpenDownloadMenu(openDownloadMenu === 'gypsy' ? null : 'gypsy');
+                    }}
+                    className="bg-white/90 p-2 rounded-full shadow-md hover:shadow-lg transition-all"
+                  >
+                    <FaDownload className="text-pink" size={16} />
+                  </button>
+                  {openDownloadMenu === 'gypsy' && (
+                    <div className="absolute right-0 mt-2 bg-white rounded-lg shadow-xl border border-pink-light/30 p-2 min-w-[140px]">
+                      <a
+                        href="https://gypsy-xi.vercel.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-3 py-2 hover:bg-pink-light/10 rounded transition-colors"
+                      >
+                        <FaGlobe size={20} />
+                        <span className="text-sm">Web App</span>
+                      </a>
+                      <div className="flex items-center gap-2 px-3 py-2 text-textGray cursor-not-allowed opacity-50">
+                        <FaApple size={20} />
+                        <span className="text-sm">Coming Soon</span>
+                      </div>
+                      <div className="flex items-center gap-2 px-3 py-2 text-textGray cursor-not-allowed opacity-50">
+                        <FaAndroid size={20} />
+                        <span className="text-sm">Coming Soon</span>
+                      </div>
+                    </div>
+                  )}
+                </div>
                 <a
                   href="https://gypsy-xi.vercel.app/"
                   target="_blank"
@@ -299,28 +265,149 @@ export default function WellWaltStudios() {
                   </div>
                   <h3 className="text-xl font-heading font-semibold mb-2 relative z-10">Gypsy</h3>
                   <p className="text-sm text-textGray relative z-10">
-                    AI-powered tarot card reader with custom spreads and personalized interpretations. <strong className="text-green-600">Launched</strong>.
+                    AI-powered tarot card reader with custom spreads and personalized interpretations.
                   </p>
-                  <p className="text-xs text-purple font-semibold mt-3 relative z-10">
-                    Try it now →
+                  <p className="text-sm font-semibold mt-3 relative z-10 text-pink">
+                    Now Available!
                   </p>
                 </a>
               </div>
 
-              {/* Bluetree */}
+              {/* BlueTree */}
               <div className="group relative bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-glass border border-pink-light/30 text-center hover:scale-105 hover:shadow-glow-pink transition-all duration-300">
                 <div className="absolute inset-0 bg-gradient-pink-gold opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300"></div>
+                <div className="absolute top-4 right-4 z-20">
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setOpenDownloadMenu(openDownloadMenu === 'bluetree' ? null : 'bluetree');
+                    }}
+                    className="bg-white/90 p-2 rounded-full shadow-md hover:shadow-lg transition-all"
+                  >
+                    <FaDownload className="text-pink" size={16} />
+                  </button>
+                  {openDownloadMenu === 'bluetree' && (
+                    <div className="absolute right-0 mt-2 bg-white rounded-lg shadow-xl border border-pink-light/30 p-2 min-w-[120px]">
+                      <a
+                        href="https://apps.apple.com/us/app/bluetree/id6754655436"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-3 py-2 hover:bg-pink-light/10 rounded transition-colors"
+                      >
+                        <FaApple size={20} />
+                        <span className="text-sm">App Store</span>
+                      </a>
+                      <a
+                        href="https://play.google.com/store/apps/details?id=com.bluetree"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-3 py-2 hover:bg-pink-light/10 rounded transition-colors"
+                      >
+                        <FaAndroid size={20} />
+                        <span className="text-sm">Google Play</span>
+                      </a>
+                    </div>
+                  )}
+                </div>
                 <div className="relative z-10">
                   <img
                     src="/bluetree-logo.jpg"
-                    alt="Bluetree"
+                    alt="BlueTree"
                     className="mx-auto mb-4 w-32 h-auto object-contain shadow-md group-hover:shadow-glow-gold transition-shadow duration-300"
                     style={{maxHeight: '112px'}}
                   />
-                  <h3 className="text-xl font-heading font-semibold mb-2 relative z-10">Bluetree</h3>
+                  <h3 className="text-xl font-heading font-semibold mb-2 relative z-10">BlueTree*</h3>
                   <p className="text-sm text-textGray relative z-10">
-                    College and university marketplace platform connecting students with products and services. Launching <strong className="text-gold-dark">January 2026</strong>.
+                    College and university marketplace platform connecting students with products and services.
                   </p>
+                  <p className="text-sm font-semibold mt-3 relative z-10 text-pink">
+                    Now Available!
+                  </p>
+                </div>
+              </div>
+            </div>
+            <p className="text-xs text-textGray text-center mt-4">
+              *client-project
+            </p>
+
+            {/* Wanna be next? */}
+            <div className="text-center mt-12 bg-white/60 backdrop-blur-md p-8 rounded-2xl max-w-2xl mx-auto shadow-glass border border-gold-light/30">
+              <h3 className="text-2xl font-heading font-bold mb-6 bg-gradient-pink-purple bg-clip-text text-transparent">
+                Wanna be next?
+              </h3>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  onClick={() => setHourlyModalOpen(true)}
+                  className="inline-block bg-gradient-pink-gold text-textDark font-semibold px-8 py-3 rounded-xl shadow-glow-gold hover:scale-105 hover:shadow-xl transition-all duration-300"
+                >
+                  Ready to talk?
+                </button>
+                <button
+                  onClick={() => setDevelopmentModalOpen(true)}
+                  className="inline-block bg-gradient-pink-purple text-white font-semibold px-8 py-3 rounded-xl shadow-glow-pink hover:scale-105 hover:shadow-xl transition-all duration-300"
+                >
+                  Ready to work?
+                </button>
+              </div>
+            </div>
+
+            {/* Services */}
+            <div id="services" className="mt-20">
+              <h3 className="text-2xl font-heading font-bold mb-12 text-center bg-gradient-pink-purple bg-clip-text text-transparent">
+                Services
+              </h3>
+
+              <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                {/* Fractional CTO Services */}
+                <div className="group relative bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-glass border-2 border-transparent hover:border-pink-light hover:scale-105 transition-all duration-300">
+                  <div className="absolute inset-0 bg-gradient-pink-gold opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity"></div>
+                  <h4 className="text-2xl font-heading font-semibold mb-4 relative z-10">
+                    Fractional CTO Services
+                  </h4>
+                  <p className="mb-4 text-textGray leading-relaxed">
+                    I help with tech stack decisions, product roadmaps, team direction, and overall system architecture.
+                  </p>
+                  <p className="mb-4 text-textGray leading-relaxed">
+                    Packages can range from light advisory (a few hours/month) to deeper engagement (weekly check-ins, code reviews, or sprint planning).
+                  </p>
+                  <p className="mb-6 text-textGray leading-relaxed">
+                    <strong>Perfect for:</strong> Solo founders who need a technical co-pilot, early-stage startups building their first product, or established small businesses (up to 20 people) who want expert guidance without hiring a full-time CTO.
+                  </p>
+                  <button
+                    onClick={() => setFractionalCTOModalOpen(true)}
+                    className="block w-full text-center bg-gradient-pink-purple text-white px-6 py-3 rounded-xl shadow-glow-pink hover:scale-105 hover:shadow-glow-gold transition-all duration-300 relative z-10"
+                  >
+                    Get Started with Fractional CTO
+                  </button>
+                </div>
+
+                {/* Development */}
+                <div className="group relative bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-glass border-2 border-transparent hover:border-pink-light hover:scale-105 transition-all duration-300">
+                  <div className="absolute inset-0 bg-gradient-pink-gold opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity"></div>
+                  <h4 className="text-2xl font-heading font-semibold mb-4 relative z-10">
+                    Development
+                  </h4>
+                  <p className="mb-4 text-textGray leading-relaxed">
+                    Custom web and app development services through Well Walt Studios.
+                  </p>
+                  <p className="mb-4 text-textGray leading-relaxed">
+                    Focus on small-to-mid sized projects: MVPs, automation tools, client dashboards, and digital product builds.
+                  </p>
+                  <p className="mb-4 text-textGray leading-relaxed">
+                    <strong>Stack:</strong> React, React Native, Supabase, AWS, and Tailwind.
+                  </p>
+                  <p className="mb-4 text-textGray leading-relaxed">
+                    Each build includes discovery, design, development, and launch support. I'm not just a developer — I design solutions that solve real problems.
+                  </p>
+                  <p className="mb-6 text-textGray leading-relaxed">
+                    <strong>Timeline:</strong> Most projects range from 4 weeks to 12 months depending on scope.
+                  </p>
+                  <button
+                    onClick={() => setDevelopmentModalOpen(true)}
+                    className="block w-full text-center bg-gradient-pink-purple text-white px-6 py-3 rounded-xl shadow-glow-pink hover:scale-105 hover:shadow-glow-gold transition-all duration-300 relative z-10"
+                  >
+                    Start a Project
+                  </button>
                 </div>
               </div>
             </div>
