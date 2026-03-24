@@ -11,6 +11,7 @@ import Privacy from "./Privacy";
 import Terms from "./Terms";
 import GypsySupport from "./GypsySupport";
 import GypsyPrivacy from "./GypsyPrivacy";
+import SpringSpecial2026 from "./SpringSpecial2026";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/terms" element={<Terms />} />
           <Route path="/gypsysupport" element={<GypsySupport />} />
           <Route path="/gypsyprivacy" element={<GypsyPrivacy />} />
+          <Route path="/springspecial2026" element={<SpringSpecial2026 />} />
         </Routes>
         <Analytics />
       </div>

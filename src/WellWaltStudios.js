@@ -140,6 +140,12 @@ export default function WellWaltStudios() {
       >
         Behind the Build
       </Link>
+      <Link
+        to="/springspecial2026"
+        className="inline-block bg-gradient-pink-purple text-white font-semibold px-8 py-3 rounded-xl shadow-glow-pink hover:scale-105 hover:shadow-xl transition-all duration-300"
+      >
+        Spring Special
+      </Link>
     </div>
   </div>
   <div className="md:w-1/2 flex justify-center relative z-10">
