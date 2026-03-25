@@ -215,22 +215,22 @@ export default function SpringSpecial2026() {
                 4-Page Website
               </h2>
               <div className="text-4xl font-bold text-purple mb-4">$500</div>
+              <div className="mb-4">
+                <p className="text-sm font-semibold text-purple mb-2">Perfect for:</p>
+                <p className="text-sm text-textGray">Musicians, photographers/videographers, service-based businesses, small businesses with less than 20 employees</p>
+              </div>
               <ul className="space-y-3 mb-6 text-textGray">
                 <li className="flex items-start">
                   <span className="text-pink mr-2">✓</span>
-                  <span>Custom 4-page site (Contact, Portfolio/Scheduling, About, Services)</span>
+                  <span>Custom website with flexible pages (examples: Contact, Portfolio/Scheduling, About, Services)</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-pink mr-2">✓</span>
-                  <span>Purchased domain included</span>
+                  <span>Domain registration assistance (domain cost not included)</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-pink mr-2">✓</span>
                   <span>One month turnaround</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-pink mr-2">+</span>
-                  <span>$500 rush fee for 2-week turnaround</span>
                 </li>
               </ul>
               <button
@@ -240,7 +240,7 @@ export default function SpringSpecial2026() {
                 }}
                 className="w-full bg-gradient-pink-purple text-white px-6 py-3 rounded-xl shadow-glow-pink hover:scale-105 transition-all duration-300"
               >
-                Select This Offering
+                Get Started
               </button>
             </div>
 
@@ -251,6 +251,10 @@ export default function SpringSpecial2026() {
                 Tech Audit
               </h2>
               <div className="text-4xl font-bold text-purple mb-4">$300</div>
+              <div className="mb-4">
+                <p className="text-sm font-semibold text-purple mb-2">Perfect for:</p>
+                <p className="text-sm text-textGray">Small and medium sized businesses without the budget for a fulltime tech person, spending too much on services or tech and need efficiency</p>
+              </div>
               <ul className="space-y-3 mb-6 text-textGray">
                 <li className="flex items-start">
                   <span className="text-pink mr-2">✓</span>
@@ -264,10 +268,6 @@ export default function SpringSpecial2026() {
                   <span className="text-pink mr-2">✓</span>
                   <span>UI/UX recommendations</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-pink mr-2">+</span>
-                  <span>$200 rush fee for 2-week turnaround</span>
-                </li>
               </ul>
               <button
                 onClick={() => {
@@ -276,7 +276,7 @@ export default function SpringSpecial2026() {
                 }}
                 className="w-full bg-gradient-pink-purple text-white px-6 py-3 rounded-xl shadow-glow-pink hover:scale-105 transition-all duration-300"
               >
-                Select This Offering
+                Get Started
               </button>
             </div>
           </div>
