@@ -55,32 +55,23 @@ export default function BookingCalendar({ duration, onSelectSlot, selectedSlot, 
       '2026-02-10', '2026-02-11', '2026-02-12', '2026-02-13', '2026-02-14',
       '2026-02-15', '2026-02-16', '2026-02-17', '2026-02-18', '2026-02-19',
       '2026-02-21',
-      // Mar 1 - Mar 14, 2026
-      '2026-03-01', '2026-03-02', '2026-03-03', '2026-03-04', '2026-03-05',
-      '2026-03-06', '2026-03-07', '2026-03-08', '2026-03-09', '2026-03-10',
-      '2026-03-11', '2026-03-12', '2026-03-13', '2026-03-14',
     ];
 
     if (blockedDates.includes(dateStr)) return false;
-
-    // Unavailable starting 3/15/2026
-    const unavailableStart = new Date(2026, 2, 15); // March 15, 2026
-    unavailableStart.setHours(0, 0, 0, 0);
-
-    if (date >= unavailableStart) return false;
 
     // Set max date based on service type
     const maxDate = new Date();
     if (serviceType === 'tech-audit') {
       // Tech Audit only available until end of year 2025
       maxDate.setFullYear(2025, 11, 31); // December 31, 2025
+      maxDate.setHours(23, 59, 59, 999);
+      if (date > maxDate) return false;
     } else {
-      // Dev and CTO available through March 2026
-      maxDate.setFullYear(2026, 2, 31); // March 31, 2026
+      // Dev and CTO available through May 2026
+      maxDate.setFullYear(2026, 4, 31); // May 31, 2026
+      maxDate.setHours(23, 59, 59, 999);
+      if (date > maxDate) return false;
     }
-    maxDate.setHours(23, 59, 59, 999);
-
-    if (date > maxDate) return false;
 
     const dayOfWeek = date.getDay();
     // Monday=1, Tuesday=2, Wednesday=3, Thursday=4, Saturday=6
