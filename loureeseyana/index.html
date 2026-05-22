@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>loureeseyana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #080808;
+      --surface: #111111;
+      --surface-hover: #181818;
+      --border: rgba(255,255,255,0.07);
+      --text: #f0ece4;
+      --muted: rgba(240,236,228,0.45);
+      --accent: #c9a96e;
+      --accent-dim: rgba(201,169,110,0.15);
+      --glow: rgba(201,169,110,0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Mono', monospace;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px 80px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Atmospheric background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -30%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(ellipse, rgba(201,169,110,0.06) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -20%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(100,80,160,0.05) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .avatar-wrap {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+      position: relative;
+    }
+
+    .avatar-ring {
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, var(--accent), transparent 60%, var(--accent) 100%);
+      animation: spin 8s linear infinite;
+    }
+
+    .avatar-inner {
+      position: absolute;
+      inset: 2px;
+      border-radius: 50%;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .handle {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.6;
+      letter-spacing: 0.02em;
+    }
+
+    .tagline .loc {
+      color: var(--accent);
+      font-style: normal;
+      font-weight: 400;
+    }
+
+    /* Divider */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .divider-symbol {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      color: var(--accent);
+      opacity: 0.6;
+    }
+
+    /* Links */
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .link-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 22px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      text-decoration: none;
+      color: var(--text);
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .link-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--glow);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .link-item:hover {
+      background: var(--surface-hover);
+      border-color: rgba(201,169,110,0.3);
+      transform: translateY(-1px);
+    }
+
+    .link-item:hover::before {
+      opacity: 1;
+    }
+
+    .link-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 3px;
+      background: var(--accent-dim);
+      border: 1px solid rgba(201,169,110,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 15px;
+    }
+
+    .link-text {
+      flex: 1;
+    }
+
+    .link-title {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .link-sub {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
+    .link-arrow {
+      font-size: 14px;
+      color: var(--muted);
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .link-item:hover .link-arrow {
+      color: var(--accent);
+      transform: translateX(2px);
+    }
+
+    /* Section labels */
+    .section-label {
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 28px 0 10px 4px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    /* Stagger delays */
+    .link-item:nth-child(1) { animation-delay: 0.15s; }
+    .link-item:nth-child(2) { animation-delay: 0.22s; }
+    .link-item:nth-child(3) { animation-delay: 0.29s; }
+    .link-item:nth-child(4) { animation-delay: 0.36s; }
+    .link-item:nth-child(5) { animation-delay: 0.43s; }
+    .link-item:nth-child(6) { animation-delay: 0.50s; }
+
+    /* Social row */
+    .social-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 48px;
+      animation: fadeUp 0.6s 0.6s ease both;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 14px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .social-link:hover {
+      border-color: rgba(201,169,110,0.4);
+      color: var(--accent);
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      color: rgba(240,236,228,0.15);
+      text-align: center;
+      text-transform: uppercase;
+      animation: fadeUp 0.6s 0.7s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="header">
+      <div class="avatar-wrap">
+        <div class="avatar-ring"></div>
+        <div class="avatar-inner">L</div>
+      </div>
+      <div class="name">loureeseyana</div>
+      <div class="handle">@loureeseyana</div>
+      <div class="tagline">Engineer. Founder. Mom.<br/>Rebuilding body, career &amp; life at 35.<br/><span class="loc">New Orleans.</span></div>
+    </div>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <div class="divider-symbol">✦</div>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- VENTURES -->
+    <div class="section-label">Ventures</div>
+    <div class="links" id="ventures">
+
+      <a href="#" class="link-item">
+        <div class="link-icon">⬡</div>
+        <div class="link-text">
+          <div class="link-title">Nexae</div>
+          <div class="link-sub">App + hardware — coming soon</div>
+        </div>
+        <div class="link-arrow">→</div>
+      </a>
+
+      <a href="https://www.wellwaltstudios.com" class="link-item" target="_blank" rel="noopener">
+        <div class="link-icon">{ }</div>
+        <div class="link-text">
+          <div class="link-title">WellWalt Studios</div>
+          <div class="link-sub">Software development studio</div>
+        </div>
+        <div class="link-arrow">→</div>
+      </a>
+
+      <!-- Uncomment when Shopify store is live -->
+      <!--
+      <a href="#" class="link-item" target="_blank" rel="noopener">
+        <div class="link-icon">◈</div>
+        <div class="link-text">
+          <div class="link-title">Shop</div>
+          <div class="link-sub">Merch + products</div>
+        </div>
+        <div class="link-arrow">→</div>
+      </a>
+      -->
+
+    </div>
+
+    <!-- CONTENT -->
+    <div class="section-label">Follow the journey</div>
+    <div class="links" id="content">
+
+      <a href="https://www.tiktok.com/@loureeseyana" class="link-item" target="_blank" rel="noopener">
+        <div class="link-icon">▷</div>
+        <div class="link-text">
+          <div class="link-title">TikTok</div>
+          <div class="link-sub">@loureeseyana</div>
+        </div>
+        <div class="link-arrow">→</div>
+      </a>
+
+      <a href="https://www.instagram.com/loureeseyana" class="link-item" target="_blank" rel="noopener">
+        <div class="link-icon">◎</div>
+        <div class="link-text">
+          <div class="link-title">Instagram</div>
+          <div class="link-sub">@loureeseyana</div>
+        </div>
+        <div class="link-arrow">→</div>
+      </a>
+
+      <!-- Uncomment when Hotworx referral link is available -->
+      <!--
+      <a href="#" class="link-item" target="_blank" rel="noopener">
+        <div class="link-icon">🔥</div>
+        <div class="link-text">
+          <div class="link-title">Try Hotworx</div>
+          <div class="link-sub">Book a session under my referral</div>
+        </div>
+        <div class="link-arrow">→</div>
+      </a>
+      -->
+
+    </div>
+
+    <div class="footer">New Orleans · 2026</div>
+
+  </div>
+</body>
+</html>
