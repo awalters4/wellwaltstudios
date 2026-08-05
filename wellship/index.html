@@ -15,6 +15,9 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://wellwaltstudios.com/logo.png">
 <link rel="icon" href="/favicon.ico">
+<!-- Plausible analytics -->
+<script defer data-domain="wellwaltstudios.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 <meta name="twitter:title" content="WellShip — the React Native starter that's already passed App Store review">
 <meta name="twitter:description" content="Production-grade Expo starter extracted from a live App Store and Google Play app. Auth, RevenueCat, PostHog, Sentry, notifications, and store-submission plumbing wired end-to-end.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -296,7 +299,7 @@
       <a href="#playbook">Submission playbook</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
-      <a class="btn btn-pass" href="https://buy.polar.sh/polar_cl_8sYTIh4uUAh0VfsgSu5hLhd4Q67f1vYbXQ1ET4F2okM">Get WellShip</a>
+      <a class="btn btn-pass plausible-event-name=WellShip+CTA+-+Buy" href="https://buy.polar.sh/polar_cl_8sYTIh4uUAh0VfsgSu5hLhd4Q67f1vYbXQ1ET4F2okM">Get WellShip</a>
     </div>
   </div>
 </nav>
@@ -308,7 +311,7 @@
       <h1>The starter kit that's already <span class="pass-word">passed review.</span></h1>
       <p class="hero-sub">WellShip is the production infrastructure extracted from an app live on the App&nbsp;Store and Google&nbsp;Play — not a demo repo. Auth, payments, analytics, crash reporting, notifications, and store-submission plumbing, wired end-to-end.</p>
       <div class="hero-ctas">
-        <a class="btn btn-pass" href="https://buy.polar.sh/polar_cl_8sYTIh4uUAh0VfsgSu5hLhd4Q67f1vYbXQ1ET4F2okM">Get the repo →</a>
+        <a class="btn btn-pass plausible-event-name=WellShip+CTA+-+Buy" href="https://buy.polar.sh/polar_cl_8sYTIh4uUAh0VfsgSu5hLhd4Q67f1vYbXQ1ET4F2okM">Get the repo →</a>
         <a class="btn btn-ghost" href="#wired">See what's wired</a>
       </div>
       <p class="hero-price-note">$149 launch price <s>$199</s> · one-time · private GitHub repo, instant access</p>
@@ -447,7 +450,7 @@ docs/                    <span class="c">SETUP.md, SUBMISSION_PLAYBOOK.md</span>
           <li>SUBMISSION_PLAYBOOK.md — both stores, start to approval</li>
           <li>All updates for the current major version</li>
         </ul>
-        <a class="btn btn-pass" href="https://buy.polar.sh/polar_cl_8sYTIh4uUAh0VfsgSu5hLhd4Q67f1vYbXQ1ET4F2okM">Get WellShip — $149 →</a>
+        <a class="btn btn-pass plausible-event-name=WellShip+CTA+-+Buy" href="https://buy.polar.sh/polar_cl_8sYTIh4uUAh0VfsgSu5hLhd4Q67f1vYbXQ1ET4F2okM">Get WellShip — $149 →</a>
       </div>
 
       <div class="price-card">
@@ -506,7 +509,7 @@ docs/                    <span class="c">SETUP.md, SUBMISSION_PLAYBOOK.md</span>
     <p class="sec-label">Ship</p>
     <h2>Your next app could be in review this month.</h2>
     <p>Skip the two weeks of wiring auth, payments, and privacy manifests. Start from code that's already made it through review on both stores.</p>
-    <a class="btn btn-pass" href="https://buy.polar.sh/polar_cl_8sYTIh4uUAh0VfsgSu5hLhd4Q67f1vYbXQ1ET4F2okM">Get WellShip — $149 →</a>
+    <a class="btn btn-pass plausible-event-name=WellShip+CTA+-+Buy" href="https://buy.polar.sh/polar_cl_8sYTIh4uUAh0VfsgSu5hLhd4Q67f1vYbXQ1ET4F2okM">Get WellShip — $149 →</a>
   </div>
 </section>
 
@@ -521,9 +524,15 @@ docs/                    <span class="c">SETUP.md, SUBMISSION_PLAYBOOK.md</span>
 <footer>
   <div class="wrap foot-inner">
     <span>© 2026 WellShip · <a href="https://wellwaltstudios.com">Well Walt Studios</a></span>
-    <span class="mono" style="font-size:12px">built by the engineer behind <a href="https://apps.apple.com/us/app/aurova/id6756036236" target="_blank" rel="noopener">Aurova</a></span>
+    <span class="mono" style="font-size:12px">
+      Also from Well Walt Studios: <a href="/welltemp">WellTemp →</a>
+      &nbsp;·&nbsp;
+      built by the engineer behind <a href="https://apps.apple.com/us/app/aurova/id6756036236" target="_blank" rel="noopener">Aurova</a>
+    </span>
   </div>
 </footer>
+
+<script src="/constants.js"></script>
 
 </body>
 </html>

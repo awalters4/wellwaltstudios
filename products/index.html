@@ -14,6 +14,9 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://wellwaltstudios.com/logo.png">
 <link rel="icon" href="/favicon.ico">
+<!-- Plausible analytics -->
+<script defer data-domain="wellwaltstudios.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -140,7 +143,8 @@
     <div class="nav-links">
       <a href="/#services">Services</a>
       <a href="/#work">Work</a>
-      <a href="/products" class="active">Products</a>
+      <a href="/wellship">WellShip</a>
+      <a href="/welltemp">WellTemp</a>
       <a href="/#about">About</a>
       <a href="/#contact">Contact</a>
       <a class="btn btn-pass" href="/#contact">Get in touch</a>
@@ -177,9 +181,33 @@
       </ul>
       <div class="prod-ctas">
         <a class="btn btn-pass" href="/wellship">See the full breakdown →</a>
-        <a class="btn btn-ghost" href="https://buy.polar.sh/polar_cl_8sYTIh4uUAh0VfsgSu5hLhd4Q67f1vYbXQ1ET4F2okM">Buy now — $149</a>
+        <a class="btn btn-ghost plausible-event-name=WellShip+CTA+-+Buy" href="https://buy.polar.sh/polar_cl_8sYTIh4uUAh0VfsgSu5hLhd4Q67f1vYbXQ1ET4F2okM">Buy now — $149</a>
       </div>
       <p class="price-note">$149 launch price <s>$199</s> · one-time · private GitHub repo, instant access</p>
+    </div>
+
+    <div class="prod-card">
+      <div class="prod-head">
+        <div>
+          <p class="prod-kicker">Website for local businesses</p>
+          <h2>WellTemp</h2>
+        </div>
+        <span class="badge">Available now</span>
+      </div>
+      <p>A fast, professional website your business owns outright — no monthly fee, ever. Services, booking, payments, a contact form, and a photo gallery, with a simple admin login so you can update it yourself.</p>
+      <ul class="feat-list">
+        <li>5-page site — home, services, booking, portfolio, contact</li>
+        <li>Built-in booking calendar (Cal.com) and contact form</li>
+        <li>Add a payment button to Stripe, PayPal, Venmo, or Cash App</li>
+        <li>Simple admin editor — change words and photos, no code</li>
+        <li>Free hosting; only ongoing cost is a domain (~$12/yr)</li>
+      </ul>
+      <div class="prod-ctas">
+        <a class="btn btn-pass" href="/welltemp">See the full breakdown →</a>
+        <a data-wws-cta="welltemp.setupCall" href="https://cal.com/wellwaltstudios/setup-call"
+           class="btn btn-ghost plausible-event-name=WellTemp+CTA+-+Setup+Call">Book a setup call — $299</a>
+      </div>
+      <p class="price-note">From $59 DIY · $299 setup call · from $1,200 full build · no monthly fee</p>
     </div>
 
     <div class="prod-card">
@@ -210,6 +238,7 @@
   </div>
 </footer>
 
+<script src="/constants.js"></script>
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
