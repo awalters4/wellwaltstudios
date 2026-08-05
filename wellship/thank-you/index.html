@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're in — WellShip</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.ico">
+<!-- Plausible analytics — pageview here = confirmed purchase -->
+<script defer data-domain="wellwaltstudios.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F2536;
+    --ink-soft:#3E5468;
+    --slate:#5B7285;
+    --paper:#F6F8F7;
+    --panel:#FFFFFF;
+    --line:#DCE4E1;
+    --pass:#0C7A5B;
+    --pass-dim:#E3F1EC;
+    --deep:#0B1D2B;
+    --deep-line:#1E3A50;
+    --deep-text:#C9D9E4;
+    --radius:10px;
+    --maxw:720px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:'IBM Plex Mono',monospace;font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--pass)}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--pass);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  nav{
+    border-bottom:1px solid var(--line);background:rgba(246,248,247,.92);
+    backdrop-filter:blur(8px);position:sticky;top:0;z-index:50;
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .nav-left{display:flex;align-items:center;gap:14px}
+  .nav-back{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--slate);
+    text-decoration:none;padding-right:14px;border-right:1px solid var(--line);white-space:nowrap;
+  }
+  .nav-back:hover{color:var(--ink)}
+  @media(max-width:560px){.nav-back span{display:none}}
+  .wordmark{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:16px;color:var(--ink);text-decoration:none;letter-spacing:-.02em}
+  .wordmark b{color:var(--pass);font-weight:600}
+
+  .hero{padding:72px 0 56px}
+  .check{
+    width:52px;height:52px;border-radius:50%;background:var(--pass-dim);
+    display:flex;align-items:center;justify-content:center;margin-bottom:24px;
+  }
+  .check svg{width:26px;height:26px;stroke:var(--pass);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  h1{font-weight:700;font-size:clamp(28px,4vw,38px);letter-spacing:-.025em;line-height:1.08;margin-bottom:14px}
+  .sub{font-size:17px;color:var(--ink-soft);max-width:52ch;margin-bottom:40px}
+
+  .steps{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);overflow:hidden;margin-bottom:36px}
+  .step{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:20px 22px;align-items:start}
+  .step+.step{border-top:1px solid var(--line)}
+  .step-n{
+    width:28px;height:28px;border-radius:50%;background:var(--pass-dim);
+    display:flex;align-items:center;justify-content:center;
+    font-size:12.5px;font-weight:700;color:var(--pass);flex-shrink:0;margin-top:2px;
+  }
+  .step-body h3{font-weight:600;font-size:15.5px;margin-bottom:4px}
+  .step-body p{font-size:14px;color:var(--ink-soft)}
+  .step-body a{font-weight:500}
+  .step-body code{
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;background:#EDF2F0;
+    padding:1px 6px;border-radius:4px;color:var(--ink);
+  }
+
+  .terminal{
+    background:var(--deep);border-radius:var(--radius);border:1px solid var(--deep-line);
+    font-family:'IBM Plex Mono',monospace;font-size:13.5px;overflow-x:auto;margin-bottom:36px;
+  }
+  .term-bar{
+    display:flex;align-items:center;gap:6px;padding:11px 16px;border-bottom:1px solid var(--deep-line);
+  }
+  .dot{width:10px;height:10px;border-radius:50%;background:#2C4A63}
+  .term-bar span{margin-left:8px;font-size:12px;color:#5F7C94}
+  .terminal pre{padding:16px 20px;color:var(--deep-text);line-height:1.85}
+  .terminal .p{color:#4E7A9B;user-select:none}
+  .terminal .c{color:#587891}
+  .terminal .g{color:#3FBF95}
+
+  .back{font-size:14px;color:var(--slate)}
+  .back a{color:var(--slate);font-weight:500}
+  .back a:hover{color:var(--ink)}
+
+  footer{border-top:1px solid var(--line);padding:24px 0;font-size:13px;color:var(--slate);margin-top:72px}
+  .foot-inner{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer a{color:var(--slate)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <div class="nav-left">
+      <a class="nav-back" href="/" aria-label="Back to Well Walt Studios">←<span> wellwaltstudios</span></a>
+      <a class="wordmark" href="/wellship">well<b>ship</b></a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="check">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h1>You're in. Check your email.</h1>
+    <p class="sub">A GitHub invite to the private WellShip repo is on its way — usually arrives within a few minutes. Here's what to do when it lands.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <div class="step-body">
+          <h3>Accept the GitHub invite</h3>
+          <p>Check your email for an invitation from GitHub, or go to <a href="https://github.com/notifications" target="_blank" rel="noopener">github.com/notifications</a> and accept it there.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <div class="step-body">
+          <h3>Clone the repo and install</h3>
+          <p>Once you have access, clone and run <code>npm install</code>. Everything from there is in <code>docs/SETUP.md</code>.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <div class="step-body">
+          <h3>Follow SETUP.md — 14 steps to first device build</h3>
+          <p>Copy <code>.env.example</code> to <code>.env</code>, fill in your Supabase, RevenueCat, PostHog, and Sentry keys, then <code>npx expo start</code>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="terminal" role="img" aria-label="Getting started commands">
+      <div class="term-bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span>after accepting the invite</span></div>
+      <pre><span class="p">$</span> git clone https://github.com/awalters4/wellship your-app
+<span class="p">$</span> cd your-app && npm install
+<span class="p">$</span> cp .env.example .env   <span class="c"># every key documented in SETUP.md</span>
+<span class="p">$</span> npx expo start
+<span class="g">✓ auth, paywall, analytics, and crash reporting running on device</span></pre>
+    </div>
+
+    <p class="back">Questions? Email <a href="mailto:ariel@wellwaltstudios.com">ariel@wellwaltstudios.com</a> — or <a href="/wellship">back to the WellShip page</a>.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span>© <span id="year"></span> WellShip · <a href="/">Well Walt Studios</a></span>
+    <span><a href="mailto:ariel@wellwaltstudios.com">ariel@wellwaltstudios.com</a></span>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're in — WellTemp</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.ico">
+<!-- Plausible analytics — pageview here = confirmed purchase -->
+<script defer data-domain="wellwaltstudios.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Inter:wght@400;500;600&family=Spline+Sans+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#171B22;
+    --ink-2:#1F252E;
+    --paper:#F4F0E7;
+    --brass:#C29A4C;
+    --brass-hi:#DDBB6E;
+    --brass-dim:#F5EDD8;
+    --text-on-ink:#EDE8DC;
+    --text-on-ink-dim:#A7ADB5;
+    --text-on-paper:#20242B;
+    --text-on-paper-dim:#5C6169;
+    --line-on-ink:rgba(237,232,220,.14);
+    --line-on-paper:rgba(32,36,43,.14);
+    --radius:14px;
+    --maxw:720px;
+    --display:"Bricolage Grotesque",system-ui,sans-serif;
+    --body:"Inter",system-ui,sans-serif;
+    --mono:"Spline Sans Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:var(--body);background:var(--paper);color:var(--text-on-paper);
+    -webkit-font-smoothing:antialiased;line-height:1.55;font-size:17px;
+  }
+  a{color:inherit}
+  :focus-visible{outline:2.5px solid var(--brass);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  .nav{position:sticky;top:0;z-index:50;background:rgba(23,27,34,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-on-ink)}
+  .nav-in{display:flex;align-items:center;height:64px;gap:14px}
+  .nav-back{
+    font-family:var(--mono);font-size:13px;color:var(--text-on-ink-dim);
+    text-decoration:none;padding-right:14px;border-right:1px solid var(--line-on-ink);white-space:nowrap;
+  }
+  .nav-back:hover{color:var(--text-on-ink)}
+  @media(max-width:560px){.nav-back span{display:none}}
+  .brand{font-family:var(--display);font-weight:800;color:var(--text-on-ink);text-decoration:none;font-size:19px;letter-spacing:-.01em}
+  .brand b{color:var(--brass)}
+
+  .hero{padding:72px 0 56px}
+  .check{
+    width:52px;height:52px;border-radius:50%;background:var(--brass-dim);
+    display:flex;align-items:center;justify-content:center;margin-bottom:24px;
+  }
+  .check svg{width:26px;height:26px;stroke:var(--brass);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  h1{font-family:var(--display);font-weight:800;font-size:clamp(28px,4vw,38px);letter-spacing:-.02em;line-height:1.06;margin-bottom:14px}
+  .sub{font-size:17px;color:var(--text-on-paper-dim);max-width:52ch;margin-bottom:40px}
+
+  .steps{display:flex;flex-direction:column;gap:0;border:1px solid var(--line-on-paper);border-radius:var(--radius);background:#fff;overflow:hidden;margin-bottom:36px}
+  .step{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:20px 22px;align-items:start}
+  .step+.step{border-top:1px solid var(--line-on-paper)}
+  .step-n{
+    width:28px;height:28px;border-radius:50%;background:var(--brass-dim);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-size:12px;font-weight:600;color:var(--brass);flex-shrink:0;margin-top:2px;
+  }
+  .step-body h3{font-family:var(--display);font-weight:700;font-size:16px;margin-bottom:4px;letter-spacing:-.01em}
+  .step-body p{font-size:14.5px;color:var(--text-on-paper-dim)}
+  .step-body a{color:var(--brass);font-weight:500;text-decoration:none}
+  .step-body a:hover{text-decoration:underline}
+  .step-body code{font-family:var(--mono);font-size:12.5px;background:#EDE9DF;padding:1px 6px;border-radius:4px;color:var(--text-on-paper)}
+
+  .back{font-size:14px;color:var(--text-on-paper-dim)}
+  .back a{color:var(--text-on-paper-dim);font-weight:500;text-decoration:none}
+  .back a:hover{color:var(--brass)}
+
+  footer{background:var(--ink);color:var(--text-on-ink-dim);border-top:1px solid var(--line-on-ink);padding:28px 0;font-size:14px;margin-top:72px}
+  .foot-in{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+  footer a{color:var(--text-on-ink-dim);text-decoration:none}
+  footer a:hover{color:var(--brass)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="nav-back" href="/" aria-label="Back to Well Walt Studios">←<span> wellwaltstudios</span></a>
+    <a class="brand" href="/welltemp">well<b>temp</b></a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="check">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h1>You're in. Check your email.</h1>
+    <p class="sub">A GitHub invite to the WellTemp repo is on its way — usually a few minutes. Here's what to do when it lands.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <div class="step-body">
+          <h3>Accept the GitHub invite</h3>
+          <p>Check your email for an invitation from GitHub, or go to <a href="https://github.com/notifications" target="_blank" rel="noopener">github.com/notifications</a> and accept it there.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <div class="step-body">
+          <h3>Deploy to Netlify in one click</h3>
+          <p>The repo has a Deploy to Netlify button in the README. Click it — Netlify copies the repo to your GitHub account and puts the site live in about two minutes. No code needed.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <div class="step-body">
+          <h3>Log in at /admin and make it yours</h3>
+          <p>Open <code>your-site.netlify.app/admin</code>, sign in with GitHub, and update your business name, colors, services, and contact info. Follow <code>SETUP.md</code> to connect your domain, booking, and payments.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="back">Stuck or have questions? Email <a href="mailto:ariel@wellwaltstudios.com">ariel@wellwaltstudios.com</a> — or <a href="/welltemp">back to the WellTemp page</a>.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>© <span id="year"></span> WellTemp · <a href="/">Well Walt Studios</a></span>
+    <span><a href="mailto:ariel@wellwaltstudios.com">ariel@wellwaltstudios.com</a></span>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
