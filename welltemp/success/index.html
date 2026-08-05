@@ -11,129 +11,144 @@
 <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Inter:wght@400;500;600&family=Spline+Sans+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600&family=Spline+Sans+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#171B22;
-    --ink-2:#1F252E;
-    --paper:#F4F0E7;
-    --brass:#C29A4C;
-    --brass-hi:#DDBB6E;
-    --brass-dim:#F5EDD8;
-    --text-on-ink:#EDE8DC;
-    --text-on-ink-dim:#A7ADB5;
-    --text-on-paper:#20242B;
-    --text-on-paper-dim:#5C6169;
-    --line-on-ink:rgba(237,232,220,.14);
-    --line-on-paper:rgba(32,36,43,.14);
-    --radius:14px;
-    --maxw:720px;
+    --ink:#171B22; --ink-2:#1F252E; --paper:#F4F0E7;
+    --brass:#C29A4C; --brass-hi:#DDBB6E; --sage:#7E9188;
+    --text-on-ink:#EDE8DC; --text-on-ink-dim:#A7ADB5;
+    --text-on-paper:#20242B; --text-on-paper-dim:#5C6169;
+    --line-on-ink:rgba(237,232,220,.14); --line-on-paper:rgba(32,36,43,.14);
     --display:"Bricolage Grotesque",system-ui,sans-serif;
-    --body:"Inter",system-ui,sans-serif;
-    --mono:"Spline Sans Mono",ui-monospace,monospace;
+    --body:"Inter",system-ui,sans-serif; --mono:"Spline Sans Mono",ui-monospace,monospace;
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{
-    font-family:var(--body);background:var(--paper);color:var(--text-on-paper);
-    -webkit-font-smoothing:antialiased;line-height:1.55;font-size:17px;
-  }
-  a{color:inherit}
-  :focus-visible{outline:2.5px solid var(--brass);outline-offset:3px;border-radius:4px}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:var(--body);background:var(--paper);color:var(--text-on-paper);
+    -webkit-font-smoothing:antialiased;line-height:1.55;font-size:17px}
+  a{color:#7a5f21}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  .display{font-family:var(--display);font-weight:800;letter-spacing:-.02em;line-height:1.05}
+  .eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);font-weight:600}
+  .mono{font-family:var(--mono)}
 
-  .nav{position:sticky;top:0;z-index:50;background:rgba(23,27,34,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-on-ink)}
-  .nav-in{display:flex;align-items:center;height:64px;gap:14px}
-  .nav-back{
-    font-family:var(--mono);font-size:13px;color:var(--text-on-ink-dim);
-    text-decoration:none;padding-right:14px;border-right:1px solid var(--line-on-ink);white-space:nowrap;
-  }
-  .nav-back:hover{color:var(--text-on-ink)}
-  @media(max-width:560px){.nav-back span{display:none}}
-  .brand{font-family:var(--display);font-weight:800;color:var(--text-on-ink);text-decoration:none;font-size:19px;letter-spacing:-.01em}
-  .brand b{color:var(--brass)}
+  .top{background:var(--ink);color:var(--text-on-ink);position:relative;overflow:hidden}
+  .top::before{content:"";position:absolute;inset:0;
+    background:radial-gradient(700px 380px at 80% -20%,rgba(194,154,76,.18),transparent 60%);pointer-events:none}
+  .top-in{position:relative;padding:72px 0 60px;text-align:center}
+  .check{width:56px;height:56px;border-radius:50%;border:2px solid var(--brass);display:inline-flex;
+    align-items:center;justify-content:center;margin-bottom:22px}
+  .check svg{width:26px;height:26px}
+  .top h1{font-size:clamp(30px,5vw,46px);margin:10px 0 0}
+  .top p{color:var(--text-on-ink-dim);font-size:18px;margin:16px auto 0;max-width:44ch}
 
-  .hero{padding:72px 0 56px}
-  .check{
-    width:52px;height:52px;border-radius:50%;background:var(--brass-dim);
-    display:flex;align-items:center;justify-content:center;margin-bottom:24px;
-  }
-  .check svg{width:26px;height:26px;stroke:var(--brass);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
-  h1{font-family:var(--display);font-weight:800;font-size:clamp(28px,4vw,38px);letter-spacing:-.02em;line-height:1.06;margin-bottom:14px}
-  .sub{font-size:17px;color:var(--text-on-paper-dim);max-width:52ch;margin-bottom:40px}
+  section{padding:56px 0}
+  .card{background:#fff;border:1px solid var(--line-on-paper);border-radius:14px;padding:26px 26px}
 
-  .steps{display:flex;flex-direction:column;gap:0;border:1px solid var(--line-on-paper);border-radius:var(--radius);background:#fff;overflow:hidden;margin-bottom:36px}
-  .step{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:20px 22px;align-items:start}
-  .step+.step{border-top:1px solid var(--line-on-paper)}
-  .step-n{
-    width:28px;height:28px;border-radius:50%;background:var(--brass-dim);
-    display:flex;align-items:center;justify-content:center;
-    font-family:var(--mono);font-size:12px;font-weight:600;color:var(--brass);flex-shrink:0;margin-top:2px;
-  }
-  .step-body h3{font-family:var(--display);font-weight:700;font-size:16px;margin-bottom:4px;letter-spacing:-.01em}
-  .step-body p{font-size:14.5px;color:var(--text-on-paper-dim)}
-  .step-body a{color:var(--brass);font-weight:500;text-decoration:none}
-  .step-body a:hover{text-decoration:underline}
-  .step-body code{font-family:var(--mono);font-size:12.5px;background:#EDE9DF;padding:1px 6px;border-radius:4px;color:var(--text-on-paper)}
+  .steps{list-style:none;counter-reset:s;padding:0;margin:0;display:grid;gap:18px}
+  .steps li{position:relative;padding-left:52px}
+  .steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:-2px;
+    width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--brass-hi);
+    font-family:var(--mono);font-weight:600;font-size:15px;display:flex;align-items:center;justify-content:center}
+  .steps h3{font-family:var(--display);font-weight:600;font-size:18.5px;margin:2px 0 4px;letter-spacing:-.01em}
+  .steps p{margin:0;color:var(--text-on-paper-dim);font-size:15.5px}
+  .steps code{font-family:var(--mono);font-size:13.5px;background:var(--paper);padding:2px 7px;border-radius:5px;color:#5a4718}
 
-  .back{font-size:14px;color:var(--text-on-paper-dim)}
-  .back a{color:var(--text-on-paper-dim);font-weight:500;text-decoration:none}
-  .back a:hover{color:var(--brass)}
+  .sec-head h2{font-size:clamp(24px,3.4vw,32px);margin:10px 0 8px}
+  .sec-head p{color:var(--text-on-paper-dim);margin:0 0 4px}
 
-  footer{background:var(--ink);color:var(--text-on-ink-dim);border-top:1px solid var(--line-on-ink);padding:28px 0;font-size:14px;margin-top:72px}
-  .foot-in{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
-  footer a{color:var(--text-on-ink-dim);text-decoration:none}
-  footer a:hover{color:var(--brass)}
+  .btn{display:inline-flex;align-items:center;gap:.5em;font-weight:600;font-size:16px;
+    padding:13px 22px;border-radius:10px;text-decoration:none;background:var(--brass);color:#1a150a;
+    border:1px solid var(--brass);transition:background .15s}
+  .btn:hover{background:var(--brass-hi)}
+  :focus-visible{outline:2.5px solid var(--brass);outline-offset:3px}
+
+  .divider{border:0;border-top:1px solid var(--line-on-paper);margin:0}
+
+  .callout{background:var(--ink);color:var(--text-on-ink);border-radius:14px;padding:22px 24px;margin-bottom:26px}
+  .callout .eyebrow{color:var(--brass-hi)}
+  .callout h2{font-family:var(--display);font-weight:700;font-size:22px;margin:8px 0 6px;letter-spacing:-.01em}
+  .callout p{color:var(--text-on-ink-dim);margin:0;font-size:15.5px}
+
+  .form-frame{width:100%;border:1px solid var(--line-on-paper);border-radius:12px;background:#fff;overflow:hidden}
+  .form-frame iframe{width:100%;height:1100px;border:0;display:block}
+
+  footer{text-align:center;padding:40px 0 56px;color:var(--text-on-paper-dim);font-size:14px}
+  footer a{color:var(--text-on-paper-dim)}
 </style>
 </head>
 <body>
 
-<nav class="nav">
-  <div class="wrap nav-in">
-    <a class="nav-back" href="/" aria-label="Back to Well Walt Studios">←<span> wellwaltstudios</span></a>
-    <a class="brand" href="/welltemp">well<b>temp</b></a>
+<header class="top">
+  <div class="wrap top-in">
+    <span class="check" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6.5" stroke="#DDBB6E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+    <div class="eyebrow">Payment complete</div>
+    <h1 class="display">You're in. WellTemp is yours.</h1>
+    <p>Thanks for your purchase. Your template is on its way — here's exactly what happens next.</p>
   </div>
-</nav>
+</header>
 
-<div class="hero">
+<!-- UNIVERSAL: everyone who checks out sees this -->
+<section>
   <div class="wrap">
-    <div class="check">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+    <div class="sec-head">
+      <span class="eyebrow">Next steps</span>
+      <h2 class="display">Get your site live in a few minutes</h2>
+      <p>Do these in order. If anything sticks, email us — we answer fast.</p>
     </div>
-    <h1>You're in. Check your email.</h1>
-    <p class="sub">A GitHub invite to the WellTemp repo is on its way — usually a few minutes. Here's what to do when it lands.</p>
-
-    <div class="steps">
-      <div class="step">
-        <div class="step-n">1</div>
-        <div class="step-body">
-          <h3>Accept the GitHub invite</h3>
-          <p>Check your email for an invitation from GitHub, or go to <a href="https://github.com/notifications" target="_blank" rel="noopener">github.com/notifications</a> and accept it there.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-n">2</div>
-        <div class="step-body">
-          <h3>Deploy to Netlify in one click</h3>
-          <p>The repo has a Deploy to Netlify button in the README. Click it — Netlify copies the repo to your GitHub account and puts the site live in about two minutes. No code needed.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-n">3</div>
-        <div class="step-body">
-          <h3>Log in at /admin and make it yours</h3>
-          <p>Open <code>your-site.netlify.app/admin</code>, sign in with GitHub, and update your business name, colors, services, and contact info. Follow <code>SETUP.md</code> to connect your domain, booking, and payments.</p>
-        </div>
-      </div>
+    <div class="card" style="margin-top:24px">
+      <ol class="steps">
+        <li>
+          <h3>Accept your GitHub invite</h3>
+          <p>GitHub is emailing you an invite to the WellTemp template right now. Open it and click <strong>Accept</strong>. No GitHub account yet? Create one free at <a href="https://github.com/signup">github.com/signup</a> using the same email, then check for the invite.</p>
+        </li>
+        <li>
+          <h3>Make your own copy</h3>
+          <p>On the template repo, click <strong>"Use this template" → "Create a new repository."</strong> That gives you your own private copy to keep and edit.</p>
+        </li>
+        <li>
+          <h3>Deploy it — one click</h3>
+          <p>In your new repo's README, click the <strong>"Deploy to Netlify"</strong> button and follow the prompts. Your site goes live on a free web address in about a minute.</p>
+        </li>
+        <li>
+          <h3>Make it yours</h3>
+          <p>Log in at <code>your-site.netlify.app/admin</code> to change your text, photos, services, and links — no code. The full setup guide (payments, booking, connecting your own domain) is in the repo's <code>SETUP</code> file.</p>
+        </li>
+      </ol>
+      <p style="margin:24px 0 0">
+        <a class="btn" href="https://github.com/Well-Walt-Studios/welltemp">Open the template on GitHub →</a>
+      </p>
     </div>
-
-    <p class="back">Stuck or have questions? Email <a href="mailto:ariel@wellwaltstudios.com">ariel@wellwaltstudios.com</a> — or <a href="/welltemp">back to the WellTemp page</a>.</p>
   </div>
-</div>
+</section>
+
+<hr class="divider">
+
+<!-- FOR SETUP-CALL / FULL-BUILD CLIENTS ONLY -->
+<section>
+  <div class="wrap">
+    <div class="callout">
+      <div class="eyebrow">Booked a setup call or full build?</div>
+      <h2>Complete your intake below</h2>
+      <p>If you're having us set things up for you, fill this out at least 24 hours before your call so we can get you live on the call itself. Just bought the template to do it yourself? You're all set above — you can ignore this.</p>
+    </div>
+
+    <div class="form-frame">
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSeKw39i7xxlFck8gf_DymhcbpaHV6aTjvgfqydcItd1HMlxrQ/viewform?embedded=true"
+        title="WellTemp Setup Call — Intake form"
+        loading="lazy">
+        Loading the intake form…
+      </iframe>
+    </div>
+  </div>
+</section>
 
 <footer>
-  <div class="wrap foot-in">
-    <span>© <span id="year"></span> WellTemp · <a href="/">Well Walt Studios</a></span>
-    <span><a href="mailto:ariel@wellwaltstudios.com">ariel@wellwaltstudios.com</a></span>
+  <div class="wrap">
+    Questions or stuck on a step? Email <a href="mailto:ariel@wellwaltstudios.com">ariel@wellwaltstudios.com</a><br>
+    © <span id="year"></span> WellTemp · <a href="https://wellwaltstudios.com">Well Walt Studios</a>
   </div>
 </footer>
 
