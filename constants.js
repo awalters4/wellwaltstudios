@@ -6,7 +6,7 @@
 
 // TODO ①  Create your WellTemp product on Polar.sh, then paste the
 //          generated checkout URL below to activate the "Buy the template" button.
-var POLAR_WELLTEMP_URL = 'https://buy.polar.sh/REPLACE_WITH_POLAR_WELLTEMP_URL';
+var POLAR_WELLTEMP_URL = 'https://buy.polar.sh/polar_cl_TUqA0YSh6jUUrIZRGa4fqK9sybNLQZHUblBLv1QIebR';
 
 var WWS_LINKS = {
   welltemp: {
