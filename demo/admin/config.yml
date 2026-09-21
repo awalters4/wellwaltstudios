@@ -1,0 +1,189 @@
+# Generated at build time by src/pages/admin/config.yml.ts — do not edit dist output.
+backend:
+  name: github
+  repo: OWNER/REPO
+  branch: main
+  # base_url/auth_endpoint are filled automatically when built on Netlify
+
+site_url: /
+media_folder: src/content/portfolio/images
+public_folder: ./images
+
+collections:
+  - name: settings
+    label: Site Settings
+    icon: settings
+    files:
+      - name: site
+        label: Site Settings
+        file: src/data/settings.json
+        fields:
+          - name: business
+            label: Business
+            widget: object
+            fields:
+              - { name: name, label: Business name, widget: string }
+              - { name: tagline, label: Tagline, widget: string }
+              - { name: description, label: Search/social description, widget: text }
+              - { name: url, label: Website URL, widget: string, required: false, hint: "Your custom domain, e.g. https://mybusiness.com. Leave empty to use your Netlify URL." }
+              - { name: email, label: Email, widget: string }
+              - { name: phone, label: Phone, widget: string, required: false }
+              - { name: address, label: Address, widget: string, required: false }
+          - name: features
+            label: Pages on/off
+            widget: object
+            fields:
+              - { name: faq, label: FAQ page, widget: boolean }
+              - { name: portfolio, label: Portfolio page, widget: boolean }
+          - name: theme
+            label: Theme
+            widget: object
+            collapsed: true
+            fields:
+              - name: colors
+                label: Colors
+                widget: object
+                fields:
+                  - { name: primary, label: Primary (brand), widget: color }
+                  - { name: primaryContrast, label: Text on primary, widget: color }
+                  - { name: accent, label: Accent, widget: color }
+                  - { name: surface, label: Page background, widget: color }
+                  - { name: surfaceRaised, label: Card background, widget: color }
+                  - { name: text, label: Body text, widget: color }
+                  - { name: textMuted, label: Muted text, widget: color }
+                  - { name: border, label: Borders, widget: color }
+              - name: fonts
+                label: Fonts
+                widget: object
+                fields:
+                  - { name: sans, label: Body font stack, widget: string }
+                  - { name: display, label: Heading font stack, widget: string }
+              - { name: fontImportUrl, label: Google Fonts URL, widget: string, required: false, hint: "Optional stylesheet URL loading the fonts above. Empty = system fonts (fastest)." }
+              - { name: radius, label: Corner rounding, widget: string, hint: "Any CSS length, e.g. 0.75rem. 0px = square." }
+          - name: copy
+            label: Page copy
+            widget: object
+            collapsed: true
+            fields:
+              - name: home
+                label: Home
+                widget: object
+                fields:
+                  - { name: heroHeading, label: Hero heading, widget: string }
+                  - { name: heroSubheading, label: Hero subheading, widget: text }
+                  - { name: ctaLabel, label: Hero button label, widget: string }
+                  - { name: ctaHref, label: Hero button link, widget: string }
+                  - { name: servicesHeading, label: Services section heading, widget: string }
+                  - { name: portfolioHeading, label: Portfolio section heading, widget: string }
+              - name: services
+                label: Services page
+                widget: object
+                fields:
+                  - { name: heading, widget: string }
+                  - { name: intro, widget: text }
+              - name: scheduling
+                label: Scheduling page
+                widget: object
+                fields:
+                  - { name: heading, widget: string }
+                  - { name: intro, widget: text }
+              - name: contact
+                label: Contact page
+                widget: object
+                fields:
+                  - { name: heading, widget: string }
+                  - { name: intro, widget: text }
+              - name: faq
+                label: FAQ page
+                widget: object
+                fields:
+                  - { name: heading, widget: string }
+                  - { name: intro, widget: text }
+              - name: portfolio
+                label: Portfolio page
+                widget: object
+                fields:
+                  - { name: heading, widget: string }
+                  - { name: intro, widget: text }
+              - name: footer
+                label: Footer
+                widget: object
+                fields:
+                  - { name: note, label: Footer note, widget: string, required: false }
+          - name: portfolio
+            label: Portfolio display
+            widget: object
+            fields:
+              - { name: layout, label: Layout, widget: select, options: [grid, masonry] }
+              - { name: showCaptions, label: Show captions, widget: boolean }
+          - name: integrations
+            label: Integrations
+            widget: object
+            fields:
+              - name: cal
+                label: "Scheduling (Cal.com)"
+                widget: object
+                fields:
+                  - { name: username, label: Cal.com username, widget: string, required: false, hint: "From cal.com/YOUR-USERNAME. Empty = 'booking coming soon' placeholder." }
+                  - name: events
+                    label: Event types
+                    widget: list
+                    fields:
+                      - { name: slug, label: Event slug, widget: string }
+                      - { name: label, label: Button label, widget: string }
+              - name: web3forms
+                label: "Contact form (Web3Forms)"
+                widget: object
+                fields:
+                  - { name: accessKey, label: Access key, widget: string, required: false, hint: "Free at web3forms.com — safe to be public. Empty = email-link placeholder." }
+
+  - name: services
+    label: Services
+    folder: src/content/services
+    create: true
+    extension: md
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: price, label: Price, widget: string, hint: 'Free-form, e.g. "$95 · 60 min"' }
+      - { name: order, label: Order, widget: number, default: 0 }
+      - { name: featured, label: Featured on home page, widget: boolean, default: false }
+      - name: payment
+        label: Payment
+        widget: object
+        required: false
+        hint: "Link to YOUR hosted payment page. Use a business account (Stripe Payment Link, Square, PayPal Business). Avoid personal Venmo/CashApp accounts — personal accounts violate those platforms' terms for business use and leave you without records or protection. Leave URL empty to show a 'Contact to purchase' button."
+        fields:
+          - { name: provider, label: Provider, widget: select, options: [stripe, square, paypal, venmo, cashapp, other], default: other }
+          - { name: url, label: Payment page URL, widget: string, required: false }
+          - { name: buttonLabel, label: Button label, widget: string, default: "Book & pay online" }
+      - { name: body, label: Description, widget: markdown }
+
+  - name: portfolio
+    label: Portfolio
+    folder: src/content/portfolio
+    create: true
+    extension: md
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: caption, label: Caption, widget: string, required: false }
+      - name: mediaType
+        label: Media type
+        widget: select
+        options: [image, videoEmbed]
+        default: image
+      - { name: image, label: Image, widget: image, required: false, hint: "For image items. Keep files to a few MB — big files eat the free bandwidth allowance." }
+      - { name: videoUrl, label: Video URL, widget: string, required: false, hint: "YouTube/Vimeo link for videoEmbed items. NEVER upload video files to the site itself." }
+      - { name: poster, label: Video poster image, widget: image, required: false, hint: "Grid thumbnail for Vimeo items (YouTube gets one automatically)." }
+      - { name: order, label: Order, widget: number, default: 0 }
+      - { name: featured, label: Featured on home page, widget: boolean, default: false }
+      - { name: body, label: Notes, widget: markdown, required: false }
+
+  - name: faq
+    label: FAQ
+    folder: src/content/faq
+    create: true
+    extension: md
+    fields:
+      - { name: question, label: Question, widget: string }
+      - { name: order, label: Order, widget: number, default: 0 }
+      - { name: body, label: Answer, widget: markdown }

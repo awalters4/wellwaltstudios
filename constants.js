@@ -17,9 +17,10 @@ var RETAINER_PRICE = '$150/mo';
 //          [data-wws-cta="service.book"] element (the "Book a call" buttons).
 var BOOKING_URL    = 'https://cal.com/wellwaltstudios/discovery-call';
 
-// TODO ②  Demo — the sample small-business site you'll build separately.
-//          Wired to [data-wws-cta="service.demo"] on the portfolio page.
-var DEMO_URL       = '#';
+// Demo — the WellTemp sample site, served from this repo at /demo (built from
+// the welltemp-starter-kit with SITE_BASE=/demo). Wired to
+// [data-wws-cta="service.demo"] on the portfolio page.
+var DEMO_URL       = 'https://wellwaltstudios.com/demo';
 
 // Where lead notifications go. Also used for the mailto scoping CTA.
 var LEAD_EMAIL     = 'ariel@wellwaltstudios.com';

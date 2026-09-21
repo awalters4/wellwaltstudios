@@ -1,0 +1,32 @@
+{
+  "template": "welltemp",
+  "generatedAt": "2026-09-21T15:34:11.341Z",
+  "deploy": {
+    "siteUrl": null,
+    "repository": null,
+    "customDomainConfigured": false
+  },
+  "features": {
+    "faq": true,
+    "portfolio": true
+  },
+  "integrations": {
+    "scheduling": {
+      "configured": false,
+      "eventCount": 3
+    },
+    "contactForm": {
+      "configured": false,
+      "provider": "web3forms"
+    },
+    "payments": {
+      "configured": false,
+      "servicesTotal": 3,
+      "servicesWithPaymentLink": 0,
+      "providers": []
+    },
+    "cmsLogin": {
+      "configured": false
+    }
+  }
+}
