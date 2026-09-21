@@ -94,15 +94,6 @@
   .demo-copy p{color:var(--ink-soft);font-size:15px;margin-bottom:18px;max-width:48ch}
   .demo-copy .btn{margin-right:10px;margin-bottom:10px}
 
-  /* testimonials */
-  .quote-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-  .quote{border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);padding:26px;display:flex;flex-direction:column;gap:16px}
-  .quote.placeholder{border-style:dashed;background:var(--paper)}
-  .quote p{font-size:15.5px;color:var(--ink);line-height:1.6}
-  .quote .who{display:flex;align-items:center;gap:12px;margin-top:auto}
-  .quote .avatar{width:40px;height:40px;border-radius:50%;background:#EDF2F0;display:flex;align-items:center;justify-content:center;color:var(--slate);font-weight:700;font-size:15px;flex-shrink:0}
-  .quote .n{font-size:14px;font-weight:600}
-  .quote .m{font-size:12.5px;color:var(--slate)}
   .placeholder-note{font-size:12.5px;color:var(--slate);margin-top:16px}
 
   /* cta band */
@@ -118,7 +109,6 @@
 
   @media (max-width:900px){
     .demo{grid-template-columns:1fr}
-    .quote-grid{grid-template-columns:1fr}
     section{padding:48px 0}
     .nav-toggle{display:inline-flex}
     .nav-links{position:absolute;top:60px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:8px 24px 18px;display:none;box-shadow:0 12px 24px -16px rgba(15,37,54,.25)}
@@ -192,33 +182,6 @@
         <p class="placeholder-note">Live demo built with the WellTemp kit — the same site setup your $699 starter deal delivers.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="band">
-  <div class="wrap">
-    <p class="sec-label">In their words</p>
-    <h2>What clients say.</h2>
-    <p class="sec-sub">The first client reviews will appear here. These are placeholders — I'll swap in real quotes as projects wrap.</p>
-
-    <div class="quote-grid">
-      <div class="quote placeholder">
-        <p>“Placeholder testimonial — a sentence or two from a client about more booked inquiries and less admin after the new site launched.”</p>
-        <div class="who">
-          <span class="avatar" aria-hidden="true">—</span>
-          <span><span class="n">Client name</span><br><span class="m">Business · City</span></span>
-        </div>
-      </div>
-      <div class="quote placeholder">
-        <p>“Placeholder testimonial — a client noting how quick and painless the build was, and that they own the site outright with no monthly fees.”</p>
-        <div class="who">
-          <span class="avatar" aria-hidden="true">—</span>
-          <span><span class="n">Client name</span><br><span class="m">Business · City</span></span>
-        </div>
-      </div>
-    </div>
-    <p class="placeholder-note">Replace these two blocks with real testimonials after the first client.</p>
   </div>
 </section>
 
