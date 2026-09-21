@@ -3,15 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Well Walt Studios — Ariel Deres</title>
-<meta name="description" content="Ariel Deres — Senior mobile &amp; full-stack engineer available for contract work. Well Walt Studios.">
+<title>Small Business Website Design &amp; Automation — Well Walt Studios</title>
+<meta name="description" content="Done-for-you websites and practice automations for small businesses. I build a modern site that wins you clients, set up your intake and local search, and hand you a site you own outright — no monthly platform fees.">
 <link rel="canonical" href="https://wellwaltstudios.com/">
-<meta property="og:title" content="Well Walt Studios — Ariel Deres">
-<meta property="og:description" content="Senior mobile &amp; full-stack engineer available for contract work.">
+<meta property="og:title" content="Small Business Website Design &amp; Automation — Well Walt Studios">
+<meta property="og:description" content="Done-for-you websites and practice automations for small businesses. A modern site that wins clients, plus intake automation and local search setup — a site you own outright.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://wellwaltstudios.com/">
 <meta property="og:image" content="https://wellwaltstudios.com/logo.png">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Small Business Website Design &amp; Automation — Well Walt Studios">
+<meta name="twitter:description" content="Done-for-you websites and practice automations for small businesses. A site you own outright — no monthly platform fees.">
 <meta name="twitter:image" content="https://wellwaltstudios.com/logo.png">
 <link rel="icon" href="/favicon.ico">
 <!-- Plausible analytics -->
@@ -274,6 +276,50 @@
     .hero-ctas{flex-direction:column;align-items:stretch}
     .btn{text-align:center}
   }
+
+  /* ---------- nav: persistent CTA + mobile menu ---------- */
+  .nav-right{display:flex;align-items:center;gap:18px}
+  .nav-toggle{
+    display:none;background:none;border:1px solid var(--line);border-radius:8px;
+    width:38px;height:38px;align-items:center;justify-content:center;cursor:pointer;
+    color:var(--ink);
+  }
+  .nav-toggle svg{display:block}
+  .nav-get-started{white-space:nowrap}
+
+  /* ---------- who it's for strip ---------- */
+  .who{padding-top:0}
+  .who-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+  .who-tag{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;
+    padding:7px 14px;border-radius:99px;background:var(--paper);
+    border:1px solid var(--line);color:var(--ink-soft);
+  }
+
+  /* ---------- offer snapshot card (hero aside) ---------- */
+  .snap-list{padding:18px;display:flex;flex-direction:column;gap:12px}
+  .snap-list li{list-style:none;display:flex;gap:10px;font-size:14px;color:var(--ink-soft)}
+  .snap-list li::before{content:'✓';color:var(--pass);font-weight:700}
+  .snap-foot{
+    padding:14px 18px;background:#FBFCFB;border-top:1px solid var(--line);
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--slate);
+    display:flex;justify-content:space-between;align-items:center;gap:12px;
+  }
+  .snap-foot b{color:var(--ink)}
+
+  @media (max-width:900px){
+    .nav-toggle{display:inline-flex}
+    .nav-links{
+      position:absolute;top:60px;left:0;right:0;
+      flex-direction:column;align-items:stretch;gap:0;
+      background:var(--paper);border-bottom:1px solid var(--line);
+      padding:8px 24px 18px;display:none;
+      box-shadow:0 12px 24px -16px rgba(15,37,54,.25);
+    }
+    .nav-links.open{display:flex}
+    .nav-links a:not(.btn){display:block;padding:12px 0;font-size:15px;border-bottom:1px solid var(--line)}
+    .nav-links a:not(.btn):last-child{border-bottom:0}
+  }
 </style>
 </head>
 <body>
@@ -281,14 +327,20 @@
 <nav>
   <div class="wrap nav-inner">
     <a class="wordmark" href="/"><img src="/logo.png" alt="Well Walt Studios"></a>
-    <div class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#work">Work</a>
-      <a href="/welltemp">WellTemp</a>
-      <a href="/wellship">WellShip</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a class="btn btn-pass" href="#contact">Get in touch</a>
+    <div class="nav-right">
+      <div class="nav-links" id="navLinks">
+        <a href="/services">Services</a>
+        <a href="/portfolio">Portfolio</a>
+        <a href="#how">How it works</a>
+        <a href="/welltemp">WellTemp</a>
+        <a href="/wellship">WellShip</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="btn btn-pass nav-get-started plausible-event-name=Get+Started+-+Nav"
+         href="/start" data-wws-cta="service.start">Get started</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+      </button>
     </div>
   </div>
 </nav>
@@ -297,157 +349,143 @@
   <div class="wrap hero-grid">
     <div>
       <p class="eyebrow">Well Walt Studios · New Orleans</p>
-      <h1>Senior engineer.<br><span class="pass-word">Available now.</span></h1>
-      <p class="hero-sub">I'm Ariel Deres — a senior mobile and full-stack engineer with 13+ years of experience shipping production software. I take on contract work across mobile, web, and cloud.</p>
+      <h1>A website that <span class="pass-word">wins you clients</span> — built and launched for you.</h1>
+      <p class="hero-sub">I set up professional websites for small businesses — built from a proven template, with the client-intake automation that books your inquiries, and launched for you. A site that works while you work, that you own outright. No page builders, no monthly platform fees, no touching code.</p>
       <div class="hero-ctas">
-        <a class="btn btn-pass" href="#contact">Work with me</a>
-        <a class="btn btn-ghost" href="#work">See my work</a>
+        <a class="btn btn-pass plausible-event-name=Get+Started+-+Hero" href="/start" data-wws-cta="service.start">Get started</a>
+        <a class="btn btn-ghost" href="/services">See the offer</a>
       </div>
-      <p class="hero-note">Available for contract</p>
+      <p class="hero-note">Booking a limited number of builds</p>
     </div>
 
-    <aside class="status-card" aria-label="Shipped work, live today">
+    <aside class="status-card" aria-label="What's included in the done-for-you website">
       <div class="status-head">
-        <span>SHIPPED &amp; MAINTAINED</span>
-        <span>LIVE</span>
+        <span>DONE-FOR-YOU STARTER SITE</span>
+        <span>FROM <span data-wws-text="sitePrice">$699</span></span>
       </div>
-      <div class="status-app">
-        <div class="app-icon a" aria-hidden="true">A</div>
-        <div class="status-body">
-          <div class="status-title">Aurova — Habit Tracking</div>
-          <div class="status-meta">Solo build · iOS &amp; Android</div>
-          <span class="badge">Ready for Sale</span>
-          <div class="store-links">
-            <a href="https://apps.apple.com/us/app/aurova/id6756036236" target="_blank" rel="noopener">App Store ↗</a>
-            <a href="https://play.google.com/store/apps/details?id=com.wws.aurova" target="_blank" rel="noopener">Google Play ↗</a>
-          </div>
-        </div>
+      <ul class="snap-list">
+        <li>Professional site built from a proven template</li>
+        <li>Client-intake automation wired to your inbox</li>
+        <li>Google Business &amp; local search setup</li>
+        <li>You own it — code, content, and domain</li>
+      </ul>
+      <div class="snap-foot">
+        <span>Optional care plan <b data-wws-text="retainerPrice">$150/mo</b></span>
+        <a href="/services">Full breakdown →</a>
       </div>
-      <div class="status-app">
-        <div class="app-icon b" aria-hidden="true">W</div>
-        <div class="status-body">
-          <div class="status-title">WellTemp — Business Websites</div>
-          <div class="status-meta">Own it forever · No monthly fees</div>
-          <span class="badge">Available now</span>
-          <div class="store-links">
-            <a href="/welltemp">Product page ↗</a>
-          </div>
-        </div>
-      </div>
-      <div class="status-foot"><b>13+ years</b> of experience · <b>2</b> live products</div>
     </aside>
   </div>
 </header>
 
-<section id="services" class="band">
+<section id="who" class="band who">
   <div class="wrap">
-    <p class="sec-label">What I offer</p>
-    <h2>Services</h2>
-    <p class="sec-sub">I work with teams and founders who need a senior engineer they can trust to own a problem end-to-end.</p>
-
-    <div class="svc-grid">
-      <div class="svc-card">
-        <span class="svc-num">01 / MOBILE</span>
-        <h3>Mobile Development</h3>
-        <p>End-to-end iOS and Android development, including App Store and Google Play submission. I've shipped apps to both stores and know what it takes to get approved and stay live.</p>
-        <div class="tags">
-          <span class="tag">React Native</span>
-          <span class="tag">iOS</span>
-          <span class="tag">Android</span>
-          <span class="tag">Store submission</span>
-        </div>
-      </div>
-      <div class="svc-card">
-        <span class="svc-num">02 / FULL-STACK</span>
-        <h3>Full-Stack Builds</h3>
-        <p>Complete product builds from database to UI. I design and implement scalable backend APIs, cloud infrastructure, and modern React frontends — production-ready from day one.</p>
-        <div class="tags">
-          <span class="tag">Node.js</span>
-          <span class="tag">React</span>
-          <span class="tag">AWS</span>
-        </div>
-      </div>
-      <div class="svc-card">
-        <span class="svc-num">03 / CONSULTING</span>
-        <h3>Technical Consulting</h3>
-        <p>Architecture reviews and product strategy for early-stage startups. I help founders make confident technical decisions before committing to a direction.</p>
-        <div class="tags">
-          <span class="tag">Architecture reviews</span>
-          <span class="tag">Product strategy</span>
-          <span class="tag">Early-stage</span>
-        </div>
-      </div>
+    <p class="sec-label">Who this is for</p>
+    <h2>Built for small businesses that live and die by inquiries.</h2>
+    <p class="sec-sub">If customers find you online and decide in the first ten seconds, your site is doing sales work every day. I build for owners across local services — a few examples, not a limit:</p>
+    <div class="who-tags">
+      <span class="who-tag">Law firms</span>
+      <span class="who-tag">Clinics &amp; practices</span>
+      <span class="who-tag">Contractors</span>
+      <span class="who-tag">Salons &amp; studios</span>
+      <span class="who-tag">Local services</span>
+      <span class="who-tag">Consultants</span>
+      <span class="who-tag">Restaurants &amp; shops</span>
     </div>
   </div>
 </section>
 
-<section id="work">
+<section id="how">
   <div class="wrap">
-    <p class="sec-label">Selected work</p>
-    <h2>Portfolio</h2>
-    <p class="sec-sub">A sample of shipped products — from consumer apps to client platforms.</p>
+    <p class="sec-label">How it works</p>
+    <h2>Three steps. No jargon, no platform lock-in.</h2>
+    <p class="sec-sub">You stay focused on running your business. I handle the build and hand you the keys.</p>
+
+    <div class="svc-grid">
+      <div class="svc-card">
+        <span class="svc-num">01 / CALL</span>
+        <h3>We talk it through</h3>
+        <p>A short call to understand your business, your customers, and what a win looks like. You'll leave knowing exactly what I'll build, what it costs, and when it ships.</p>
+        <div class="tags">
+          <span class="tag">Free</span>
+          <span class="tag">No obligation</span>
+        </div>
+      </div>
+      <div class="svc-card">
+        <span class="svc-num">02 / I BUILD IT</span>
+        <h3>I build it</h3>
+        <p>I design and build the site, wire up client intake and scheduling, and set up your Google Business and local search. You review; I refine until it's right.</p>
+        <div class="tags">
+          <span class="tag">Design</span>
+          <span class="tag">Automation</span>
+          <span class="tag">Local SEO</span>
+        </div>
+      </div>
+      <div class="svc-card">
+        <span class="svc-num">03 / YOU OWN IT</span>
+        <h3>You own it</h3>
+        <p>The site is yours — code, content, and domain. No monthly platform fees, no being held hostage by a page builder. Want ongoing help? Add an optional care plan.</p>
+        <div class="tags">
+          <span class="tag">No lock-in</span>
+          <span class="tag">No monthly fees</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-ctas" style="margin-top:32px">
+      <a class="btn btn-pass plausible-event-name=Get+Started+-+How" href="/start" data-wws-cta="service.start">Get started</a>
+      <a class="btn btn-ghost plausible-event-name=Book+Call+-+How" href="https://cal.com/wellwaltstudios/discovery-call" data-wws-cta="service.book">Book a call</a>
+    </div>
+  </div>
+</section>
+
+<section id="proof" class="band">
+  <div class="wrap">
+    <p class="sec-label">Proof</p>
+    <h2>See a site like the one I'd build you.</h2>
+    <p class="sec-sub">A live demo of a small-business site — the design, speed, and intake flow your customers would actually get. Client results land here as I ship them.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-pass plausible-event-name=View+Portfolio+-+Home" href="/portfolio">View the demo</a>
+      <a class="btn btn-ghost" href="/services">What's included</a>
+    </div>
+  </div>
+</section>
+
+<section id="studio">
+  <div class="wrap">
+    <p class="sec-label">Also from the studio</p>
+    <h2>Prefer to do it yourself?</h2>
+    <p class="sec-sub">The same process behind my client builds, packaged as products. WellTemp is the DIY version of the done-for-you site above.</p>
 
     <div class="work-grid">
       <div class="work-card">
         <div class="work-head">
-          <h3>Aurova</h3>
-          <span class="badge">Live</span>
+          <h3>WellTemp</h3>
+          <span class="badge">DIY option</span>
         </div>
-        <p>Habit tracker and productivity app built for real daily use. Designed around reducing friction so users actually stick to their routines. Available on iOS and Android.</p>
+        <p>A professional 5-page business website you set up yourself and own outright — booking, payments, and a self-serve editor. The do-it-yourself version of the build above.</p>
         <div class="tags">
-          <span class="tag">React Native</span>
-          <span class="tag">TypeScript</span>
-          <span class="tag">iOS</span>
-          <span class="tag">Android</span>
+          <span class="tag">Own it forever</span>
+          <span class="tag">No monthly fees</span>
         </div>
         <div class="work-links">
-          <a href="https://apps.apple.com/us/app/aurova/id6756036236" target="_blank" rel="noopener">App Store ↗</a>
-          <a href="https://play.google.com/store/apps/details?id=com.wws.aurova" target="_blank" rel="noopener">Google Play ↗</a>
+          <a href="/welltemp">WellTemp →</a>
         </div>
       </div>
       <div class="work-card">
         <div class="work-head">
-          <h3>Client Mobile Platform</h3>
-          <span class="badge plain neutral">2025</span>
+          <h3>WellShip</h3>
+          <span class="badge plain neutral">For developers</span>
         </div>
-        <p>Full-stack mobile platform built for a client from the ground up — covering system architecture, API design, and cross-platform delivery on iOS and Android.</p>
+        <p>A production React Native starter kit (Expo + RevenueCat + Supabase) plus the Store Submission Playbook — already passed App Store review.</p>
         <div class="tags">
           <span class="tag">React Native</span>
-          <span class="tag">TypeScript</span>
-          <span class="tag">Full-stack</span>
+          <span class="tag">Starter kit</span>
+        </div>
+        <div class="work-links">
+          <a href="/wellship">WellShip →</a>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<section id="products-teaser" class="band">
-  <div class="wrap">
-    <p class="sec-label">Products</p>
-    <h2>Shipped tools for builders and businesses</h2>
-    <p class="sec-sub">Built from the same codebase and process behind my live apps and client work.</p>
-
-    <div class="prod-list">
-      <div class="prod-row">
-        <span class="prod-k">WellTemp</span>
-        <span class="prod-v">A website your business owns — no monthly fees. Professional 5-page site with booking, payments, and a self-serve editor.</span>
-        <span class="badge">Available</span>
-      </div>
-      <div class="prod-row">
-        <span class="prod-k">WellShip</span>
-        <span class="prod-v">Production RN starter kit (Expo + RevenueCat + Supabase), plus the Store Submission Playbook.</span>
-        <span class="badge">Available</span>
-      </div>
-      <div class="prod-row">
-        <span class="prod-k">WellMetrics</span>
-        <span class="prod-v">Self-hostable dashboard that unifies your revenue, store, and analytics data.</span>
-        <span class="badge plain neutral">In development</span>
-      </div>
-    </div>
-
-    <a class="btn btn-pass plausible-event-name=WellTemp+-+Homepage+CTA" href="/welltemp">Get WellTemp</a>
-    <a class="btn btn-ghost plausible-event-name=WellShip+-+Homepage+CTA" href="/wellship">WellShip</a>
-    <a class="btn btn-ghost" href="/products">All products</a>
   </div>
 </section>
 
@@ -457,8 +495,8 @@
       <p class="sec-label">About</p>
       <h2>Engineer. Founder. Problem-solver.</h2>
       <p>I'm Ariel Deres, a senior software engineer based in New Orleans with 13+ years of experience across mobile, full-stack, and enterprise software. I've worked at organizations ranging from defense contractors to cannabis-industry startups, and I've built and shipped two live mobile apps of my own.</p>
-      <p>I built Well Walt Studios as a home for independent work — shipping products I care about and partnering with teams who need a trusted senior engineer, not an agency.</p>
-      <a class="btn btn-pass" href="#contact">Let's work together</a>
+      <p>I built Well Walt Studios as a home for independent work — shipping products I care about and building websites for small businesses that want a senior engineer, not an agency retainer or a page-builder subscription.</p>
+      <a class="btn btn-pass plausible-event-name=Get+Started+-+About" href="/start" data-wws-cta="service.start">Get started</a>
     </div>
     <div class="terminal" role="img" aria-label="Career history">
       <div class="term-bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span>career — selected employers</span></div>
@@ -475,32 +513,20 @@ Whetstone Education     <span class="c">ed-tech</span>
 <section id="contact" class="band">
   <div class="wrap contact-grid">
     <div class="contact-copy">
-      <p class="sec-label">Contact</p>
-      <h2>Let's build something.</h2>
-      <p>I take on a limited number of contracts at a time so I can do my best work on each one. If you have a project in mind, I'd love to hear about it.</p>
+      <p class="sec-label">Get started</p>
+      <h2>Tell me what you need.</h2>
+      <p>The fastest way to start is the two-minute intake form — I'll reply within 24 hours. Prefer email or a call? Both work too. I take on a limited number of builds at a time.</p>
       <div class="contact-lines">
+        <a href="/start">Start the intake form</a>
+        <a href="https://cal.com/wellwaltstudios/discovery-call" data-wws-cta="service.book">Book a call</a>
         <a href="mailto:ariel@wellwaltstudios.com">ariel@wellwaltstudios.com</a>
-        <a href="https://github.com/awalters4" target="_blank" rel="noopener">github.com/awalters4</a>
       </div>
     </div>
     <div class="contact-form">
-      <h3>Send a message</h3>
-      <p class="sub">I'll respond within one business day.</p>
-      <form action="mailto:ariel@wellwaltstudios.com" method="POST" enctype="text/plain">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your name" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="you@example.com" required>
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
-        </div>
-        <button type="submit" class="btn btn-pass">Send message</button>
-      </form>
+      <h3>Ready when you are</h3>
+      <p class="sub">New website, redesign, or automations — start here.</p>
+      <a class="btn btn-pass plausible-event-name=Get+Started+-+Contact" href="/start" data-wws-cta="service.start" style="width:100%;text-align:center;display:block">Get started</a>
+      <p class="sub" style="margin:16px 0 0">Two minutes now, a reply within 24 hours.</p>
     </div>
   </div>
 </section>
@@ -509,8 +535,11 @@ Whetstone Education     <span class="c">ed-tech</span>
   <div class="wrap foot-inner">
     <span>© <span id="year"></span> Well Walt Studios</span>
     <span>
-      <a href="https://instagram.com/wellwaltstudios" target="_blank" rel="noopener">Instagram</a> ·
-      <a href="https://github.com/awalters4" target="_blank" rel="noopener">GitHub</a> ·
+      <a href="/services">Services</a> ·
+      <a href="/portfolio">Portfolio</a> ·
+      <a href="/start">Get started</a> ·
+      <a href="/welltemp">WellTemp</a> ·
+      <a href="/wellship">WellShip</a> ·
       <a href="mailto:ariel@wellwaltstudios.com">Email</a>
     </span>
   </div>
@@ -519,6 +548,17 @@ Whetstone Education     <span class="c">ed-tech</span>
 <script src="/constants.js"></script>
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+  (function () {
+    var t = document.getElementById('navToggle'), l = document.getElementById('navLinks');
+    if (!t || !l) return;
+    t.addEventListener('click', function () {
+      var open = l.classList.toggle('open');
+      t.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    l.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') { l.classList.remove('open'); t.setAttribute('aria-expanded', 'false'); }
+    });
+  })();
 </script>
 
 </body>

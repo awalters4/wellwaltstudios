@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get started — Tell me what you need — Well Walt Studios</title>
+<meta name="description" content="Tell me about your business and what you need — a new website, a redesign, or automations. Two-minute intake form. I'll reply within 24 hours.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://wellwaltstudios.com/start">
+<meta property="og:title" content="Get started — Well Walt Studios">
+<meta property="og:description" content="Tell me about your business and what you need. Two-minute intake form — I'll reply within 24 hours.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wellwaltstudios.com/start">
+<meta property="og:image" content="https://wellwaltstudios.com/logo.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wellwaltstudios.com/logo.png">
+<link rel="icon" href="/favicon.ico">
+<!-- Plausible analytics -->
+<script defer data-domain="wellwaltstudios.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F2536;--ink-soft:#3E5468;--slate:#5B7285;--paper:#F6F8F7;--panel:#FFFFFF;
+    --line:#DCE4E1;--pass:#D63C74;--pass-dim:#FBE7EE;--deep:#0B1D2B;--amber:#E0629F;
+    --err:#C0304F;--radius:10px;--maxw:1080px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+  body{background:var(--paper);color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--pass)}
+  a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--pass);outline-offset:2px}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .narrow{max-width:720px}
+
+  /* nav */
+  nav{border-bottom:1px solid var(--line);background:rgba(246,248,247,.92);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .wordmark{display:flex;align-items:center;text-decoration:none}
+  .wordmark img{height:40px;width:auto;display:block}
+  .nav-right{display:flex;align-items:center;gap:18px}
+  .nav-links{display:flex;align-items:center;gap:26px}
+  .nav-links a{color:var(--ink-soft);text-decoration:none;font-size:14px;font-weight:500}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-toggle{display:none;background:none;border:1px solid var(--line);border-radius:8px;width:38px;height:38px;align-items:center;justify-content:center;cursor:pointer;color:var(--ink)}
+  .nav-toggle svg{display:block}
+  .nav-get-started{white-space:nowrap}
+  .btn{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;font-size:14px;padding:10px 20px;border-radius:8px;border:1px solid var(--ink);transition:background .15s ease;cursor:pointer}
+  .btn:hover{background:#1C3A52}
+  .btn-pass{background:var(--pass);border-color:var(--pass)}
+  .btn-pass:hover{background:#B72B60}
+  .btn-ghost{background:transparent;color:var(--ink)}
+  .btn-ghost:hover{background:#EAEFED}
+  .btn[disabled]{opacity:.6;cursor:not-allowed}
+
+  /* header */
+  .head{padding:56px 0 8px}
+  .eyebrow{font-size:12.5px;font-weight:500;color:var(--pass);letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:18px}
+  .eyebrow::before{content:'';width:22px;height:1px;background:var(--pass)}
+  h1{font-weight:700;font-size:clamp(30px,4vw,42px);line-height:1.08;letter-spacing:-.025em;margin-bottom:16px}
+  .lede{font-size:16.5px;color:var(--ink-soft);max-width:60ch}
+
+  /* form */
+  section{padding:32px 0 64px}
+  form{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:0 1px 2px rgba(15,37,54,.05),0 14px 34px -20px rgba(15,37,54,.18)}
+  .field{margin-bottom:20px}
+  .field > label,legend{display:block;font-size:12.5px;font-weight:600;color:var(--ink);letter-spacing:.02em;margin-bottom:8px}
+  .req{color:var(--pass)}
+  .opt{color:var(--slate);font-weight:500;text-transform:none;letter-spacing:0}
+  .hint{font-size:12.5px;color:var(--slate);margin-top:6px}
+  input[type=text],input[type=email],input[type=tel],textarea,select{
+    width:100%;background:var(--paper);border:1px solid var(--line);border-radius:8px;
+    padding:11px 12px;color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:14.5px;
+    outline:none;resize:vertical;transition:border-color .15s ease}
+  input:focus,textarea:focus,select:focus{border-color:var(--pass)}
+  input::placeholder,textarea::placeholder{color:#9AAAB6}
+  textarea{min-height:120px}
+  select{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='%235B7285' stroke-width='1.6'/></svg>");background-repeat:no-repeat;background-position:right 12px center;padding-right:34px}
+  .field.invalid input,.field.invalid textarea,.field.invalid select,.field.invalid .checks{border-color:var(--err)}
+  .err-msg{display:none;color:var(--err);font-size:12.5px;margin-top:6px}
+  .field.invalid .err-msg{display:block}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  fieldset{border:0;margin:0;padding:0}
+  .checks{display:grid;grid-template-columns:1fr 1fr;gap:10px;border:1px solid transparent;border-radius:8px}
+  .check{display:flex;align-items:center;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:11px 12px;cursor:pointer;font-size:14px;color:var(--ink-soft);transition:border-color .15s ease,background .15s ease}
+  .check:hover{border-color:#C3D0CB}
+  .check input{width:16px;height:16px;accent-color:var(--pass);flex-shrink:0}
+  .check:has(input:checked){border-color:var(--pass);background:var(--pass-dim);color:var(--ink)}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .submit-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:8px}
+  .submit-row .muted{font-size:12.5px;color:var(--slate)}
+  .form-error{display:none;background:#FBE9ED;border:1px solid #F1C4CF;color:var(--err);border-radius:8px;padding:12px 14px;font-size:13.5px;margin-bottom:18px}
+  .form-error.show{display:block}
+
+  /* success */
+  .success{display:none;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:40px 32px;text-align:center;box-shadow:0 1px 2px rgba(15,37,54,.05),0 14px 34px -20px rgba(15,37,54,.18)}
+  .success.show{display:block}
+  .success .check-mark{width:56px;height:56px;border-radius:50%;background:var(--pass-dim);color:var(--pass);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700;margin:0 auto 18px}
+  .success h2{font-size:24px;margin-bottom:10px}
+  .success p{color:var(--ink-soft);max-width:44ch;margin:0 auto 24px}
+  .success .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:28px 0;font-size:13px;color:var(--slate)}
+  .foot-inner{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer a{color:var(--slate)}
+
+  @media (max-width:640px){
+    .row,.checks{grid-template-columns:1fr}
+    section{padding:24px 0 48px}
+    .nav-toggle{display:inline-flex}
+    .nav-links{position:absolute;top:60px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:8px 24px 18px;display:none;box-shadow:0 12px 24px -16px rgba(15,37,54,.25)}
+    .nav-links.open{display:flex}
+    .nav-links a{padding:12px 0;font-size:15px;border-bottom:1px solid var(--line)}
+    .nav-links a:last-child{border-bottom:0}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="wordmark" href="/"><img src="/logo.png" alt="Well Walt Studios"></a>
+    <div class="nav-right">
+      <div class="nav-links" id="navLinks">
+        <a href="/services">Services</a>
+        <a href="/portfolio">Portfolio</a>
+        <a href="/#how">How it works</a>
+        <a href="/welltemp">WellTemp</a>
+        <a href="/wellship">WellShip</a>
+      </div>
+      <a class="btn btn-pass nav-get-started" href="/start" data-wws-cta="service.start">Get started</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<header class="head">
+  <div class="wrap narrow">
+    <p class="eyebrow">Get started</p>
+    <h1>Tell me what you need.</h1>
+    <p class="lede">Two minutes now, a reply within 24 hours. The more you tell me, the more useful my first response will be. Prefer to talk it through? <a href="https://cal.com/wellwaltstudios/discovery-call" data-wws-cta="service.book" class="plausible-event-name=Book+Call+-+Start">Book a call instead</a>.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap narrow">
+
+    <!-- SUCCESS STATE -->
+    <div class="success" id="success" role="status" aria-live="polite" tabindex="-1">
+      <div class="check-mark" aria-hidden="true">✓</div>
+      <h2>Got it — I'll reach out within 24 hours.</h2>
+      <p>Thanks for the details. I read every one of these personally and I'll get back to you fast, usually the same day.</p>
+      <div class="btns">
+        <a class="btn btn-pass plausible-event-name=Book+Call+-+Start+Success" href="https://cal.com/wellwaltstudios/discovery-call" data-wws-cta="service.book">Book a call now</a>
+        <a class="btn btn-ghost" href="/portfolio">See the demo</a>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <form id="intakeForm" novalidate>
+      <div class="form-error" id="formError" role="alert"></div>
+
+      <div class="field">
+        <label for="name">Name <span class="req" aria-hidden="true">*</span></label>
+        <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name" required aria-required="true">
+        <p class="err-msg">Please enter your name.</p>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="you@business.com" required aria-required="true">
+          <p class="err-msg">Please enter a valid email.</p>
+        </div>
+        <div class="field">
+          <label for="phone">Phone <span class="opt">(optional)</span></label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(504) 555-0123">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="business_name">Business name <span class="req" aria-hidden="true">*</span></label>
+        <input type="text" id="business_name" name="business_name" autocomplete="organization" placeholder="e.g. Bayou Law Group" required aria-required="true">
+        <p class="err-msg">Please enter your business name.</p>
+      </div>
+
+      <div class="field">
+        <label for="business_desc">What does your business do? <span class="req" aria-hidden="true">*</span></label>
+        <input type="text" id="business_desc" name="business_desc" placeholder="e.g. Family law firm serving Greater New Orleans" required aria-required="true">
+        <p class="err-msg">Tell me a little about what your business does.</p>
+      </div>
+
+      <div class="field" id="needsField">
+        <fieldset>
+          <legend>What do you need? <span class="req" aria-hidden="true">*</span></legend>
+          <div class="checks">
+            <label class="check"><input type="checkbox" name="needs" value="New website"> New website</label>
+            <label class="check"><input type="checkbox" name="needs" value="Redesign existing site"> Redesign existing site</label>
+            <label class="check"><input type="checkbox" name="needs" value="Automations & workflows"> Automations &amp; workflows</label>
+            <label class="check"><input type="checkbox" name="needs" value="Not sure yet"> Not sure yet</label>
+          </div>
+        </fieldset>
+        <p class="err-msg">Please pick at least one.</p>
+      </div>
+
+      <div class="field">
+        <label for="details">Tell me more <span class="req" aria-hidden="true">*</span></label>
+        <textarea id="details" name="details" placeholder="What are you trying to achieve? Anything you like or dislike about your current site, deadlines, examples of sites you love…" required aria-required="true"></textarea>
+        <p class="err-msg">A few sentences here helps a lot.</p>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="budget">Budget range <span class="opt">(optional)</span></label>
+          <select id="budget" name="budget">
+            <option value="">Prefer not to say</option>
+            <option value="Under $500">Under $500</option>
+            <option value="$500–$1,500">$500–$1,500</option>
+            <option value="$1,500–$3,000">$1,500–$3,000</option>
+            <option value="$3,000+">$3,000+</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="timeline">Timeline <span class="opt">(optional)</span></label>
+          <select id="timeline" name="timeline">
+            <option value="">Not sure</option>
+            <option value="ASAP">ASAP</option>
+            <option value="A few weeks">A few weeks</option>
+            <option value="Just exploring">Just exploring</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- honeypot -->
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <div class="submit-row">
+        <button type="submit" class="btn btn-pass plausible-event-name=Lead+Form+Submit" id="submitBtn">Send it →</button>
+        <span class="muted">I'll reply within 24 hours. No spam, ever.</span>
+      </div>
+    </form>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span>© <span id="year"></span> Well Walt Studios</span>
+    <span>
+      <a href="/services">Services</a> ·
+      <a href="/portfolio">Portfolio</a> ·
+      <a href="/welltemp">WellTemp</a> ·
+      <a href="/wellship">WellShip</a> ·
+      <a href="mailto:ariel@wellwaltstudios.com">Email</a>
+    </span>
+  </div>
+</footer>
+
+<script src="/constants.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile menu
+  (function () {
+    var t = document.getElementById('navToggle'), l = document.getElementById('navLinks');
+    if (!t || !l) return;
+    t.addEventListener('click', function () {
+      var open = l.classList.toggle('open');
+      t.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    l.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') { l.classList.remove('open'); t.setAttribute('aria-expanded', 'false'); }
+    });
+  })();
+
+  // Intake form
+  (function () {
+    var form = document.getElementById('intakeForm');
+    var success = document.getElementById('success');
+    var formError = document.getElementById('formError');
+    var submitBtn = document.getElementById('submitBtn');
+    var needsField = document.getElementById('needsField');
+
+    function markField(el, invalid) {
+      var field = el.closest('.field');
+      if (field) field.classList.toggle('invalid', invalid);
+      return !invalid;
+    }
+
+    function validate() {
+      var ok = true, firstBad = null;
+      ['name', 'business_name', 'business_desc', 'details'].forEach(function (id) {
+        var el = document.getElementById(id);
+        var bad = !el.value.trim();
+        markField(el, bad);
+        if (bad && !firstBad) firstBad = el;
+        if (bad) ok = false;
+      });
+      var email = document.getElementById('email');
+      var emailBad = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+      markField(email, emailBad);
+      if (emailBad && !firstBad) firstBad = email;
+      if (emailBad) ok = false;
+
+      var checked = form.querySelectorAll('input[name="needs"]:checked').length > 0;
+      needsField.classList.toggle('invalid', !checked);
+      if (!checked && !firstBad) firstBad = needsField.querySelector('input');
+      if (!checked) ok = false;
+
+      if (firstBad) firstBad.focus();
+      return ok;
+    }
+
+    // Clear a field's error as the user fixes it
+    form.addEventListener('input', function (e) {
+      var field = e.target.closest('.field');
+      if (field) field.classList.remove('invalid');
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      formError.classList.remove('show');
+      if (!validate()) return;
+
+      var needs = Array.prototype.map.call(
+        form.querySelectorAll('input[name="needs"]:checked'), function (c) { return c.value; }
+      ).join(', ');
+
+      var payload = {
+        access_key: (typeof WEB3FORMS_KEY !== 'undefined') ? WEB3FORMS_KEY : '',
+        subject: 'New lead — ' + document.getElementById('business_name').value.trim(),
+        from_name: document.getElementById('name').value.trim(),
+        name: document.getElementById('name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        business_name: document.getElementById('business_name').value.trim(),
+        business_desc: document.getElementById('business_desc').value.trim(),
+        needs: needs,
+        details: document.getElementById('details').value.trim(),
+        budget: document.getElementById('budget').value,
+        timeline: document.getElementById('timeline').value,
+        botcheck: form.botcheck.checked
+      };
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data && data.success) {
+          if (window.plausible) window.plausible('Lead Submitted');
+          form.style.display = 'none';
+          success.classList.add('show');
+          success.focus();
+          success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          throw new Error((data && data.message) || 'Submission failed');
+        }
+      })
+      .catch(function () {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send it →';
+        var email = (typeof LEAD_EMAIL !== 'undefined') ? LEAD_EMAIL : 'ariel@wellwaltstudios.com';
+        formError.innerHTML = 'Something went wrong sending your message. Please email me directly at '
+          + '<a href="mailto:' + email + '">' + email + '</a> and I\'ll get right back to you.';
+        formError.classList.add('show');
+        formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Small Business Website Design — Well Walt Studios</title>
+<meta name="description" content="See a sample small-business website demo and client results from Well Walt Studios — modern sites with client-intake automation and local search setup, built for owners who want more inquiries and less admin.">
+<link rel="canonical" href="https://wellwaltstudios.com/portfolio">
+<meta property="og:title" content="Portfolio — Small Business Website Design — Well Walt Studios">
+<meta property="og:description" content="A sample small-business website demo and client results — modern sites with intake automation and local search setup.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wellwaltstudios.com/portfolio">
+<meta property="og:image" content="https://wellwaltstudios.com/logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Portfolio — Small Business Website Design — Well Walt Studios">
+<meta name="twitter:description" content="A sample small-business website demo and client results.">
+<meta name="twitter:image" content="https://wellwaltstudios.com/logo.png">
+<link rel="icon" href="/favicon.ico">
+<!-- Plausible analytics -->
+<script defer data-domain="wellwaltstudios.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F2536;--ink-soft:#3E5468;--slate:#5B7285;--paper:#F6F8F7;--panel:#FFFFFF;
+    --line:#DCE4E1;--pass:#D63C74;--pass-dim:#FBE7EE;--deep:#0B1D2B;--amber:#E0629F;
+    --radius:10px;--maxw:1080px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+  body{background:var(--paper);color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--pass)}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--pass);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* nav */
+  nav{border-bottom:1px solid var(--line);background:rgba(246,248,247,.92);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .wordmark{display:flex;align-items:center;text-decoration:none}
+  .wordmark img{height:40px;width:auto;display:block}
+  .nav-right{display:flex;align-items:center;gap:18px}
+  .nav-links{display:flex;align-items:center;gap:26px}
+  .nav-links a{color:var(--ink-soft);text-decoration:none;font-size:14px;font-weight:500}
+  .nav-links a:hover,.nav-links a.active{color:var(--ink)}
+  .nav-links a.active{font-weight:600}
+  .nav-toggle{display:none;background:none;border:1px solid var(--line);border-radius:8px;width:38px;height:38px;align-items:center;justify-content:center;cursor:pointer;color:var(--ink)}
+  .nav-toggle svg{display:block}
+  .nav-get-started{white-space:nowrap}
+  .btn{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;font-size:14px;padding:10px 20px;border-radius:8px;border:1px solid var(--ink);transition:background .15s ease;cursor:pointer}
+  .btn:hover{background:#1C3A52}
+  .btn-pass{background:var(--pass);border-color:var(--pass)}
+  .btn-pass:hover{background:#B72B60}
+  .btn-ghost{background:transparent;color:var(--ink)}
+  .btn-ghost:hover{background:#EAEFED}
+
+  /* hero */
+  .hero{padding:80px 0 8px}
+  .eyebrow{font-size:12.5px;font-weight:500;color:var(--pass);letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:20px}
+  .eyebrow::before{content:'';width:22px;height:1px;background:var(--pass)}
+  h1{font-weight:700;font-size:clamp(32px,4.4vw,48px);line-height:1.06;letter-spacing:-.025em;margin-bottom:20px;max-width:18ch}
+  h1 .pass-word{color:var(--pass)}
+  .hero-sub{font-size:17.5px;color:var(--ink-soft);max-width:60ch;margin-bottom:28px}
+  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+
+  /* sections */
+  section{padding:56px 0}
+  .sec-label{font-size:12.5px;font-weight:500;color:var(--pass);letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
+  h2{font-weight:700;font-size:clamp(24px,3vw,32px);letter-spacing:-.02em;line-height:1.14;margin-bottom:14px;max-width:26ch}
+  h3{font-weight:700}
+  .sec-sub{color:var(--ink-soft);max-width:62ch;margin-bottom:36px}
+  .band{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .tag{font-size:11.5px;font-weight:500;padding:2px 9px;border-radius:99px;background:#EDF2F0;color:var(--ink-soft)}
+  .tags{display:flex;flex-wrap:wrap;gap:6px}
+  .badge{display:inline-flex;align-items:center;gap:6px;background:var(--pass-dim);color:var(--pass);font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:99px}
+  .badge::before{content:'✓';font-weight:700}
+  .badge.plain::before{content:none}
+  .badge.neutral{background:#EDF2F0;color:var(--slate)}
+
+  /* demo showcase */
+  .demo{display:grid;grid-template-columns:1.05fr .95fr;gap:32px;align-items:center;
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:8px;box-shadow:0 1px 2px rgba(15,37,54,.05),0 18px 40px -22px rgba(15,37,54,.22)}
+  .demo-shot{border-radius:8px;overflow:hidden;background:linear-gradient(135deg,#0F2536,#2C5876);
+    aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;position:relative}
+  .demo-shot .browser{position:absolute;top:0;left:0;right:0;height:34px;background:rgba(255,255,255,.08);
+    border-bottom:1px solid rgba(255,255,255,.12);display:flex;align-items:center;gap:6px;padding:0 12px}
+  .demo-shot .browser i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.35)}
+  .demo-shot .label{color:#fff;font-size:15px;font-weight:600;text-align:center;padding:0 24px;opacity:.9}
+  .demo-copy{padding:22px 26px 26px}
+  .demo-copy h2{margin-bottom:12px}
+  .demo-copy p{color:var(--ink-soft);font-size:15px;margin-bottom:18px;max-width:48ch}
+  .demo-copy .btn{margin-right:10px;margin-bottom:10px}
+
+  /* testimonials */
+  .quote-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .quote{border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);padding:26px;display:flex;flex-direction:column;gap:16px}
+  .quote.placeholder{border-style:dashed;background:var(--paper)}
+  .quote p{font-size:15.5px;color:var(--ink);line-height:1.6}
+  .quote .who{display:flex;align-items:center;gap:12px;margin-top:auto}
+  .quote .avatar{width:40px;height:40px;border-radius:50%;background:#EDF2F0;display:flex;align-items:center;justify-content:center;color:var(--slate);font-weight:700;font-size:15px;flex-shrink:0}
+  .quote .n{font-size:14px;font-weight:600}
+  .quote .m{font-size:12.5px;color:var(--slate)}
+  .placeholder-note{font-size:12.5px;color:var(--slate);margin-top:16px}
+
+  /* cta band */
+  .cta-band{background:var(--deep);border:0}
+  .cta-band h2,.cta-band .sec-label{color:#fff}
+  .cta-band .sec-label{color:var(--amber)}
+  .cta-band p{color:#C9D9E4;max-width:52ch;margin-bottom:28px}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:28px 0;font-size:13px;color:var(--slate)}
+  .foot-inner{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer a{color:var(--slate)}
+
+  @media (max-width:900px){
+    .demo{grid-template-columns:1fr}
+    .quote-grid{grid-template-columns:1fr}
+    section{padding:48px 0}
+    .nav-toggle{display:inline-flex}
+    .nav-links{position:absolute;top:60px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:8px 24px 18px;display:none;box-shadow:0 12px 24px -16px rgba(15,37,54,.25)}
+    .nav-links.open{display:flex}
+    .nav-links a{padding:12px 0;font-size:15px;border-bottom:1px solid var(--line)}
+    .nav-links a:last-child{border-bottom:0}
+  }
+  @media (max-width:420px){.hero-ctas{flex-direction:column;align-items:stretch}.btn{text-align:center}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="wordmark" href="/"><img src="/logo.png" alt="Well Walt Studios"></a>
+    <div class="nav-right">
+      <div class="nav-links" id="navLinks">
+        <a href="/services">Services</a>
+        <a href="/portfolio" class="active">Portfolio</a>
+        <a href="/#how">How it works</a>
+        <a href="/welltemp">WellTemp</a>
+        <a href="/wellship">WellShip</a>
+      </div>
+      <a class="btn btn-pass nav-get-started plausible-event-name=Get+Started+-+Nav"
+         href="/start" data-wws-cta="service.start">Get started</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Proof · See it for yourself</p>
+    <h1>The kind of site I'd <span class="pass-word">build for you</span>.</h1>
+    <p class="hero-sub">A live demo of a small-business website — the design, the speed, and the intake flow your customers would actually get. Real client results land here as I ship them.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-pass plausible-event-name=View+Demo+-+Portfolio+Hero" href="#demo">View the demo</a>
+      <a class="btn btn-ghost" href="/services">See what's included</a>
+    </div>
+  </div>
+</header>
+
+<!-- DEMO SHOWCASE -->
+<section id="demo">
+  <div class="wrap">
+    <p class="sec-label">Sample build</p>
+    <h2>Live small-business demo</h2>
+    <p class="sec-sub">A complete example site — homepage, services, booking, and an intake form — so you can click through exactly what your customers would experience.</p>
+
+    <div class="demo">
+      <div class="demo-shot" aria-hidden="true">
+        <div class="browser"><i></i><i></i><i></i></div>
+        <span class="label">Demo site preview</span>
+      </div>
+      <div class="demo-copy">
+        <span class="badge plain neutral">Demo</span>
+        <h2>Small-business site demo</h2>
+        <p>A modern, mobile-first site with a booking flow and client-intake automation wired in — the same build I deliver to clients, packaged as a walkthrough you can explore.</p>
+        <div class="tags" style="margin-bottom:18px">
+          <span class="tag">Responsive</span>
+          <span class="tag">Booking</span>
+          <span class="tag">Intake automation</span>
+          <span class="tag">Local SEO</span>
+        </div>
+        <div>
+          <a class="btn btn-pass plausible-event-name=View+Live+Demo" href="#" data-wws-cta="service.demo" target="_blank" rel="noopener">View live demo ↗</a>
+          <a class="btn btn-ghost plausible-event-name=Get+Started+-+Portfolio+Demo" href="/start" data-wws-cta="service.start">Get one like it</a>
+        </div>
+        <p class="placeholder-note">Demo link is a placeholder (DEMO_URL in <code>/constants.js</code>) until the sample site is live.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="band">
+  <div class="wrap">
+    <p class="sec-label">In their words</p>
+    <h2>What clients say.</h2>
+    <p class="sec-sub">The first client reviews will appear here. These are placeholders — I'll swap in real quotes as projects wrap.</p>
+
+    <div class="quote-grid">
+      <div class="quote placeholder">
+        <p>“Placeholder testimonial — a sentence or two from a client about more booked inquiries and less admin after the new site launched.”</p>
+        <div class="who">
+          <span class="avatar" aria-hidden="true">—</span>
+          <span><span class="n">Client name</span><br><span class="m">Business · City</span></span>
+        </div>
+      </div>
+      <div class="quote placeholder">
+        <p>“Placeholder testimonial — a client noting how quick and painless the build was, and that they own the site outright with no monthly fees.”</p>
+        <div class="who">
+          <span class="avatar" aria-hidden="true">—</span>
+          <span><span class="n">Client name</span><br><span class="m">Business · City</span></span>
+        </div>
+      </div>
+    </div>
+    <p class="placeholder-note">Replace these two blocks with real testimonials after the first client.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="wrap">
+    <p class="sec-label">Your turn</p>
+    <h2>Want a site like the demo? Tell me about your business.</h2>
+    <p>Two-minute intake form. I'll reply within 24 hours with next steps and a fixed price.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-pass plausible-event-name=Get+Started+-+Portfolio+CTA" href="/start" data-wws-cta="service.start">Get started</a>
+      <a class="btn btn-ghost plausible-event-name=Book+Call+-+Portfolio+CTA" href="https://cal.com/wellwaltstudios/discovery-call" data-wws-cta="service.book" style="color:#fff;border-color:#28455C">Book a call</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span>© <span id="year"></span> Well Walt Studios</span>
+    <span>
+      <a href="/services">Services</a> ·
+      <a href="/portfolio">Portfolio</a> ·
+      <a href="/start">Get started</a> ·
+      <a href="/welltemp">WellTemp</a> ·
+      <a href="/wellship">WellShip</a> ·
+      <a href="mailto:ariel@wellwaltstudios.com">Email</a>
+    </span>
+  </div>
+</footer>
+
+<script src="/constants.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  (function () {
+    var t = document.getElementById('navToggle'), l = document.getElementById('navLinks');
+    if (!t || !l) return;
+    t.addEventListener('click', function () {
+      var open = l.classList.toggle('open');
+      t.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    l.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') { l.classList.remove('open'); t.setAttribute('aria-expanded', 'false'); }
+    });
+  })();
+</script>
+</body>
+</html>

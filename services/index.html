@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Small Business Website Design + Automation — Well Walt Studios</title>
+<meta name="description" content="One packaged offer for small businesses: a modern website, client-intake automation, and Google Business / local search setup — at a flat price, with an optional monthly care plan. You own the site outright.">
+<link rel="canonical" href="https://wellwaltstudios.com/services">
+<meta property="og:title" content="Small Business Website Design + Automation — Well Walt Studios">
+<meta property="og:description" content="A modern website, client-intake automation, and local search setup — at a flat price. More inquiries booked, less admin, a site you own outright.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wellwaltstudios.com/services">
+<meta property="og:image" content="https://wellwaltstudios.com/logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Small Business Website Design + Automation — Well Walt Studios">
+<meta name="twitter:description" content="A modern website, client-intake automation, and local search setup — at a flat price. A site you own outright.">
+<meta name="twitter:image" content="https://wellwaltstudios.com/logo.png">
+<link rel="icon" href="/favicon.ico">
+<!-- Plausible analytics -->
+<script defer data-domain="wellwaltstudios.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F2536;--ink-soft:#3E5468;--slate:#5B7285;--paper:#F6F8F7;--panel:#FFFFFF;
+    --line:#DCE4E1;--pass:#D63C74;--pass-dim:#FBE7EE;--deep:#0B1D2B;--amber:#E0629F;
+    --radius:10px;--maxw:1080px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+  body{background:var(--paper);color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--pass)}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--pass);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* nav */
+  nav{border-bottom:1px solid var(--line);background:rgba(246,248,247,.92);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .wordmark{display:flex;align-items:center;text-decoration:none}
+  .wordmark img{height:40px;width:auto;display:block}
+  .nav-right{display:flex;align-items:center;gap:18px}
+  .nav-links{display:flex;align-items:center;gap:26px}
+  .nav-links a{color:var(--ink-soft);text-decoration:none;font-size:14px;font-weight:500}
+  .nav-links a:hover,.nav-links a.active{color:var(--ink)}
+  .nav-links a.active{font-weight:600}
+  .nav-toggle{display:none;background:none;border:1px solid var(--line);border-radius:8px;width:38px;height:38px;align-items:center;justify-content:center;cursor:pointer;color:var(--ink)}
+  .nav-toggle svg{display:block}
+  .nav-get-started{white-space:nowrap}
+  .btn{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;font-size:14px;padding:10px 20px;border-radius:8px;border:1px solid var(--ink);transition:background .15s ease;cursor:pointer}
+  .btn:hover{background:#1C3A52}
+  .btn-pass{background:var(--pass);border-color:var(--pass)}
+  .btn-pass:hover{background:#B72B60}
+  .btn-ghost{background:transparent;color:var(--ink)}
+  .btn-ghost:hover{background:#EAEFED}
+
+  /* hero */
+  .hero{padding:80px 0 8px}
+  .eyebrow{font-size:12.5px;font-weight:500;color:var(--pass);letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:20px}
+  .eyebrow::before{content:'';width:22px;height:1px;background:var(--pass)}
+  h1{font-weight:700;font-size:clamp(32px,4.4vw,48px);line-height:1.06;letter-spacing:-.025em;margin-bottom:20px;max-width:18ch}
+  h1 .pass-word{color:var(--pass)}
+  .hero-sub{font-size:17.5px;color:var(--ink-soft);max-width:60ch;margin-bottom:28px}
+  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+
+  /* sections */
+  section{padding:64px 0}
+  .sec-label{font-size:12.5px;font-weight:500;color:var(--pass);letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
+  h2{font-weight:700;font-size:clamp(24px,3vw,32px);letter-spacing:-.02em;line-height:1.14;margin-bottom:14px;max-width:26ch}
+  h3{font-weight:700}
+  .sec-sub{color:var(--ink-soft);max-width:62ch;margin-bottom:36px}
+  .band{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+  .tag{font-size:11.5px;font-weight:500;padding:2px 9px;border-radius:99px;background:#EDF2F0;color:var(--ink-soft)}
+  .badge{display:inline-flex;align-items:center;gap:6px;background:var(--pass-dim);color:var(--pass);font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:99px}
+  .badge::before{content:'✓';font-weight:700}
+  .badge.plain::before{content:none}
+  .badge.neutral{background:#EDF2F0;color:var(--slate)}
+
+  /* pricing card */
+  .price-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:start}
+  .price-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:0 1px 2px rgba(15,37,54,.05),0 12px 32px -18px rgba(15,37,54,.18)}
+  .price-card.alt{background:var(--paper)}
+  .price-tag{font-size:clamp(30px,4vw,40px);font-weight:700;letter-spacing:-.02em;line-height:1;margin:6px 0 4px}
+  .price-tag small{font-size:15px;color:var(--slate);font-weight:500}
+  .price-note{font-size:13.5px;color:var(--slate);margin-bottom:20px}
+  .incl{list-style:none;display:flex;flex-direction:column;gap:12px;margin:22px 0}
+  .incl li{display:flex;gap:10px;font-size:14.5px;color:var(--ink-soft)}
+  .incl li::before{content:'✓';color:var(--pass);font-weight:700;flex-shrink:0}
+  .price-card .btn{width:100%;text-align:center;display:block}
+
+  /* feature / upsell grid */
+  .feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .feat-card{border:1px solid var(--line);border-radius:var(--radius);padding:24px;background:var(--paper);display:flex;flex-direction:column}
+  .feat-num{font-size:11.5px;font-weight:600;color:var(--amber);letter-spacing:.04em;margin-bottom:12px;display:block}
+  .feat-card h3{font-size:17px;letter-spacing:-.01em;margin-bottom:8px}
+  .feat-card p{font-size:14px;color:var(--ink-soft);margin-bottom:16px}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:s}
+  .step{border:1px solid var(--line);border-radius:var(--radius);padding:24px;background:var(--panel)}
+  .step .k{font-size:12px;font-weight:600;color:var(--pass);letter-spacing:.04em;margin-bottom:8px;display:block}
+  .step h3{font-size:16px;margin-bottom:6px}
+  .step p{font-size:14px;color:var(--ink-soft)}
+
+  /* outcomes */
+  .out-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .out{border:1px solid var(--line);border-radius:var(--radius);padding:22px;background:var(--panel)}
+  .out h3{font-size:15.5px;margin-bottom:6px}
+  .out p{font-size:14px;color:var(--ink-soft)}
+
+  /* faq */
+  .faq{border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);overflow:hidden;max-width:820px}
+  .faq details{border-top:1px solid var(--line)}
+  .faq details:first-child{border-top:0}
+  .faq summary{list-style:none;cursor:pointer;padding:18px 22px;font-weight:600;font-size:15px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:'+';color:var(--pass);font-weight:700;font-size:20px}
+  .faq details[open] summary::after{content:'–'}
+  .faq p{padding:0 22px 20px;font-size:14.5px;color:var(--ink-soft);max-width:70ch}
+
+  /* cta band */
+  .cta-band{background:var(--deep);border:0}
+  .cta-band h2,.cta-band .sec-label{color:#fff}
+  .cta-band .sec-label{color:var(--amber)}
+  .cta-band p{color:#C9D9E4;max-width:52ch;margin-bottom:28px}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:28px 0;font-size:13px;color:var(--slate)}
+  .foot-inner{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer a{color:var(--slate)}
+
+  @media (max-width:900px){
+    .price-grid{grid-template-columns:1fr}
+    .feat-grid{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr}
+    .out-grid{grid-template-columns:1fr}
+    section{padding:52px 0}
+    .nav-toggle{display:inline-flex}
+    .nav-links{position:absolute;top:60px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:8px 24px 18px;display:none;box-shadow:0 12px 24px -16px rgba(15,37,54,.25)}
+    .nav-links.open{display:flex}
+    .nav-links a{padding:12px 0;font-size:15px;border-bottom:1px solid var(--line)}
+    .nav-links a:last-child{border-bottom:0}
+  }
+  @media (max-width:420px){.hero-ctas{flex-direction:column;align-items:stretch}.btn{text-align:center}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="wordmark" href="/"><img src="/logo.png" alt="Well Walt Studios"></a>
+    <div class="nav-right">
+      <div class="nav-links" id="navLinks">
+        <a href="/services" class="active">Services</a>
+        <a href="/portfolio">Portfolio</a>
+        <a href="/#how">How it works</a>
+        <a href="/welltemp">WellTemp</a>
+        <a href="/wellship">WellShip</a>
+      </div>
+      <a class="btn btn-pass nav-get-started plausible-event-name=Get+Started+-+Nav"
+         href="/start" data-wws-cta="service.start">Get started</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">The offer · Small business</p>
+    <h1>A done-for-you site that <span class="pass-word">books you clients</span>. Yours to keep.</h1>
+    <p class="hero-sub">A professional website built from a proven template, the automation that turns visitors into booked inquiries, and the local-search setup that helps people find you — set up and launched for you at one flat price. A deal versus a full custom build, and no monthly platform fees ever.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-pass plausible-event-name=Get+Started+-+Services+Hero" href="/start" data-wws-cta="service.start">Get started</a>
+      <a class="btn btn-ghost plausible-event-name=Book+Call+-+Services+Hero" href="https://cal.com/wellwaltstudios/discovery-call" data-wws-cta="service.book">Book a call</a>
+    </div>
+  </div>
+</header>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="wrap">
+    <p class="sec-label">The package</p>
+    <h2>Everything you need to win clients online — set up for you.</h2>
+    <p class="sec-sub">This is the <strong>starter deal</strong>: my proven template, set up and launched for you at one flat price — fast and affordable, not a custom design. Want a site designed from scratch around your brand? That's the <a href="/welltemp#pricing">custom Full&nbsp;Build</a> — a different, higher tier.</p>
+
+    <div class="price-grid">
+      <div class="price-card">
+        <span class="badge">Starter deal · template</span>
+        <div class="price-tag"><span data-wws-text="sitePrice">$699</span> <small>flat</small></div>
+        <p class="price-note">One-time launch deal — built on my proven template, <strong>not a custom design</strong>. You own the finished site outright: code, content, and domain.</p>
+        <ul class="incl">
+          <li>Professional, mobile-first site (up to 5 pages) on a proven template — your logo, colors, photos &amp; text dropped in</li>
+          <li>Client-intake automation — inquiries routed straight to your inbox</li>
+          <li>Online scheduling / booking wired in</li>
+          <li>Google Business Profile &amp; local search setup</li>
+          <li>Your content added and copy polished for your services</li>
+          <li>Fast, secure hosting setup — no monthly platform fee to me</li>
+          <li>Training so you can make edits yourself</li>
+        </ul>
+        <a class="btn btn-pass plausible-event-name=Get+Started+-+Pricing" href="/start" data-wws-cta="service.start">Get started</a>
+      </div>
+
+      <div class="price-card alt">
+        <span class="badge plain neutral">Optional add-on</span>
+        <div class="price-tag"><span data-wws-text="retainerPrice">$150/mo</span></div>
+        <p class="price-note">Care plan — only if you want ongoing help. Cancel anytime.</p>
+        <ul class="incl">
+          <li>Hosting, updates, backups &amp; security monitoring</li>
+          <li>Content changes and small additions each month</li>
+          <li>Automation tweaks as your business grows</li>
+          <li>Priority support when something needs attention</li>
+        </ul>
+        <a class="btn btn-ghost plausible-event-name=Book+Call+-+Pricing" href="https://cal.com/wellwaltstudios/discovery-call" data-wws-cta="service.book">Ask about the care plan</a>
+      </div>
+    </div>
+
+    <div class="feat-grid" style="margin-top:28px">
+      <div class="feat-card">
+        <span class="feat-num">STARTER DEAL · <span data-wws-text="sitePrice">$699</span></span>
+        <h3>Proven template, set up for you</h3>
+        <p>My ready-made template with your logo, colors, content, and photos dropped in. Up to 5 pages, launched fast and affordably. Great design out of the box — but <strong>not a custom design</strong>.</p>
+      </div>
+      <div class="feat-card">
+        <span class="feat-num">FULL BUILD · CUSTOM · FROM $1,200</span>
+        <h3>Designed from scratch around your brand</h3>
+        <p>A bespoke site: custom layout, pages written for you, photos sourced and placed, and sections built to fit your business. The step up when the template isn't enough.</p>
+        <div class="tags" style="margin-top:14px"><a href="/welltemp#pricing" style="font-size:13px;font-weight:600;text-decoration:none">See the Full Build →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOMES -->
+<section class="band">
+  <div class="wrap">
+    <p class="sec-label">Why it's worth it</p>
+    <h2>Built around the things that actually move your business.</h2>
+    <div class="out-grid">
+      <div class="out"><h3>More inquiries booked</h3><p>A fast, clear site plus intake automation means fewer leads slip through the cracks and more turn into booked work.</p></div>
+      <div class="out"><h3>Less admin on your plate</h3><p>Automations handle routing, scheduling, and follow-up so you spend less time on the back-and-forth and more on the work.</p></div>
+      <div class="out"><h3>You own it outright</h3><p>No monthly platform ransom, no lock-in. The site is yours — keep it as-is or bring it anywhere.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTOMATION UPSELL -->
+<section id="automation">
+  <div class="wrap">
+    <p class="sec-label">The automation layer</p>
+    <h2>Turn the site into a system that runs itself.</h2>
+    <p class="sec-sub">The website gets people in the door. These automations make sure nothing gets dropped — included where it makes sense, expanded as an upsell when your workflow calls for it.</p>
+
+    <div class="feat-grid">
+      <div class="feat-card">
+        <span class="feat-num">INTAKE ROUTING</span>
+        <h3>Inquiries that route themselves</h3>
+        <p>New leads are captured, tagged, and sent where they need to go — your inbox, a spreadsheet, or your CRM — the moment they hit submit.</p>
+        <div class="tags"><span class="tag">Lead capture</span><span class="tag">Notifications</span></div>
+      </div>
+      <div class="feat-card">
+        <span class="feat-num">SCHEDULING</span>
+        <h3>Booking without the back-and-forth</h3>
+        <p>Let clients book straight into your calendar with reminders and confirmations handled automatically.</p>
+        <div class="tags"><span class="tag">Calendar</span><span class="tag">Reminders</span></div>
+      </div>
+      <div class="feat-card">
+        <span class="feat-num">DOCUMENTS</span>
+        <h3>Document generation</h3>
+        <p>Auto-generate intake forms, quotes, agreements, or confirmations from what the client submits — no re-typing.</p>
+        <div class="tags"><span class="tag">Templates</span><span class="tag">E-sign ready</span></div>
+      </div>
+      <div class="feat-card">
+        <span class="feat-num">CHATBOT</span>
+        <h3>Website chatbot</h3>
+        <p>An assistant that answers common questions and captures details after hours, so you never miss a late-night lead.</p>
+        <div class="tags"><span class="tag">24/7</span><span class="tag">Lead capture</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="band">
+  <div class="wrap">
+    <p class="sec-label">Timeline</p>
+    <h2>From call to live, usually in a few weeks.</h2>
+    <p class="sec-sub">Exact timing depends on scope and how fast content comes together — we'll set a firm date on the call.</p>
+    <div class="steps">
+      <div class="step"><span class="k">WEEK 0 · CALL</span><h3>Scope &amp; plan</h3><p>We talk through your business and goals. You get a fixed price, scope, and delivery date.</p></div>
+      <div class="step"><span class="k">WEEKS 1–2 · BUILD</span><h3>Design &amp; build</h3><p>I design and build the site, wire the automations, and set up local search. You review a live preview.</p></div>
+      <div class="step"><span class="k">WEEK 2–3 · LAUNCH</span><h3>Refine &amp; hand off</h3><p>We polish, launch, and I hand you the keys plus a walkthrough so you can run it yourself.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <p class="sec-label">FAQ</p>
+    <h2>Questions owners ask me.</h2>
+    <div class="faq">
+      <details><summary>What kinds of businesses do you build for?</summary><p>Any small business that gets customers online — law firms, clinics and practices, contractors, salons, consultants, local services, shops and restaurants. If a good website and less admin would help you win more work, you're a fit. I don't specialize in a single industry.</p></details>
+      <details><summary>Do I really own the site with no monthly fees?</summary><p>Yes. You own the code, content, and domain outright. There's no platform subscription owed to me. You'll have normal third-party costs like domain registration and hosting, which are yours and typically minimal. The optional care plan is exactly that — optional.</p></details>
+      <details><summary>What's included versus an upsell?</summary><p>The flat price covers the website, intake routing to your inbox, booking, and local-search setup. Deeper automations — document generation, a website chatbot, CRM integrations — are scoped as add-ons when your workflow needs them. We'll decide together on the call.</p></details>
+      <details><summary>How long does it take?</summary><p>Most builds go live within a few weeks. The biggest variable is how quickly content (photos, service details, copy) comes together. We lock a firm date on the call.</p></details>
+      <details><summary>What do you need from me?</summary><p>Your business details, any existing branding or photos, and a bit of time to review previews. If you don't have copy or images ready, I can help with that — it just factors into the timeline.</p></details>
+      <details><summary>Can you redesign my existing site or just add automations?</summary><p>Both. I redesign existing sites and I also add intake automations and workflows to sites that are otherwise fine. Tell me what you need on the intake form and we'll scope it.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="wrap">
+    <p class="sec-label">Ready?</p>
+    <h2>Tell me what you need — I'll reply within 24 hours.</h2>
+    <p>Two-minute intake form. No obligation. If it's a fit, we'll get on a quick call and I'll give you a fixed price and timeline.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-pass plausible-event-name=Get+Started+-+Services+CTA" href="/start" data-wws-cta="service.start">Get started</a>
+      <a class="btn btn-ghost plausible-event-name=Book+Call+-+Services+CTA" href="https://cal.com/wellwaltstudios/discovery-call" data-wws-cta="service.book" style="color:#fff;border-color:#28455C">Book a call</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span>© <span id="year"></span> Well Walt Studios</span>
+    <span>
+      <a href="/services">Services</a> ·
+      <a href="/portfolio">Portfolio</a> ·
+      <a href="/start">Get started</a> ·
+      <a href="/welltemp">WellTemp</a> ·
+      <a href="/wellship">WellShip</a> ·
+      <a href="mailto:ariel@wellwaltstudios.com">Email</a>
+    </span>
+  </div>
+</footer>
+
+<script src="/constants.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  (function () {
+    var t = document.getElementById('navToggle'), l = document.getElementById('navLinks');
+    if (!t || !l) return;
+    t.addEventListener('click', function () {
+      var open = l.classList.toggle('open');
+      t.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    l.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') { l.classList.remove('open'); t.setAttribute('aria-expanded', 'false'); }
+    });
+  })();
+</script>
+</body>
+</html>
