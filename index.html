@@ -198,12 +198,13 @@
   .demo{display:grid;grid-template-columns:1.05fr .95fr;gap:32px;align-items:center;
     background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
     padding:8px;box-shadow:0 1px 2px rgba(15,37,54,.05),0 18px 40px -22px rgba(15,37,54,.22)}
-  .demo-shot{border-radius:8px;overflow:hidden;background:linear-gradient(135deg,#0F2536,#2C5876);
-    aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;position:relative}
+  .demo-shot{border-radius:8px;overflow:hidden;background:#0F2536;
+    aspect-ratio:16/10;position:relative}
   .demo-shot .browser{position:absolute;top:0;left:0;right:0;height:34px;background:rgba(255,255,255,.08);
-    border-bottom:1px solid rgba(255,255,255,.12);display:flex;align-items:center;gap:6px;padding:0 12px}
+    border-bottom:1px solid rgba(255,255,255,.12);display:flex;align-items:center;gap:6px;padding:0 12px;z-index:2}
   .demo-shot .browser i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.35)}
-  .demo-shot .label{color:#fff;font-size:15px;font-weight:600;text-align:center;padding:0 24px;opacity:.9}
+  .demo-shot iframe{position:absolute;top:34px;left:0;width:200%;height:calc((100% - 34px) * 2);
+    border:0;background:#fff;transform:scale(.5);transform-origin:top left;pointer-events:none}
   .demo-copy{padding:22px 26px 26px}
   .demo-copy h2{margin-bottom:12px}
   .demo-copy p{color:var(--ink-soft);font-size:15px;margin-bottom:18px;max-width:48ch}
@@ -457,9 +458,9 @@ Whetstone Education     <span class="c">ed-tech</span>
     <p class="sec-sub">A done-for-you site built from a proven template, with client-intake automation and local-search setup — launched for you, yours to own outright. From <span data-wws-text="sitePrice">$699</span>, no monthly platform fees. See a live demo of the kind of site I'd build you:</p>
 
     <div class="demo">
-      <div class="demo-shot" aria-hidden="true">
+      <div class="demo-shot">
         <div class="browser"><i></i><i></i><i></i></div>
-        <span class="label">Live small-business demo</span>
+        <iframe src="/demo" title="Live small-business demo site" loading="lazy" tabindex="-1"></iframe>
       </div>
       <div class="demo-copy">
         <span class="badge plain neutral">Demo</span>

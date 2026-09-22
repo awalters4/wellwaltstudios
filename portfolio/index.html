@@ -79,16 +79,33 @@
   .badge.plain::before{content:none}
   .badge.neutral{background:#EDF2F0;color:var(--slate)}
 
+  /* work grid */
+  .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .work-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px;display:flex;flex-direction:column;gap:12px;
+  }
+  .work-shot{aspect-ratio:16/10;border-radius:8px;overflow:hidden;border:1px solid var(--line);
+    background:#EDF2F0;margin-bottom:2px}
+  .work-shot img{width:100%;height:100%;object-fit:cover;display:block}
+  .work-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+  .work-card h3{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:18px;letter-spacing:-.01em}
+  .work-card p{font-size:14.5px;color:var(--ink-soft)}
+  .work-links{display:flex;gap:14px;flex-wrap:wrap}
+  .work-links a{font-size:12.5px;font-weight:500;text-decoration:none}
+  .work-links a:hover{text-decoration:underline}
+
   /* demo showcase */
   .demo{display:grid;grid-template-columns:1.05fr .95fr;gap:32px;align-items:center;
     background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
     padding:8px;box-shadow:0 1px 2px rgba(15,37,54,.05),0 18px 40px -22px rgba(15,37,54,.22)}
-  .demo-shot{border-radius:8px;overflow:hidden;background:linear-gradient(135deg,#0F2536,#2C5876);
-    aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;position:relative}
+  .demo-shot{border-radius:8px;overflow:hidden;background:#0F2536;
+    aspect-ratio:16/10;position:relative}
   .demo-shot .browser{position:absolute;top:0;left:0;right:0;height:34px;background:rgba(255,255,255,.08);
-    border-bottom:1px solid rgba(255,255,255,.12);display:flex;align-items:center;gap:6px;padding:0 12px}
+    border-bottom:1px solid rgba(255,255,255,.12);display:flex;align-items:center;gap:6px;padding:0 12px;z-index:2}
   .demo-shot .browser i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.35)}
-  .demo-shot .label{color:#fff;font-size:15px;font-weight:600;text-align:center;padding:0 24px;opacity:.9}
+  .demo-shot iframe{position:absolute;top:34px;left:0;width:200%;height:calc((100% - 34px) * 2);
+    border:0;background:#fff;transform:scale(.5);transform-origin:top left;pointer-events:none}
   .demo-copy{padding:22px 26px 26px}
   .demo-copy h2{margin-bottom:12px}
   .demo-copy p{color:var(--ink-soft);font-size:15px;margin-bottom:18px;max-width:48ch}
@@ -159,9 +176,9 @@
     <p class="sec-sub">A complete example site — homepage, services, booking, and an intake form — so you can click through exactly what your customers would experience.</p>
 
     <div class="demo">
-      <div class="demo-shot" aria-hidden="true">
+      <div class="demo-shot">
         <div class="browser"><i></i><i></i><i></i></div>
-        <span class="label">Demo site preview</span>
+        <iframe src="/demo" title="Live small-business demo site" loading="lazy" tabindex="-1"></iframe>
       </div>
       <div class="demo-copy">
         <span class="badge plain neutral">Demo</span>
@@ -178,6 +195,79 @@
           <a class="btn btn-ghost plausible-event-name=Get+Started+-+Portfolio+Demo" href="/start" data-wws-cta="service.start">Get one like it</a>
         </div>
         <p class="placeholder-note">Live demo built with the WellTemp kit — the same site setup your $699 starter deal delivers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THINGS I'VE BUILT -->
+<section id="work" class="band">
+  <div class="wrap">
+    <p class="sec-label">Work</p>
+    <h2>Things I've built.</h2>
+    <p class="sec-sub">Software I've designed and shipped end to end — the same engineering I bring to client work.</p>
+
+    <div class="work-grid">
+      <div class="work-card">
+        <div class="work-shot"><img src="/portfolio/shots/aurova.png" alt="Aurova app screenshot" loading="lazy" onerror="this.closest('.work-shot').remove()"></div>
+        <div class="work-head">
+          <h3>Aurova</h3>
+          <span class="badge">Live</span>
+        </div>
+        <p>A habit-tracking and productivity app — streaks, social challenges, and progress tracking. Live on iOS and Android.</p>
+        <div class="tags">
+          <span class="tag">React Native</span>
+          <span class="tag">iOS + Android</span>
+        </div>
+        <div class="work-links">
+          <a href="https://apps.apple.com/us/app/aurova/id6449732442" target="_blank" rel="noopener">App Store ↗</a>
+          <a href="https://play.google.com/store/apps/details?id=com.wws.aurova" target="_blank" rel="noopener">Google Play ↗</a>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-shot"><img src="/portfolio/shots/gypsy.png" alt="Gypsy tarot web app screenshot" loading="lazy" onerror="this.closest('.work-shot').remove()"></div>
+        <div class="work-head">
+          <h3>Gypsy</h3>
+          <span class="badge">Live</span>
+        </div>
+        <p>A tarot web app with custom spreads and card interpretations.</p>
+        <div class="tags">
+          <span class="tag">Web app</span>
+          <span class="tag">Tarot</span>
+        </div>
+        <div class="work-links">
+          <a href="https://gypsy-xi.vercel.app/" target="_blank" rel="noopener">Open web app ↗</a>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-shot"><img src="/portfolio/shots/journal.png" alt="Journal web app screenshot" loading="lazy" onerror="this.closest('.work-shot').remove()"></div>
+        <div class="work-head">
+          <h3>Journal</h3>
+          <span class="badge">Live</span>
+        </div>
+        <p>A private, in-your-pocket journal — your entries live only on your own device and are never saved anywhere else.</p>
+        <div class="tags">
+          <span class="tag">Web app</span>
+          <span class="tag">Private &amp; local-only</span>
+        </div>
+        <div class="work-links">
+          <a href="https://awalters4.github.io/journal/" target="_blank" rel="noopener">Open web app ↗</a>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-shot"><img src="/portfolio/shots/options-flow.png" alt="Options Flow game screenshot" loading="lazy" onerror="this.closest('.work-shot').remove()"></div>
+        <div class="work-head">
+          <h3>Options Flow</h3>
+          <span class="badge">Live</span>
+        </div>
+        <p>A browser game for learning how options trading works.</p>
+        <div class="tags">
+          <span class="tag">Web app</span>
+          <span class="tag">Game</span>
+        </div>
+        <div class="work-links">
+          <a href="https://awalters4.github.io/options-flow/" target="_blank" rel="noopener">Play it ↗</a>
+        </div>
       </div>
     </div>
   </div>
