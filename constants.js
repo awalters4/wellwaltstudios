@@ -13,9 +13,13 @@ var SITE_PRICE     = '$699';
 // Optional monthly care / retainer add-on. Shown with data-wws-text="retainerPrice".
 var RETAINER_PRICE = '$150/mo';
 
-// TODO ①  Primary CTA — your booking link (Cal.com, etc.). Wired to every
-//          [data-wws-cta="service.book"] element (the "Book a call" buttons).
-var BOOKING_URL    = 'https://cal.com/wellwaltstudios/discovery-call';
+// Cal.com booking links. Wired to elements by their [data-wws-cta] value.
+//   service.book    → free website intro call (bundled with the website special)
+//   service.consult → paid $50 consultation / audit (credited toward an invoice if you book)
+//   welltemp.setupCall → paid $299 WellTemp setup call
+var INTRO_CALL_URL = 'https://cal.com/wellwaltstudios/website-intro-call'; // 30m · free
+var CONSULT_URL    = 'https://cal.com/wellwaltstudios/30min';              // 30m · $50
+var SETUP_CALL_URL = 'https://cal.com/wellwaltstudios/setup-call';         // 60m · $299
 
 // Demo — the WellTemp sample site, served from this repo at /demo (built from
 // the welltemp-starter-kit with SITE_BASE=/demo). Wired to
@@ -25,10 +29,9 @@ var DEMO_URL       = 'https://wellwaltstudios.com/demo';
 // Where lead notifications go. Also used for the mailto scoping CTA.
 var LEAD_EMAIL     = 'ariel@wellwaltstudios.com';
 
-// TODO ③  Intake form endpoint. Sign up (free) at https://web3forms.com, set
-//          LEAD_EMAIL above as the recipient in their dashboard, paste the
-//          access key here. The /start form posts to Web3Forms with this key.
-var WEB3FORMS_KEY  = 'YOUR_WEB3FORMS_ACCESS_KEY';
+// Intake form endpoint. Web3Forms access key (safe to expose client-side).
+// The /start form posts to Web3Forms with this key; leads are delivered to LEAD_EMAIL.
+var WEB3FORMS_KEY  = '3879bc64-f054-4b38-bc80-572f3634015d';
 
 // ── EXISTING PRODUCT LINKS ───────────────────────────────────────────────────
 // TODO ④  WellTemp product on Polar.sh → paste the checkout URL here.
@@ -41,8 +44,9 @@ var PLAUSIBLE_DOMAIN = 'wellwaltstudios.com';
 // ── CTA WIRING TABLE ─────────────────────────────────────────────────────────
 var WWS_LINKS = {
   service: {
-    start: '/start',                                                           // primary path — intake form
-    book:  BOOKING_URL,                                                         // secondary — book a call
+    start:   '/start',                                                         // primary path — intake form
+    book:    INTRO_CALL_URL,                                                    // free website intro call
+    consult: CONSULT_URL,                                                       // paid consultation / audit
     scope: 'mailto:' + LEAD_EMAIL
           + '?subject=New%20project%20enquiry%20%E2%80%94%20Well%20Walt%20Studios'
           + '&body=Hi%20Ariel%2C%0A%0AMy%20business%3A%20%0AWhat%20we%20do%3A%20%0AWhat%20I%20need%20(new%20site%20%2F%20redesign%20%2F%20automations)%3A%20%0ATimeline%3A%20%0ABudget%3A%20%0A',
@@ -50,7 +54,7 @@ var WWS_LINKS = {
   },
   welltemp: {
     diy:       POLAR_WELLTEMP_URL,                                             // DIY — $59 one-time
-    setupCall: 'https://cal.com/wellwaltstudios/setup-call',                   // Setup Call — $299
+    setupCall: SETUP_CALL_URL,                                                 // Setup Call — $299
     fullBuild: 'mailto:ariel@wellwaltstudios.com'
               + '?subject=WellTemp%20Full%20Build%20enquiry'
               + '&body=Hi%20Ariel%2C%20I%27m%20interested%20in%20a%20full%20WellTemp%20build.%20My%20business%20is%3A',

@@ -111,6 +111,18 @@
   .out h3{font-size:15.5px;margin-bottom:6px}
   .out p{font-size:14px;color:var(--ink-soft)}
 
+  /* who tags */
+  .who-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+  .who-tag{font-size:13px;font-weight:500;padding:7px 14px;border-radius:99px;background:var(--paper);border:1px solid var(--line);color:var(--ink-soft)}
+
+  /* other offerings */
+  .offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .offer-card{border:1px solid var(--line);border-radius:var(--radius);padding:24px;background:var(--panel);display:flex;flex-direction:column}
+  .offer-card h3{font-size:17px;letter-spacing:-.01em;margin:12px 0 8px}
+  .offer-card p{font-size:14px;color:var(--ink-soft);margin-bottom:14px}
+  .offer-card .o-note{font-size:12.5px;color:var(--slate);margin-bottom:16px}
+  .offer-card .btn{margin-top:auto;text-align:center}
+
   /* faq */
   .faq{border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);overflow:hidden;max-width:820px}
   .faq details{border-top:1px solid var(--line)}
@@ -137,6 +149,7 @@
     .feat-grid{grid-template-columns:1fr}
     .steps{grid-template-columns:1fr}
     .out-grid{grid-template-columns:1fr}
+    .offer-grid{grid-template-columns:1fr}
     section{padding:52px 0}
     .nav-toggle{display:inline-flex}
     .nav-links{position:absolute;top:60px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:8px 24px 18px;display:none;box-shadow:0 12px 24px -16px rgba(15,37,54,.25)}
@@ -154,11 +167,9 @@
     <a class="wordmark" href="/"><img src="/logo.png" alt="Well Walt Studios"></a>
     <div class="nav-right">
       <div class="nav-links" id="navLinks">
-        <a href="/services" class="active">Services</a>
         <a href="/portfolio">Portfolio</a>
-        <a href="/#how">How it works</a>
-        <a href="/welltemp">WellTemp</a>
-        <a href="/wellship">WellShip</a>
+        <a href="/services" class="active">Services</a>
+        <a href="/#contact">Contact</a>
       </div>
       <a class="btn btn-pass nav-get-started plausible-event-name=Get+Started+-+Nav"
          href="/start" data-wws-cta="service.start">Get started</a>
@@ -176,10 +187,42 @@
     <p class="hero-sub">A professional website built from a proven template, the automation that turns visitors into booked inquiries, and the local-search setup that helps people find you — set up and launched for you at one flat price. A deal versus a full custom build, and no monthly platform fees ever.</p>
     <div class="hero-ctas">
       <a class="btn btn-pass plausible-event-name=Get+Started+-+Services+Hero" href="/start" data-wws-cta="service.start">Get started</a>
-      <a class="btn btn-ghost plausible-event-name=Book+Call+-+Services+Hero" href="https://cal.com/wellwaltstudios/discovery-call" data-wws-cta="service.book">Book a call</a>
+      <a class="btn btn-ghost plausible-event-name=Request+Call+-+Services+Hero" href="https://cal.com/wellwaltstudios/website-intro-call" data-wws-cta="service.book">Request a call</a>
     </div>
   </div>
 </header>
+
+<!-- WHO IT'S FOR -->
+<section id="who" class="band">
+  <div class="wrap">
+    <p class="sec-label">Who this is for</p>
+    <h2>Built for small businesses that live and die by inquiries.</h2>
+    <p class="sec-sub">If customers find you online and decide in the first ten seconds, your site is doing sales work every day. I build for owners across local services — a few examples, not a limit:</p>
+    <div class="who-tags">
+      <span class="who-tag">Law firms</span>
+      <span class="who-tag">Clinics &amp; practices</span>
+      <span class="who-tag">Contractors</span>
+      <span class="who-tag">Salons &amp; studios</span>
+      <span class="who-tag">Local services</span>
+      <span class="who-tag">Consultants</span>
+      <span class="who-tag">Restaurants &amp; shops</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="wrap">
+    <p class="sec-label">How it works</p>
+    <h2>Three steps. No jargon, no platform lock-in.</h2>
+    <p class="sec-sub">You stay focused on running your business. I handle the build and hand you the keys.</p>
+    <div class="steps">
+      <div class="step"><span class="k">01 · CALL</span><h3>We talk it through</h3><p>A short call to understand your business, your customers, and what a win looks like. You'll leave knowing exactly what I'll build, what it costs, and when it ships.</p></div>
+      <div class="step"><span class="k">02 · I BUILD IT</span><h3>I build it</h3><p>I design and build the site, wire up client intake and scheduling, and set up your Google Business and local search. You review; I refine until it's right.</p></div>
+      <div class="step"><span class="k">03 · YOU OWN IT</span><h3>You own it</h3><p>The site is yours — code, content, and domain. No monthly platform fees, no being held hostage by a page builder. Want ongoing help? Add an optional care plan.</p></div>
+    </div>
+  </div>
+</section>
 
 <!-- PRICING -->
 <section id="pricing">
@@ -215,7 +258,7 @@
           <li>Automation tweaks as your business grows</li>
           <li>Priority support when something needs attention</li>
         </ul>
-        <a class="btn btn-ghost plausible-event-name=Book+Call+-+Pricing" href="https://cal.com/wellwaltstudios/discovery-call" data-wws-cta="service.book">Ask about the care plan</a>
+        <a class="btn btn-ghost plausible-event-name=Request+Call+-+Pricing" href="https://cal.com/wellwaltstudios/website-intro-call" data-wws-cta="service.book">Ask about the care plan</a>
       </div>
     </div>
 
@@ -298,6 +341,36 @@
   </div>
 </section>
 
+<!-- OTHER OFFERINGS -->
+<section id="offerings">
+  <div class="wrap">
+    <p class="sec-label">Also available</p>
+    <h2>Other ways to work with the studio.</h2>
+    <p class="sec-sub">Prefer to build it yourself, ship an app, or just get expert eyes on what you already have? These are the rest of the offerings.</p>
+    <div class="offer-grid">
+      <div class="offer-card">
+        <span class="badge">DIY</span>
+        <h3>WellTemp</h3>
+        <p>A professional 5-page business website you set up yourself and own outright — booking, payments, and a self-serve editor. The do-it-yourself version of the build above.</p>
+        <a class="btn btn-ghost" href="/welltemp">WellTemp →</a>
+      </div>
+      <div class="offer-card">
+        <span class="badge plain neutral">For developers</span>
+        <h3>WellShip</h3>
+        <p>A production React Native starter kit (Expo + RevenueCat + Supabase) plus the Store Submission Playbook — already passed App Store review.</p>
+        <a class="btn btn-ghost" href="/wellship">WellShip →</a>
+      </div>
+      <div class="offer-card">
+        <span class="badge plain neutral">$50 · 30 min</span>
+        <h3>Tech consultation / audit</h3>
+        <p>Get a senior engineer's eyes on an existing site, app, or stack — clear, concrete recommendations you can act on.</p>
+        <p class="o-note">$50 — credited toward your total invoice if you book a service.</p>
+        <a class="btn btn-pass plausible-event-name=Request+Call+-+Consult" href="https://cal.com/wellwaltstudios/30min" data-wws-cta="service.consult">Request a call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section id="faq">
   <div class="wrap">
@@ -322,7 +395,7 @@
     <p>Two-minute intake form. No obligation. If it's a fit, we'll get on a quick call and I'll give you a fixed price and timeline.</p>
     <div class="hero-ctas">
       <a class="btn btn-pass plausible-event-name=Get+Started+-+Services+CTA" href="/start" data-wws-cta="service.start">Get started</a>
-      <a class="btn btn-ghost plausible-event-name=Book+Call+-+Services+CTA" href="https://cal.com/wellwaltstudios/discovery-call" data-wws-cta="service.book" style="color:#fff;border-color:#28455C">Book a call</a>
+      <a class="btn btn-ghost plausible-event-name=Request+Call+-+Services+CTA" href="https://cal.com/wellwaltstudios/website-intro-call" data-wws-cta="service.book" style="color:#fff;border-color:#28455C">Request a call</a>
     </div>
   </div>
 </section>
@@ -331,11 +404,11 @@
   <div class="wrap foot-inner">
     <span>© <span id="year"></span> Well Walt Studios</span>
     <span>
-      <a href="/services">Services</a> ·
       <a href="/portfolio">Portfolio</a> ·
-      <a href="/start">Get started</a> ·
+      <a href="/services">Services</a> ·
       <a href="/welltemp">WellTemp</a> ·
       <a href="/wellship">WellShip</a> ·
+      <a href="/start">Get started</a> ·
       <a href="mailto:ariel@wellwaltstudios.com">Email</a>
     </span>
   </div>

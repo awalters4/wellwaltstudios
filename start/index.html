@@ -103,6 +103,17 @@
   .success p{color:var(--ink-soft);max-width:44ch;margin:0 auto 24px}
   .success .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 
+  /* confirmation modal */
+  .modal-overlay{position:fixed;inset:0;background:rgba(11,29,43,.55);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;padding:24px;z-index:100}
+  .modal-overlay.show{display:flex}
+  .modal{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);max-width:460px;width:100%;padding:36px 32px;text-align:center;box-shadow:0 24px 60px -20px rgba(15,37,54,.4);animation:modal-in .2s ease}
+  @keyframes modal-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion: reduce){.modal{animation:none}}
+  .modal .check-mark{width:56px;height:56px;border-radius:50%;background:var(--pass-dim);color:var(--pass);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700;margin:0 auto 18px}
+  .modal h2{font-size:22px;margin-bottom:10px;overflow-wrap:anywhere}
+  .modal p{color:var(--ink-soft);font-size:14.5px;margin:0 auto 24px;max-width:40ch}
+  .modal .btn{min-width:150px}
+
   /* footer */
   footer{border-top:1px solid var(--line);padding:28px 0;font-size:13px;color:var(--slate)}
   .foot-inner{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
@@ -126,11 +137,9 @@
     <a class="wordmark" href="/"><img src="/logo.png" alt="Well Walt Studios"></a>
     <div class="nav-right">
       <div class="nav-links" id="navLinks">
-        <a href="/services">Services</a>
         <a href="/portfolio">Portfolio</a>
-        <a href="/#how">How it works</a>
-        <a href="/welltemp">WellTemp</a>
-        <a href="/wellship">WellShip</a>
+        <a href="/services">Services</a>
+        <a href="/#contact">Contact</a>
       </div>
       <a class="btn btn-pass nav-get-started" href="/start" data-wws-cta="service.start">Get started</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
@@ -144,7 +153,7 @@
   <div class="wrap narrow">
     <p class="eyebrow">Get started</p>
     <h1>Tell me what you need.</h1>
-    <p class="lede">Two minutes now, a reply within 24 hours. The more you tell me, the more useful my first response will be. Prefer to talk it through? <a href="https://cal.com/wellwaltstudios/discovery-call" data-wws-cta="service.book" class="plausible-event-name=Book+Call+-+Start">Book a call instead</a>.</p>
+    <p class="lede">Two minutes now, a reply within 24 hours. The more you tell me, the more useful my first response will be. Prefer to talk it through? <a href="https://cal.com/wellwaltstudios/website-intro-call" data-wws-cta="service.book" class="plausible-event-name=Request+Call+-+Start">Request a call instead</a>.</p>
   </div>
 </header>
 
@@ -154,11 +163,21 @@
     <!-- SUCCESS STATE -->
     <div class="success" id="success" role="status" aria-live="polite" tabindex="-1">
       <div class="check-mark" aria-hidden="true">✓</div>
-      <h2>Got it — I'll reach out within 24 hours.</h2>
-      <p>Thanks for the details. I read every one of these personally and I'll get back to you fast, usually the same day.</p>
+      <h2>Got it — your request is in.</h2>
+      <p>Thanks for the details. I read every one of these personally and I'll get back to you within 48 hours, usually within 24.</p>
       <div class="btns">
-        <a class="btn btn-pass plausible-event-name=Book+Call+-+Start+Success" href="https://cal.com/wellwaltstudios/discovery-call" data-wws-cta="service.book">Book a call now</a>
+        <a class="btn btn-pass plausible-event-name=Request+Call+-+Start+Success" href="https://cal.com/wellwaltstudios/website-intro-call" data-wws-cta="service.book">Request a call now</a>
         <a class="btn btn-ghost" href="/portfolio">See the demo</a>
+      </div>
+    </div>
+
+    <!-- CONFIRMATION MODAL -->
+    <div class="modal-overlay" id="confirmModal" role="dialog" aria-modal="true" aria-labelledby="confirmTitle" aria-describedby="confirmDesc">
+      <div class="modal" tabindex="-1" id="confirmDialog">
+        <div class="check-mark" aria-hidden="true">✓</div>
+        <h2 id="confirmTitle">Thanks, <span id="confirmName">there</span>!</h2>
+        <p id="confirmDesc">Your request has been received. I read every one of these personally — expect a response within 48 hours, and likely within 24.</p>
+        <button type="button" class="btn btn-pass" id="confirmClose">Got it</button>
       </div>
     </div>
 
@@ -203,6 +222,7 @@
             <label class="check"><input type="checkbox" name="needs" value="New website"> New website</label>
             <label class="check"><input type="checkbox" name="needs" value="Redesign existing site"> Redesign existing site</label>
             <label class="check"><input type="checkbox" name="needs" value="Automations & workflows"> Automations &amp; workflows</label>
+            <label class="check"><input type="checkbox" name="needs" value="Tech consultation / audit"> Tech consultation / audit</label>
             <label class="check"><input type="checkbox" name="needs" value="Not sure yet"> Not sure yet</label>
           </div>
         </fieldset>
@@ -253,8 +273,8 @@
   <div class="wrap foot-inner">
     <span>© <span id="year"></span> Well Walt Studios</span>
     <span>
-      <a href="/services">Services</a> ·
       <a href="/portfolio">Portfolio</a> ·
+      <a href="/services">Services</a> ·
       <a href="/welltemp">WellTemp</a> ·
       <a href="/wellship">WellShip</a> ·
       <a href="mailto:ariel@wellwaltstudios.com">Email</a>
@@ -286,6 +306,23 @@
     var formError = document.getElementById('formError');
     var submitBtn = document.getElementById('submitBtn');
     var needsField = document.getElementById('needsField');
+    var confirmModal = document.getElementById('confirmModal');
+    var confirmDialog = document.getElementById('confirmDialog');
+    var confirmName = document.getElementById('confirmName');
+    var confirmClose = document.getElementById('confirmClose');
+
+    function closeConfirm() {
+      confirmModal.classList.remove('show');
+      success.focus();
+      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    confirmClose.addEventListener('click', closeConfirm);
+    confirmModal.addEventListener('click', function (e) {
+      if (e.target === confirmModal) closeConfirm();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && confirmModal.classList.contains('show')) closeConfirm();
+    });
 
     function markField(el, invalid) {
       var field = el.closest('.field');
@@ -360,10 +397,12 @@
       .then(function (data) {
         if (data && data.success) {
           if (window.plausible) window.plausible('Lead Submitted');
+          var fullName = document.getElementById('name').value.trim();
+          confirmName.textContent = fullName ? fullName.split(/\s+/)[0] : 'there';
           form.style.display = 'none';
           success.classList.add('show');
-          success.focus();
-          success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          confirmModal.classList.add('show');
+          confirmDialog.focus();
         } else {
           throw new Error((data && data.message) || 'Submission failed');
         }
