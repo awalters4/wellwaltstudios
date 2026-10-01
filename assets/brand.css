@@ -1,0 +1,171 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Well Walt Studios — shared brand layer.
+   Loaded after each page's inline <style>, so tokens and type here win.
+   Type system: Fraunces (display) · DM Sans (body) · IBM Plex Mono (technical
+   accents: labels, tags, badges, terminal). Palette: warm cream + brand pink
+   with a peach secondary, deep ink for contrast.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+:root{
+  --ink:#16213A;
+  --ink-soft:#4A4F63;
+  --slate:#6E6A78;
+  --paper:#FBF6F1;
+  --panel:#FFFFFF;
+  --line:#ECDFD6;
+  --pass:#D63C74;
+  --pass-dim:#FCE7EF;
+  --peach:#F29C78;
+  --peach-dim:#FDEDE4;
+  --blush:#FFF3F6;
+  --deep:#16213A;
+  --deep-line:#2A3657;
+  --deep-text:#DCD6E6;
+  --amber:#E26A3F;
+  --radius:14px;
+
+  --font-display:'Fraunces',Georgia,'Times New Roman',serif;
+  --font-body:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  --shadow-soft:0 1px 2px rgba(22,33,58,.05),0 16px 40px -24px rgba(22,33,58,.25);
+}
+
+/* ---------- type ---------- */
+body{font-family:var(--font-body);font-size:16.5px;color:var(--ink);background:var(--paper)}
+input,textarea,select,button{font:inherit}
+
+h1,h2,h3,h4,.price-tag{
+  font-family:var(--font-display);
+  font-optical-sizing:auto;
+  font-variation-settings:'SOFT' 60,'WONK' 0;
+  letter-spacing:-.015em;
+}
+h1{font-weight:600;line-height:1.04}
+h2{font-weight:600;line-height:1.1}
+h3{font-weight:600;letter-spacing:-.005em}
+h1 .pass-word,h2 .pass-word{font-style:italic;font-variation-settings:'SOFT' 100,'WONK' 1}
+
+.mono,.eyebrow,.sec-label,.tag,.badge,.feat-num,.svc-num,.step .k,.terminal,.term-bar,
+.status-head,.status-foot,.snap-foot,.hero-note,.prod-k,.form-group label,.who-tag,
+.o-note,.outcome-k,.side-nav,code,pre,kbd{
+  font-family:var(--font-mono);
+}
+
+/* ---------- surfaces ---------- */
+.band{background:var(--panel);border-color:var(--line)}
+.tag{background:var(--peach-dim);color:#8A4A31}
+.badge.neutral,.who-tag{background:var(--paper)}
+.btn{border-radius:999px;font-weight:600}
+.btn-ghost{border-color:var(--line)}
+.btn-ghost:hover{background:var(--blush)}
+.btn-pass{box-shadow:0 8px 20px -10px rgba(214,60,116,.65)}
+
+.work-card,.feat-card,.svc-card,.step,.out,.offer-card,.price-card,.contact-form,.demo,.faq,.prod-list{
+  border-radius:var(--radius);
+}
+.work-card,.feat-card,.out,.offer-card,.step{transition:transform .2s ease,box-shadow .2s ease}
+.work-card:hover,.feat-card:hover,.out:hover,.offer-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-soft)}
+
+/* warm glow behind hero headers */
+.hero,.head{position:relative;isolation:isolate}
+.hero::before,.head::before{
+  content:'';position:absolute;inset:-40px 0 0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(600px 320px at 85% 10%,rgba(242,156,120,.22),transparent 70%),
+    radial-gradient(520px 300px at 10% 0%,rgba(214,60,116,.12),transparent 70%);
+}
+
+/* ---------- nav + logo lockup ---------- */
+nav{background:rgba(255,255,255,.9);border-bottom:1px solid var(--line);box-shadow:0 1px 0 rgba(22,33,58,.02),0 8px 24px -20px rgba(22,33,58,.35)}
+.nav-inner{height:68px}
+.wordmark{gap:10px}
+.wordmark img{height:30px;width:auto}
+.wordmark-text{
+  font-family:var(--font-display);font-weight:600;font-size:19px;letter-spacing:-.01em;
+  color:var(--ink);white-space:nowrap;line-height:1;
+}
+.wordmark-text em{font-style:italic;color:var(--pass);font-variation-settings:'SOFT' 100,'WONK' 1}
+.nav-links a{font-size:14.5px}
+@media (max-width:900px){.nav-links{top:68px}}
+
+
+/* ---------- deep sections ---------- */
+.cta-band{background:
+  radial-gradient(700px 300px at 90% 0%,rgba(214,60,116,.28),transparent 70%),
+  radial-gradient(600px 300px at 0% 100%,rgba(242,156,120,.18),transparent 70%),
+  var(--deep)}
+.terminal{background:var(--deep);border-color:var(--deep-line)}
+
+/* ---------- about (home) ---------- */
+.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:52px;align-items:center}
+.about-photo{position:relative;margin:0}
+.about-photo picture{display:block;position:relative;isolation:isolate}
+.about-photo img{display:block;width:100%;height:auto;aspect-ratio:7/6;object-fit:cover;object-position:60% 40%;
+  border-radius:22px;box-shadow:var(--shadow-soft)}
+.about-photo picture::before{content:'';position:absolute;inset:16px -14px -14px 16px;border-radius:22px;
+  background:linear-gradient(135deg,var(--pass-dim),var(--peach-dim));z-index:-1}
+#about{overflow-x:clip}
+.about-photo figcaption{font-family:var(--font-mono);font-size:12px;color:var(--slate);margin-top:26px}
+.about-copy p{color:var(--ink-soft);font-size:16.5px;margin-bottom:16px;max-width:58ch}
+.about-copy .sec-label,.contact-copy .sec-label{color:var(--pass);font-size:12.5px;margin-bottom:14px}
+.about-copy .sig{font-family:var(--font-display);font-style:italic;font-size:22px;color:var(--pass);margin-top:8px}
+.about-facts{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 4px;list-style:none;padding:0}
+.about-facts li{font-family:var(--font-mono);font-size:12.5px;padding:6px 12px;border-radius:99px;
+  background:var(--paper);border:1px solid var(--line);color:var(--ink-soft)}
+@media (max-width:900px){.about{grid-template-columns:1fr;gap:40px}.about-photo{max-width:520px}}
+
+/* ---------- outcomes on automation cards ---------- */
+.outcome{margin:-4px 0 16px;padding:12px 14px;border-radius:10px;background:var(--blush);
+  border-left:3px solid var(--pass);font-size:14px;color:var(--ink);line-height:1.5}
+.outcome-k{display:block;font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--pass);margin-bottom:3px}
+
+/* ---------- services: sticky side nav ---------- */
+.svc-layout{display:grid;grid-template-columns:200px minmax(0,1fr);gap:40px;max-width:calc(var(--maxw) + 240px);margin:0 auto;padding:0 24px}
+.svc-layout > main > section .wrap{padding:0;max-width:none}
+.side-nav{position:sticky;top:92px;align-self:start;padding:64px 0 24px}
+.side-nav p{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin-bottom:12px}
+.side-nav ol{list-style:none;padding:0;margin:0;border-left:1px solid var(--line)}
+.side-nav a{display:block;padding:7px 0 7px 14px;margin-left:-1px;border-left:2px solid transparent;
+  font-size:13px;color:var(--ink-soft);text-decoration:none;transition:color .15s,border-color .15s}
+.side-nav a:hover{color:var(--ink)}
+.side-nav a[aria-current="true"]{color:var(--pass);border-left-color:var(--pass);font-weight:600}
+.svc-layout > main > section.band,.svc-layout > main > section.cta-band{
+  border:1px solid var(--line);border-radius:22px;padding-left:40px;padding-right:40px;margin:24px 0}
+.svc-layout > main > section.cta-band{border-color:transparent}
+.side-nav a.ext::after{content:' →'}
+.svc-hero .wrap{max-width:calc(var(--maxw) + 240px);padding-left:264px}
+section[id]{scroll-margin-top:84px}
+@media (max-width:1060px){
+  .svc-hero .wrap{max-width:var(--maxw);padding-left:24px}
+  .svc-layout{display:block;padding:0}
+  .svc-layout > main > section .wrap{padding:0 24px;max-width:var(--maxw)}
+  .svc-layout > main > section.band,.svc-layout > main > section.cta-band{border-radius:0;border-left:0;border-right:0;padding-left:0;padding-right:0;margin:0}
+  .side-nav{position:sticky;top:68px;z-index:40;padding:0;background:rgba(251,246,241,.94);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .side-nav p{display:none}
+  .side-nav ol{display:flex;gap:6px;overflow-x:auto;border:0;padding:10px 24px;scrollbar-width:none}
+  .side-nav ol::-webkit-scrollbar{display:none}
+  .side-nav a{white-space:nowrap;border:1px solid var(--line);border-radius:99px;padding:5px 12px;margin:0;background:var(--panel)}
+  .side-nav a[aria-current="true"]{border-color:var(--pass);background:var(--pass-dim)}
+  section[id]{scroll-margin-top:124px}
+}
+
+/* ---------- faq page ---------- */
+.faq-groups{display:grid;gap:40px;grid-template-columns:minmax(0,820px)}
+.faq-groups h2{font-size:clamp(22px,2.6vw,28px);margin-bottom:14px}
+.faq summary{font-family:var(--font-body)}
+
+/* ---------- small phones ---------- */
+@media (max-width:420px){
+  .wrap{padding:0 16px}
+  .nav-right{gap:8px}
+  .nav-get-started{padding:8px 14px;font-size:13px}
+  .wordmark{gap:8px}
+  .wordmark img{height:24px}
+  .wordmark-text{font-size:16px}
+  .nav-toggle{width:36px;height:36px}
+}
+/* grid children shouldn't force overflow on narrow screens */
+.work-card,.feat-card,.svc-card,.offer-card,.price-card,.step,.out{min-width:0}
+.work-links a,.work-card p{overflow-wrap:anywhere}
