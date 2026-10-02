@@ -4,15 +4,18 @@
 // Update it, and every page that loads /constants.js picks up the change.
 // ─────────────────────────────────────────────────────────────────────────────
 
-// ── DONE-FOR-YOU SERVICE — edit these ───────────────────────────────────────
-// Headline price for the done-for-you STARTER site — a professional site built
-// from a proven template and launched for you (a deal vs. a full custom build).
-// Shown anywhere with data-wws-text="sitePrice".
+// ── OCTOBER SPECIAL — edit these ─────────────────────────────────────────────
+// Price for the limited-time October special: a done-for-you site based on the
+// demo, launched for you. Shown anywhere with data-wws-text="sitePrice".
 var SITE_PRICE     = '$699';
 
-// Post-launch support. No monthly fee: an included free window after launch,
-// then help on a per-issue hourly basis only when the client wants it.
-// Shown with data-wws-text="supportWindow" and data-wws-text="supportRate".
+// Starting hourly rate for custom development, consulting, IT, and project
+// management — all scoped per project. Shown with data-wws-text="devRate".
+var DEV_RATE       = '$200/hr';
+
+// Post-launch support on the special. No monthly fee: an included free window
+// after launch, then help on a per-issue hourly basis only when the client
+// wants it. Shown with data-wws-text="supportWindow" / "supportRate".
 var SUPPORT_WINDOW = '6 months';
 var SUPPORT_RATE   = '$125/hr';
 
@@ -22,7 +25,7 @@ var SUPPORT_RATE   = '$125/hr';
 //   welltemp.setupCall → paid $299 WellTemp setup call
 var INTRO_CALL_URL = 'https://cal.com/wellwaltstudios/website-intro-call'; // 30m · free
 var CONSULT_URL    = 'https://cal.com/wellwaltstudios/30min';              // 30m · $50
-var SETUP_CALL_URL = 'https://cal.com/wellwaltstudios/setup-call';         // 60m · $299
+var SETUP_CALL_URL = 'https://cal.com/wellwaltstudios/setup-call';         // 45–60m · $299
 
 // Demo — the WellTemp sample site, served from this repo at /demo (built from
 // the welltemp-starter-kit with SITE_BASE=/demo). Wired to
@@ -70,6 +73,7 @@ var WWS_LINKS = {
 // Editable text tokens (prices) injected into [data-wws-text] elements.
 var WWS_TEXT = {
   sitePrice:     SITE_PRICE,
+  devRate:       DEV_RATE,
   supportWindow: SUPPORT_WINDOW,
   supportRate:   SUPPORT_RATE,
   leadEmail:     LEAD_EMAIL,
