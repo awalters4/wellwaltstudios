@@ -10,8 +10,11 @@
 // Shown anywhere with data-wws-text="sitePrice".
 var SITE_PRICE     = '$699';
 
-// Optional monthly care / retainer add-on. Shown with data-wws-text="retainerPrice".
-var RETAINER_PRICE = '$150/mo';
+// Post-launch support. No monthly fee: an included free window after launch,
+// then help on a per-issue hourly basis only when the client wants it.
+// Shown with data-wws-text="supportWindow" and data-wws-text="supportRate".
+var SUPPORT_WINDOW = '6 months';
+var SUPPORT_RATE   = '$125/hr';
 
 // Cal.com booking links. Wired to elements by their [data-wws-cta] value.
 //   service.book    → free website intro call (bundled with the website special)
@@ -29,9 +32,9 @@ var DEMO_URL       = 'https://wellwaltstudios.com/demo';
 // Where lead notifications go. Also used for the mailto scoping CTA.
 var LEAD_EMAIL     = 'ariel@wellwaltstudios.com';
 
-// Intake form endpoint. Web3Forms access key (safe to expose client-side).
-// The /start form posts to Web3Forms with this key; leads are delivered to LEAD_EMAIL.
-var WEB3FORMS_KEY  = '3879bc64-f054-4b38-bc80-572f3634015d';
+// Intake form submits to the /api/intake serverless function, which stores the
+// lead in the ops app and sends the email notification server-side. The
+// Web3Forms key now lives only in the WEB3FORMS_KEY Vercel env var — never here.
 
 // ── EXISTING PRODUCT LINKS ───────────────────────────────────────────────────
 // TODO ④  WellTemp product on Polar.sh → paste the checkout URL here.
@@ -67,7 +70,8 @@ var WWS_LINKS = {
 // Editable text tokens (prices) injected into [data-wws-text] elements.
 var WWS_TEXT = {
   sitePrice:     SITE_PRICE,
-  retainerPrice: RETAINER_PRICE,
+  supportWindow: SUPPORT_WINDOW,
+  supportRate:   SUPPORT_RATE,
   leadEmail:     LEAD_EMAIL,
 };
 
