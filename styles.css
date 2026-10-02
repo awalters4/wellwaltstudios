@@ -1,0 +1,60 @@
+/* ───────────────────────────────────────────────────────────────────────────
+   Well Walt Studios — shared stylesheet.
+   Loaded on every agency page AFTER its inline <style> so these tokens and base
+   type rules win. Keeps the design tokens in one place instead of repeating them
+   per page. (Not loaded on /welltemp, /wellship, or /demo — those are separate.)
+   ─────────────────────────────────────────────────────────────────────────── */
+
+:root{
+  /* palette — warm cream surfaces, brand pink */
+  --ink:#0F2536;
+  --ink-soft:#3E5468;
+  --slate:#5B7285;
+  --paper:#F6F3EE;
+  --panel:#FFFFFF;
+  --line:#E7E0D6;
+  --pass:#D63C74;
+  --pass-dim:#FBE7EE;
+  --deep:#0B1D2B;
+  --deep-line:#1E3A50;
+  --deep-text:#C9D9E4;
+  --amber:#E0629F;
+  --radius:10px;
+  --maxw:1080px;
+
+  /* type — soft serif display, friendly sans body, mono for technical accents */
+  --font-display:'Fraunces',Georgia,'Times New Roman',serif;
+  --font-body:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,monospace;
+  --font-ui:var(--font-display); /* back-compat alias for inline heading rules */
+}
+
+body{font-family:var(--font-body)}
+
+/* responsive safety: media never exceeds its container, and grid/flex children
+   (e.g. the hero terminal code block) can shrink instead of forcing page-level
+   horizontal scroll on phones */
+img,iframe,video{max-width:100%}
+.hero-grid>*,.work-grid>*,.svc-grid>*,.feat-grid>*,.demo>*,.about-grid>*,.price-grid>*{min-width:0}
+
+h1,h2,h3,h4{font-family:var(--font-display)}
+h1,h2{font-weight:600;letter-spacing:-.015em}
+.svc-card h3,.work-card h3,.feat-card h3,.offer-card h3,.step h3,.out h3{font-family:var(--font-display)}
+
+/* keep IBM Plex Mono only for the technical accents */
+.mono,.eyebrow,.sec-label,.tag,.badge,.feat-num,.svc-num,.who-tag,
+.price-tag,.price-tag small,.step .k,.jump a,.terminal,.terminal *{
+  font-family:var(--font-mono);
+}
+
+/* logo: transparent W mark + text wordmark in the display face */
+.wordmark{display:flex;align-items:center;gap:10px;text-decoration:none}
+.wordmark .wm-mark{height:30px;width:auto;display:block}
+.wordmark .wm-text{
+  font-family:var(--font-display);font-weight:600;font-size:18px;
+  letter-spacing:-.01em;color:var(--ink);white-space:nowrap;
+}
+@media (max-width:600px){
+  /* show just the W mark on small screens so the nav fits at 390px */
+  .wordmark .wm-text{display:none}
+}
