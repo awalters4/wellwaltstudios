@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Small Business Website Design &amp; Automation — Well Walt Studios</title>
-<meta name="description" content="Done-for-you websites and practice automations for small businesses. I build a modern site that wins you clients, set up your intake and local search, and hand you a site you own outright — no monthly platform fees.">
+<title>Well Walt Studios · Websites, apps &amp; automation</title>
+<meta name="description" content="Done-for-you websites and practice automations for small businesses. I build a modern site that wins you clients, set up your intake and local search, and hand you a site you own outright, no monthly platform fees.">
 <link rel="canonical" href="https://wellwaltstudios.com/">
-<meta property="og:title" content="Small Business Website Design &amp; Automation — Well Walt Studios">
-<meta property="og:description" content="Done-for-you websites and practice automations for small businesses. A modern site that wins clients, plus intake automation and local search setup — a site you own outright.">
+<meta property="og:title" content="Well Walt Studios · Websites, apps &amp; automation">
+<meta property="og:description" content="Done-for-you websites and practice automations for small businesses. A modern site that wins clients, plus intake automation and local search setup, a site you own outright.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://wellwaltstudios.com/">
 <meta property="og:image" content="https://wellwaltstudios.com/logo.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Small Business Website Design &amp; Automation — Well Walt Studios">
-<meta name="twitter:description" content="Done-for-you websites and practice automations for small businesses. A site you own outright — no monthly platform fees.">
+<meta name="twitter:title" content="Well Walt Studios · Websites, apps &amp; automation">
+<meta name="twitter:description" content="Done-for-you websites and practice automations for small businesses. A site you own outright, no monthly platform fees.">
 <meta name="twitter:image" content="https://wellwaltstudios.com/logo.png">
 <link rel="icon" href="/favicon.ico">
 <!-- Plausible analytics -->
@@ -68,6 +68,14 @@
   .btn-pass:hover{background:#B72B60}
   .btn-ghost{background:transparent;color:var(--ink)}
   .btn-ghost:hover{background:#EAEFED}
+
+  /* october special promo strip */
+  .promo-strip{background:var(--deep);color:#fff}
+  .promo-inner{display:flex;align-items:center;justify-content:space-between;gap:16px 20px;flex-wrap:wrap;padding:16px 0}
+  .promo-inner p{margin:0;font-size:14.5px;color:var(--deep-text)}
+  .promo-inner strong{color:#fff}
+  .promo-tag{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);border:1px solid #2b4a63;border-radius:99px;padding:3px 9px;margin-right:10px;white-space:nowrap}
+  .promo-inner .btn{flex-shrink:0}
 
   /* ---------- hero ---------- */
   .hero{padding:88px 0 72px}
@@ -359,7 +367,7 @@
     <div>
       <p class="eyebrow">Well Walt Studios · New Orleans</p>
       <h1>An independent <span class="pass-word">software studio</span>.</h1>
-      <p class="hero-sub">Well Walt Studios brings 13+ years of senior software engineering to your business — mobile and web apps, databases, automation, and IT. From a done-for-you website to custom development, technical consulting, and project management.</p>
+      <p class="hero-sub">Well Walt Studios brings 13+ years of senior software engineering to your business, mobile and web apps, databases, automation, and IT. From a done-for-you website to custom development, technical consulting, and project management.</p>
       <div class="hero-ctas">
         <a class="btn btn-pass plausible-event-name=See+Offerings+-+Hero" href="/services">See what the studio does</a>
         <a class="btn btn-ghost" href="#contact">Get in touch</a>
@@ -367,7 +375,7 @@
     </div>
 
     <div class="terminal" role="img" aria-label="Career history">
-      <div class="term-bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span>career — selected employers</span></div>
+      <div class="term-bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span>career, selected employers</span></div>
       <pre><span class="p">$</span> cat career.txt
 Eaze Technologies       <span class="c">cannabis</span>
 BAE Systems             <span class="c">defense</span>
@@ -378,11 +386,18 @@ Whetstone Education     <span class="c">ed-tech</span>
   </div>
 </header>
 
+<div class="promo-strip">
+  <div class="wrap promo-inner">
+    <p><span class="promo-tag">October special</span> A done-for-you website for <strong><span data-wws-text="sitePrice">$699</span></strong>, based on the live demo. Limited time.</p>
+    <a class="btn btn-pass plausible-event-name=See+Special+-+Home+Strip" href="/services#special">See the special →</a>
+  </div>
+</div>
+
 <section id="work" class="band">
   <div class="wrap">
     <p class="sec-label">Work</p>
     <h2>Things I've built.</h2>
-    <p class="sec-sub">Software I've designed and shipped end to end — the same engineering I bring to client work.</p>
+    <p class="sec-sub">Software I've designed and shipped end to end, the same engineering I bring to client work.</p>
 
     <div class="work-grid">
       <div class="work-card">
@@ -390,7 +405,7 @@ Whetstone Education     <span class="c">ed-tech</span>
           <h3>Aurova</h3>
           <span class="badge">Live</span>
         </div>
-        <p>A habit-tracking and productivity app — streaks, social challenges, and progress tracking. Live on iOS and Android.</p>
+        <p>A habit-tracking and productivity app, streaks, social challenges, and progress tracking. Live on iOS and Android.</p>
         <div class="tags">
           <span class="tag">React Native</span>
           <span class="tag">iOS + Android</span>
@@ -419,7 +434,7 @@ Whetstone Education     <span class="c">ed-tech</span>
           <h3>Journal</h3>
           <span class="badge">Live</span>
         </div>
-        <p>A private, in-your-pocket journal — your entries live only on your own device and are never saved anywhere else.</p>
+        <p>A private, in-your-pocket journal, your entries live only on your own device and are never saved anywhere else.</p>
         <div class="tags">
           <span class="tag">Web app</span>
           <span class="tag">Private &amp; local-only</span>
@@ -450,9 +465,9 @@ Whetstone Education     <span class="c">ed-tech</span>
   <div class="wrap about-grid">
     <div class="about-copy">
       <p class="sec-label">About</p>
-      <h2>Hi, I'm Ariel — and I'm the whole studio.</h2>
-      <p>I'm a senior software engineer with 13+ years across mobile, full-stack, databases, and enterprise systems — for companies like Boeing, BAE Systems, and Eaze. Well Walt Studios is where I bring that same engineering to your business: not just websites, but the apps, data, and IT behind them.</p>
-      <p>When you hire the studio, you work directly with me — no account managers, no handoff to a junior team. I design it, build it, and hand you the keys. Based in New Orleans, working with clients anywhere.</p>
+      <h2>Hi, I'm Ariel, and I'm the whole studio.</h2>
+      <p>I'm a senior software engineer with 13+ years across mobile, full-stack, databases, and enterprise systems, for companies like Boeing, BAE Systems, and Eaze. Well Walt Studios is where I bring that same engineering to your business: not just websites, but the apps, data, and IT behind them.</p>
+      <p>When you hire the studio, you work directly with me, no account managers, no handoff to a junior team. I design it, build it, and hand you the keys. Based in New Orleans, working with clients anywhere.</p>
       <div class="hero-ctas">
         <a class="btn btn-pass" href="/start" data-wws-cta="service.start">Work with me</a>
         <a class="btn btn-ghost" href="/portfolio">See the work</a>
@@ -475,7 +490,7 @@ Whetstone Education     <span class="c">ed-tech</span>
   <div class="wrap">
     <p class="sec-label">For small businesses</p>
     <h2>Need a website that wins you clients?</h2>
-    <p class="sec-sub">A done-for-you site based on the demo below, with client-intake automation and local-search setup — launched for you, yours to own outright. A limited-time <strong>October special</strong> at <span data-wws-text="sitePrice">$699</span>, no monthly platform fees. Need something custom instead? That's scoped per project, from <span data-wws-text="devRate">$200/hr</span>. See the live demo:</p>
+    <p class="sec-sub">A done-for-you site based on the demo below, with client-intake automation and local-search setup, launched for you, yours to own outright. A limited-time <strong>October special</strong> at <span data-wws-text="sitePrice">$699</span>, no monthly platform fees. Need something custom instead? That's scoped per project, from <span data-wws-text="devRate">$200/hr</span>. See the live demo:</p>
 
     <div class="demo">
       <div class="demo-shot">
@@ -485,7 +500,7 @@ Whetstone Education     <span class="c">ed-tech</span>
       <div class="demo-copy">
         <span class="badge plain neutral">Demo</span>
         <h2>See a site like the one I'd build you</h2>
-        <p>A complete example — homepage, services, booking, and an intake form — so you can click through exactly what your customers would experience.</p>
+        <p>A complete example, homepage, services, booking, and an intake form, so you can click through exactly what your customers would experience.</p>
         <div class="tags" style="margin-bottom:18px">
           <span class="tag">Responsive</span>
           <span class="tag">Booking</span>
@@ -520,7 +535,7 @@ Whetstone Education     <span class="c">ed-tech</span>
     </div>
     <div class="contact-form">
       <h3>Ready when you are</h3>
-      <p class="sub">New site, a product idea, or automation — start here.</p>
+      <p class="sub">New site, a product idea, or automation, start here.</p>
       <a class="btn btn-pass plausible-event-name=Get+Started+-+Contact" href="/start" data-wws-cta="service.start" style="width:100%;text-align:center;display:block">Get started</a>
       <p class="sub" style="margin:16px 0 0">Two minutes now, a reply within 24 hours.</p>
     </div>
