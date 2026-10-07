@@ -35,9 +35,11 @@ var DEMO_URL       = 'https://wellwaltstudios.com/demo';
 // Where lead notifications go. Also used for the mailto scoping CTA.
 var LEAD_EMAIL     = 'ariel@wellwaltstudios.com';
 
-// Intake form submits to the /api/intake serverless function, which stores the
-// lead in the ops app and sends the email notification server-side. The
-// Web3Forms key now lives only in the WEB3FORMS_KEY Vercel env var — never here.
+// Web3Forms access key for the /start email notification. Submitted client-side
+// (Web3Forms' free plan only allows browser submissions); the key is safe to
+// expose and is domain-locked. The /start form also POSTs to /api/intake to save
+// the lead in the ops app. Rotate this key anytime at web3forms.com.
+var WEB3FORMS_KEY  = '3879bc64-f054-4b38-bc80-572f3634015d';
 
 // ── EXISTING PRODUCT LINKS ───────────────────────────────────────────────────
 // TODO ④  WellTemp product on Polar.sh → paste the checkout URL here.

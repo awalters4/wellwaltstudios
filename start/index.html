@@ -389,10 +389,34 @@
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending…';
 
+      // Best-effort: save the lead to the ops app server-side (non-blocking).
       fetch('/api/intake', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
+      }).catch(function () {});
+
+      // Email notification via Web3Forms (client-side); this drives the success UI.
+      var web3 = {
+        access_key: (typeof WEB3FORMS_KEY !== 'undefined') ? WEB3FORMS_KEY : '',
+        subject: 'New lead - ' + payload.business_name,
+        from_name: payload.name,
+        name: payload.name,
+        email: payload.email,
+        phone: payload.phone,
+        business_name: payload.business_name,
+        business_desc: payload.business_desc,
+        needs: payload.needs,
+        details: payload.details,
+        budget: payload.budget,
+        timeline: payload.timeline,
+        botcheck: payload.botcheck
+      };
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(web3)
       })
       .then(function (r) { return r.json(); })
       .then(function (data) {
