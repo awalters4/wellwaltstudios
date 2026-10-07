@@ -3,10 +3,15 @@
 // both server-side so no secret is exposed in the browser. Returns success to
 // the browser if EITHER the ops save or the email succeeds.
 //
-// Required env vars (set in Vercel project settings):
+// Uses Node's built-in https (not global fetch) so it runs on any Node version.
+//
+// Required env vars (set in Vercel project settings, Production):
 //   OPS_INGEST_URL     base URL of the ops app, e.g. https://ops.example.com
 //   OPS_INGEST_SECRET  bearer token the ops app expects on /api/ingest/lead
 //   WEB3FORMS_KEY      Web3Forms access key (kept server-side only)
+
+const https = require('https');
+const { URL } = require('url');
 
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; // 10 minutes
 const RATE_LIMIT_MAX = 5;                     // submissions per IP per window
@@ -18,7 +23,7 @@ const hits = new Map();
 function clientIp(req) {
   const fwd = req.headers['x-forwarded-for'];
   if (fwd) return String(fwd).split(',')[0].trim();
-  return req.headers['x-real-ip'] || req.socket?.remoteAddress || 'unknown';
+  return req.headers['x-real-ip'] || (req.socket && req.socket.remoteAddress) || 'unknown';
 }
 
 function rateLimited(ip) {
@@ -26,7 +31,6 @@ function rateLimited(ip) {
   const recent = (hits.get(ip) || []).filter(function (t) { return now - t < RATE_LIMIT_WINDOW_MS; });
   recent.push(now);
   hits.set(ip, recent);
-  // Opportunistic cleanup so the map doesn't grow unbounded.
   if (hits.size > 5000) {
     for (const [key, times] of hits) {
       if (!times.some(function (t) { return now - t < RATE_LIMIT_WINDOW_MS; })) hits.delete(key);
@@ -36,6 +40,35 @@ function rateLimited(ip) {
 }
 
 function str(v) { return (v == null ? '' : String(v)).trim(); }
+
+// POST JSON over https; resolves { status, body }.
+function postJson(urlString, headers, payload) {
+  return new Promise(function (resolve, reject) {
+    let u;
+    try { u = new URL(urlString); } catch (e) { return reject(new Error('invalid URL: ' + urlString)); }
+    const data = JSON.stringify(payload);
+    const opts = {
+      method: 'POST',
+      hostname: u.hostname,
+      port: u.port || 443,
+      path: (u.pathname || '/') + (u.search || ''),
+      headers: Object.assign({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Content-Length': Buffer.byteLength(data),
+      }, headers || {}),
+    };
+    const req = https.request(opts, function (res) {
+      let body = '';
+      res.on('data', function (c) { body += c; });
+      res.on('end', function () { resolve({ status: res.statusCode, body: body }); });
+    });
+    req.on('error', reject);
+    req.setTimeout(10000, function () { req.destroy(new Error('request timed out')); });
+    req.write(data);
+    req.end();
+  });
+}
 
 function validate(body) {
   const data = {
@@ -62,16 +95,10 @@ function validate(body) {
 async function saveToOps(data) {
   const base = process.env.OPS_INGEST_URL;
   const secret = process.env.OPS_INGEST_SECRET;
-  if (!base || !secret) {
-    throw new Error('ops ingest not configured');
-  }
-  const resp = await fetch(base.replace(/\/$/, '') + '/api/ingest/lead', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + secret,
-    },
-    body: JSON.stringify({
+  if (!base || !secret) throw new Error('ops ingest not configured (OPS_INGEST_URL / OPS_INGEST_SECRET missing)');
+  const r = await postJson(base.replace(/\/$/, '') + '/api/ingest/lead',
+    { 'Authorization': 'Bearer ' + secret },
+    {
       name: data.name,
       email: data.email,
       phone: data.phone,
@@ -84,36 +111,34 @@ async function saveToOps(data) {
       timeline: data.timeline,
       source: 'wellwaltstudios/start',
       submitted_at: new Date().toISOString(),
-    }),
-  });
-  if (!resp.ok) throw new Error('ops ingest responded ' + resp.status);
+    });
+  if (r.status < 200 || r.status >= 300) {
+    throw new Error('ops ingest responded ' + r.status + (r.body ? ': ' + r.body.slice(0, 120) : ''));
+  }
   return true;
 }
 
 async function sendEmail(data) {
   const key = process.env.WEB3FORMS_KEY;
-  if (!key) throw new Error('web3forms key not configured');
-  const resp = await fetch('https://api.web3forms.com/submit', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body: JSON.stringify({
-      access_key: key,
-      subject: 'New lead — ' + (data.business_name || data.name),
-      from_name: data.name,
-      name: data.name,
-      email: data.email,
-      phone: data.phone,
-      business_name: data.business_name,
-      business_desc: data.business_desc,
-      needs: data.needs,
-      details: data.details,
-      budget: data.budget,
-      timeline: data.timeline,
-    }),
+  if (!key) throw new Error('web3forms key not configured (WEB3FORMS_KEY missing)');
+  const r = await postJson('https://api.web3forms.com/submit', {}, {
+    access_key: key,
+    subject: 'New lead — ' + (data.business_name || data.name),
+    from_name: data.name,
+    name: data.name,
+    email: data.email,
+    phone: data.phone,
+    business_name: data.business_name,
+    business_desc: data.business_desc,
+    needs: data.needs,
+    details: data.details,
+    budget: data.budget,
+    timeline: data.timeline,
   });
-  const json = await resp.json().catch(function () { return null; });
-  if (!resp.ok || !(json && json.success)) {
-    throw new Error('web3forms failed: ' + (json && json.message ? json.message : resp.status));
+  let json = null;
+  try { json = JSON.parse(r.body); } catch (e) { /* non-JSON response */ }
+  if (r.status < 200 || r.status >= 300 || !(json && json.success)) {
+    throw new Error('web3forms failed: ' + (json && json.message ? json.message : ('HTTP ' + r.status)));
   }
   return true;
 }
@@ -147,8 +172,10 @@ module.exports = async (req, res) => {
 
   const [ops, email] = await Promise.allSettled([saveToOps(data), sendEmail(data)]);
 
-  if (ops.status === 'rejected') console.error('[intake] ops save failed:', ops.reason && ops.reason.message);
-  if (email.status === 'rejected') console.error('[intake] email send failed:', email.reason && email.reason.message);
+  const opsErr = ops.status === 'rejected' ? String(ops.reason && ops.reason.message || ops.reason) : null;
+  const emailErr = email.status === 'rejected' ? String(email.reason && email.reason.message || email.reason) : null;
+  if (opsErr) console.error('[intake] ops save failed:', opsErr);
+  if (emailErr) console.error('[intake] email send failed:', emailErr);
 
   // Succeed if either path worked; the lead is not lost as long as one lands.
   if (ops.status === 'fulfilled' || email.status === 'fulfilled') {
@@ -156,5 +183,9 @@ module.exports = async (req, res) => {
   }
 
   console.error('[intake] both ops save and email failed for', data.email);
-  return res.status(502).json({ success: false, error: 'Could not deliver your submission' });
+  return res.status(502).json({
+    success: false,
+    error: 'Could not deliver your submission',
+    detail: { ops: opsErr, email: emailErr },
+  });
 };
