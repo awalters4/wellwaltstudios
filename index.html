@@ -2,576 +2,946 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Well Walt Studios · Websites, apps &amp; automation</title>
-<meta name="description" content="Done-for-you websites and practice automations for small businesses. I build a modern site that wins you clients, set up your intake and local search, and hand you a site you own outright, no monthly platform fees.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Ariel Walters — I build software that brings small businesses more customers</title>
+<meta name="description" content="I'm Ariel, and I build software for small businesses. 13+ years of senior engineering, you work directly with me. See a real site I'd build you, read how it works, and tell me about your business.">
 <link rel="canonical" href="https://wellwaltstudios.com/">
-<meta property="og:title" content="Well Walt Studios · Websites, apps &amp; automation">
-<meta property="og:description" content="Done-for-you websites and practice automations for small businesses. A modern site that wins clients, plus intake automation and local search setup, a site you own outright.">
+
+<meta property="og:title" content="Ariel Walters — I build software that brings small businesses more customers">
+<meta property="og:description" content="A short book about who I am and how I can help your business. See a real site I'd build you, plain pricing, and answers to the questions owners ask.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://wellwaltstudios.com/">
+<!-- TODO: replace with a dedicated book-cover OG image (1200x630), styled as the book cover. -->
 <meta property="og:image" content="https://wellwaltstudios.com/logo.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Well Walt Studios · Websites, apps &amp; automation">
-<meta name="twitter:description" content="Done-for-you websites and practice automations for small businesses. A site you own outright, no monthly platform fees.">
+<meta name="twitter:title" content="Ariel Walters — I build software for small businesses">
+<meta name="twitter:description" content="A short book about who I am and how I can help your business.">
 <meta name="twitter:image" content="https://wellwaltstudios.com/logo.png">
 <link rel="icon" href="/favicon.ico">
+
 <!-- Plausible analytics -->
 <script defer data-domain="wellwaltstudios.com" src="https://plausible.io/js/script.tagged-events.js"></script>
-<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+<script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  /* design tokens live in /styles.css (shared) */
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto}
-    *,*::before,*::after{animation:none!important;transition:none!important}
-  }
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:var(--font-ui);
-    font-size:16px;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  a{color:var(--pass)}
-  a:focus-visible,button:focus-visible{outline:2px solid var(--pass);outline-offset:3px;border-radius:4px}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-  .mono{font-family:'IBM Plex Mono',monospace}
+<!-- TODO (perf): self-host subset WOFF2 for Fraunces/DM Sans. Kept on Google Fonts for now to match the rest of the site. -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  /* ---------- nav ---------- */
-  nav{
-    border-bottom:1px solid var(--line);
-    background:rgba(255,255,255,.9);
-    backdrop-filter:blur(8px);
-    position:sticky;top:0;z-index:50;
-  }
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
-  .wordmark{display:flex;align-items:center;text-decoration:none}
-  .wordmark img{height:40px;width:auto;display:block}
-  .nav-links{display:flex;align-items:center;gap:26px}
-  .nav-links a{
-    color:var(--ink-soft);text-decoration:none;font-size:14px;font-weight:500;
-  }
-  .nav-links a:hover{color:var(--ink)}
-  .btn{
-    display:inline-block;background:var(--ink);color:#fff;text-decoration:none;
-    font-weight:600;font-size:14px;padding:10px 20px;border-radius:8px;
-    border:1px solid var(--ink);transition:background .15s ease;cursor:pointer;
-  }
-  .btn:hover{background:#1C3A52}
-  .btn-pass{background:var(--pass);border-color:var(--pass)}
-  .btn-pass:hover{background:#B72B60}
-  .btn-ghost{background:transparent;color:var(--ink)}
-  .btn-ghost:hover{background:#EAEFED}
+<!-- Add the JS-book class before first paint so the scrolling fallback never flashes. -->
+<script>document.documentElement.classList.add('js-book');</script>
 
-  /* october special promo strip */
-  .promo-strip{background:var(--deep);color:#fff}
-  .promo-inner{display:flex;align-items:center;justify-content:space-between;gap:16px 20px;flex-wrap:wrap;padding:16px 0}
-  .promo-inner p{margin:0;font-size:14.5px;color:var(--deep-text)}
-  .promo-inner strong{color:#fff}
-  .promo-tag{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);border:1px solid #2b4a63;border-radius:99px;padding:3px 9px;margin-right:10px;white-space:nowrap}
-  .promo-inner .btn{flex-shrink:0}
-
-  /* ---------- hero ---------- */
-  .hero{padding:88px 0 72px}
-  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
-  .eyebrow{
-    font-family:'IBM Plex Mono',monospace;font-size:12.5px;font-weight:500;
-    color:var(--pass);letter-spacing:.06em;text-transform:uppercase;
-    display:flex;align-items:center;gap:8px;margin-bottom:20px;
-  }
-  .eyebrow::before{content:'';width:22px;height:1px;background:var(--pass)}
-  h1{
-    font-family:var(--font-ui);font-weight:600;
-    font-size:clamp(34px,4.6vw,52px);line-height:1.06;letter-spacing:-.02em;
-    margin-bottom:20px;
-  }
-  h1 .pass-word{color:var(--pass)}
-  .hero-sub{font-size:17.5px;color:var(--ink-soft);max-width:46ch;margin-bottom:30px}
-  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-  .hero-note{
-    font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--pass);
-    margin-top:18px;display:flex;align-items:center;gap:8px;
-  }
-  .hero-note::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--pass)}
-
-  /* status card */
-  .status-card{
-    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
-    box-shadow:0 1px 2px rgba(15,37,54,.05),0 12px 32px -16px rgba(15,37,54,.18);
-    overflow:hidden;
-  }
-  .status-head{
-    padding:14px 18px;border-bottom:1px solid var(--line);
-    display:flex;justify-content:space-between;align-items:center;
-    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--slate);
-  }
-  .status-head span:last-child{color:var(--pass);font-weight:600}
-  .status-app{padding:18px;display:flex;gap:14px;align-items:flex-start}
-  .status-app + .status-app{border-top:1px solid var(--line)}
-  .app-icon{
-    width:44px;height:44px;border-radius:10px;flex-shrink:0;
-    display:flex;align-items:center;justify-content:center;
-    font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:19px;color:#fff;
-  }
-  .app-icon.a{background:linear-gradient(135deg,#0F2536,#2C5876)}
-  .app-icon.b{background:linear-gradient(135deg,#D63C74,#F08BBB)}
-  .status-body{flex:1}
-  .status-title{font-weight:600;font-size:15.5px;line-height:1.3}
-  .status-meta{font-size:13px;color:var(--slate);margin:2px 0 8px}
-  .badge{
-    display:inline-flex;align-items:center;gap:6px;
-    background:var(--pass-dim);color:var(--pass);
-    font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;
-    padding:3px 9px;border-radius:99px;letter-spacing:.02em;
-  }
-  .badge::before{content:'✓';font-weight:700}
-  .badge.plain::before{content:none}
-  .badge.neutral{background:#EDF2F0;color:var(--slate)}
-  .store-links{margin-top:9px;display:flex;gap:14px}
-  .store-links a{font-size:12.5px;font-weight:500;text-decoration:none}
-  .store-links a:hover{text-decoration:underline}
-  .status-foot{
-    padding:12px 18px;background:#FBFCFB;border-top:1px solid var(--line);
-    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--slate);
-  }
-  .status-foot b{color:var(--ink);font-weight:600}
-
-  /* ---------- sections ---------- */
-  section{padding:72px 0}
-  .sec-label{
-    font-family:'IBM Plex Mono',monospace;font-size:12.5px;font-weight:500;
-    color:var(--pass);letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;
-  }
-  h2{
-    font-family:var(--font-ui);font-weight:600;
-    font-size:clamp(26px,3.2vw,34px);letter-spacing:-.015em;line-height:1.14;
-    margin-bottom:14px;max-width:26ch;
-  }
-  .sec-sub{color:var(--ink-soft);max-width:60ch;margin-bottom:40px}
-  .band{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-
-  /* services */
-  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  .svc-card{
-    border:1px solid var(--line);border-radius:var(--radius);padding:24px;background:var(--paper);
-    display:flex;flex-direction:column;
-  }
-  .svc-num{
-    font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;
-    color:var(--amber);letter-spacing:.04em;margin-bottom:12px;display:block;
-  }
-  .svc-card h3{font-family:var(--font-ui);font-weight:600;font-size:17px;letter-spacing:-.01em;margin-bottom:8px}
-  .svc-card p{font-size:14px;color:var(--ink-soft);margin-bottom:18px}
-  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
-  .tag{
-    font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:500;
-    padding:2px 9px;border-radius:99px;background:#EDF2F0;color:var(--ink-soft);
-  }
-
-  /* portfolio */
-  .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-  .work-card{
-    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
-    padding:24px;display:flex;flex-direction:column;gap:12px;
-  }
-  .work-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
-  .work-card h3{font-family:var(--font-ui);font-weight:600;font-size:18px;letter-spacing:-.01em}
-  .work-card p{font-size:14.5px;color:var(--ink-soft)}
-  .work-links{display:flex;gap:14px;flex-wrap:wrap}
-  .work-links a{font-size:12.5px;font-weight:500;text-decoration:none}
-  .work-links a:hover{text-decoration:underline}
-
-  /* demo showcase */
-  .demo{display:grid;grid-template-columns:1.05fr .95fr;gap:32px;align-items:center;
-    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
-    padding:8px;box-shadow:0 1px 2px rgba(15,37,54,.05),0 18px 40px -22px rgba(15,37,54,.22)}
-  .demo-shot{border-radius:8px;overflow:hidden;background:#0F2536;
-    aspect-ratio:16/10;position:relative}
-  .demo-shot .browser{position:absolute;top:0;left:0;right:0;height:34px;background:rgba(255,255,255,.08);
-    border-bottom:1px solid rgba(255,255,255,.12);display:flex;align-items:center;gap:6px;padding:0 12px;z-index:2}
-  .demo-shot .browser i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.35)}
-  .demo-shot iframe{position:absolute;top:34px;left:0;width:200%;height:calc((100% - 34px) * 2);
-    border:0;background:#fff;transform:scale(.5);transform-origin:top left;pointer-events:none}
-  .demo-copy{padding:22px 26px 26px}
-  .demo-copy h2{margin-bottom:12px}
-  .demo-copy p{color:var(--ink-soft);font-size:15px;margin-bottom:18px;max-width:48ch}
-  .demo-copy .btn{margin-right:10px;margin-bottom:10px}
-
-  /* products strip */
-  .prod-list{border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);overflow:hidden;margin-bottom:28px}
-  .prod-row{
-    display:grid;grid-template-columns:170px 1fr auto;gap:20px;
-    padding:18px 22px;align-items:center;
-  }
-  .prod-row + .prod-row{border-top:1px solid var(--line)}
-  .prod-k{font-family:'IBM Plex Mono',monospace;font-size:13.5px;font-weight:600;color:var(--ink)}
-  .prod-v{font-size:14.5px;color:var(--ink-soft)}
-  .prod-row .badge{justify-self:end}
-
-  /* about */
-  .about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
-  .about-copy{min-width:0}
-  .about-copy p{color:var(--ink-soft);font-size:15.5px;margin-bottom:16px;max-width:56ch}
-  .about-copy .btn{margin-top:10px}
-  .about-media{min-width:0}
-  .about-media img{width:100%;height:auto;display:block;border-radius:var(--radius);border:1px solid var(--line);
-    box-shadow:0 1px 2px rgba(15,37,54,.05),0 18px 40px -24px rgba(15,37,54,.22)}
-  .terminal{
-    background:var(--deep);border-radius:var(--radius);border:1px solid var(--deep-line);
-    font-family:'IBM Plex Mono',monospace;font-size:14px;overflow-x:auto;
-  }
-  .term-bar{
-    display:flex;align-items:center;gap:6px;padding:11px 16px;
-    border-bottom:1px solid var(--deep-line);
-  }
-  .dot{width:10px;height:10px;border-radius:50%;background:#2C4A63}
-  .term-bar span{margin-left:8px;font-size:12px;color:#5F7C94}
-  .terminal pre{padding:18px 20px;color:var(--deep-text);line-height:1.85}
-  .terminal .p{color:#4E7A9B;user-select:none}
-  .terminal .c{color:#587891}
-  .terminal .g{color:#F79CC4}
-
-  /* contact */
-  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
-  .contact-copy p{color:var(--ink-soft);font-size:15.5px;max-width:46ch;margin-bottom:28px}
-  .contact-lines{display:flex;flex-direction:column;gap:12px}
-  .contact-lines a{
-    font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--ink);
-    text-decoration:none;display:flex;align-items:center;gap:10px;
-  }
-  .contact-lines a::before{content:'→';color:var(--pass);font-weight:600}
-  .contact-lines a:hover{color:var(--pass)}
-  .contact-form{
-    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:28px;
-  }
-  .contact-form h3{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:17px;margin-bottom:4px}
-  .contact-form .sub{font-size:13.5px;color:var(--slate);margin-bottom:22px}
-  .form-group{margin-bottom:16px}
-  .form-group label{
-    display:block;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;
-    color:var(--slate);letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px;
-  }
-  .form-group input,.form-group textarea{
-    width:100%;background:var(--paper);border:1px solid var(--line);border-radius:8px;
-    padding:10px 12px;color:var(--ink);font-family:'IBM Plex Mono',monospace;
-    font-size:14.5px;outline:none;resize:vertical;transition:border-color .15s ease;
-  }
-  .form-group input:focus,.form-group textarea:focus{border-color:var(--pass)}
-  .form-group input::placeholder,.form-group textarea::placeholder{color:#9AAAB6}
-  .form-group textarea{min-height:110px}
-  .contact-form .btn{width:100%;text-align:center}
-
-  /* footer */
-  footer{border-top:1px solid var(--line);padding:28px 0;font-size:13px;color:var(--slate)}
-  .foot-inner{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-  footer a{color:var(--slate)}
-
-  /* responsive */
-  @media (max-width:900px){
-    .hero{padding:56px 0 48px}
-    .hero-grid{grid-template-columns:1fr;gap:40px}
-    .svc-grid{grid-template-columns:1fr}
-    .work-grid{grid-template-columns:1fr}
-    .about-grid{grid-template-columns:1fr}
-    .contact-grid{grid-template-columns:1fr}
-    .demo{grid-template-columns:1fr}
-    .prod-row{grid-template-columns:1fr;gap:6px}
-    .prod-row .badge{justify-self:start}
-    .nav-links a:not(.btn){display:none}
-    section{padding:56px 0}
-  }
-  @media (max-width:420px){
-    .hero-ctas{flex-direction:column;align-items:stretch}
-    .btn{text-align:center}
-  }
-
-  /* ---------- nav: persistent CTA + mobile menu ---------- */
-  .nav-right{display:flex;align-items:center;gap:18px}
-  .nav-toggle{
-    display:none;background:none;border:1px solid var(--line);border-radius:8px;
-    width:38px;height:38px;align-items:center;justify-content:center;cursor:pointer;
-    color:var(--ink);
-  }
-  .nav-toggle svg{display:block}
-  .nav-get-started{white-space:nowrap}
-
-  /* ---------- who it's for strip ---------- */
-  .who{padding-top:0}
-  .who-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
-  .who-tag{
-    font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;
-    padding:7px 14px;border-radius:99px;background:var(--paper);
-    border:1px solid var(--line);color:var(--ink-soft);
-  }
-
-  /* ---------- offer snapshot card (hero aside) ---------- */
-  .snap-list{padding:18px;display:flex;flex-direction:column;gap:12px}
-  .snap-list li{list-style:none;display:flex;gap:10px;font-size:14px;color:var(--ink-soft)}
-  .snap-list li::before{content:'✓';color:var(--pass);font-weight:700}
-  .snap-foot{
-    padding:14px 18px;background:#FBFCFB;border-top:1px solid var(--line);
-    font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--slate);
-    display:flex;justify-content:space-between;align-items:center;gap:12px;
-  }
-  .snap-foot b{color:var(--ink)}
-
-  @media (max-width:900px){
-    .nav-toggle{display:inline-flex}
-    .nav-links{
-      position:absolute;top:60px;left:0;right:0;
-      flex-direction:column;align-items:stretch;gap:0;
-      background:var(--paper);border-bottom:1px solid var(--line);
-      padding:8px 24px 18px;display:none;
-      box-shadow:0 12px 24px -16px rgba(15,37,54,.25);
-    }
-    .nav-links.open{display:flex}
-    .nav-links a:not(.btn){display:block;padding:12px 0;font-size:15px;border-bottom:1px solid var(--line)}
-    .nav-links a:not(.btn):last-child{border-bottom:0}
-  }
-</style>
 <link rel="stylesheet" href="/styles.css">
+<style>
+/* ============================================================================
+   Well Walt Studios — "The Book". A real 3D flip-book.
+   Baseline (no .js-book): plain, crawlable scrolling document.
+   Enhanced (html.js-book): loader -> closed hardcover -> page-turning book.
+   ========================================================================== */
+
+/* ---- tokens: day (default) ---------------------------------------------- */
+:root{
+  --paper:#F6F3EE; --panel:#FFFFFF; --panel-2:#FBFAF7; --page:#FBF8F2;
+  --ink:#0F2536; --ink-soft:#3E5468; --slate:#5B7285;
+  --line:#E7E0D6; --line-soft:#F0EBE2;
+  --pass:#D63C74; --pass-dim:#FBE7EE; --pass-ink:#B72B60; --amber:#E0629F;
+  --cover-cloth:#12293B; --cover-ink:#F4ECDE; --cover-accent:var(--amber);
+  --desk:#CBBFA8; --desk-2:#B9AC92;
+  --radius:12px;
+  --page-shadow:0 1px 2px rgba(15,37,54,.05), 0 24px 60px -28px rgba(15,37,54,.30);
+  --focus:var(--pass);
+  --font-display:'Fraunces',Georgia,'Times New Roman',serif;
+  --font-body:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,monospace;
+  --pw:0px; --ph:0px; /* set by JS */
+}
+html[data-theme="night"]{
+  --paper:#17130E; --panel:#201B14; --panel-2:#241E16; --page:#241E16;
+  --ink:#F4ECDE; --ink-soft:#CFC2AE; --slate:#A2957F;
+  --line:#352C20; --line-soft:#2A2319;
+  --pass:#F386AC; --pass-dim:#3A1F2A; --pass-ink:#F9A7C3; --amber:#F2A0C6;
+  --cover-cloth:#15110B; --cover-ink:#F4ECDE; --cover-accent:var(--amber);
+  --desk:#0C0A07; --desk-2:#000000;
+  --page-shadow:0 1px 2px rgba(0,0,0,.4), 0 24px 60px -24px rgba(0,0,0,.65);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--font-body);font-size:18px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:var(--font-display);line-height:1.12;letter-spacing:-.015em;color:var(--ink)}
+a{color:var(--pass)}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-visible{
+  outline:3px solid var(--focus);outline-offset:3px;border-radius:6px;
+}
+.visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ---- buttons ------------------------------------------------------------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 22px;
+  border-radius:10px;cursor:pointer;font-family:var(--font-body);font-weight:600;font-size:16px;text-decoration:none;
+  background:var(--panel);color:var(--ink);border:1.5px solid var(--line);
+  transition:background .15s ease,border-color .15s ease,transform .08s ease}
+.btn:hover{background:var(--panel-2)}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--pass);border-color:var(--pass);color:#fff;font-weight:700}
+.btn-primary:hover{background:var(--pass-ink);border-color:var(--pass-ink)}
+.btn-ghost{background:transparent}
+.btn-lg{min-height:54px;padding:14px 26px;font-size:18px}
+.btn-sm{min-height:44px;padding:9px 16px;font-size:15px}
+
+/* ============================================================================
+   BASELINE (no JS): plain scrolling document
+   ========================================================================== */
+.loader,.book-top,.book-bottom,.ribbon,.hint,.corner{display:none}
+.book{max-width:1120px;margin:0 auto;padding:24px}
+.sheet{display:block}
+.face{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:40px clamp(24px,5vw,56px);margin:0 auto 24px;max-width:760px;box-shadow:var(--page-shadow)}
+.face h1{font-size:clamp(32px,5vw,46px);margin-bottom:18px}
+.face h2{font-size:clamp(26px,3.6vw,34px);margin-bottom:16px}
+.face h3{font-size:19px;margin-bottom:8px}
+.face p{color:var(--ink-soft);margin-bottom:16px;max-width:60ch}
+.face p strong{color:var(--ink)}
+.lead{font-size:20px;color:var(--ink)!important}
+.open-cta{margin-top:8px}
+
+/* ============================================================================
+   ENHANCED BOOK (html.js-book)
+   ========================================================================== */
+html.js-book,html.js-book body{height:100%;overflow:hidden}
+html.js-book body{display:flex;flex-direction:column;background:var(--paper);padding-top:env(safe-area-inset-top)}
+
+/* ---- loading screen ---- */
+html.js-book .loader{
+  display:flex;position:fixed;inset:0;z-index:200;align-items:center;justify-content:center;flex-direction:column;gap:22px;
+  background:radial-gradient(1000px 600px at 50% 30%, var(--panel), var(--paper));
+  transition:opacity .5s ease,visibility .5s ease;
+}
+.loader.hide{opacity:0;visibility:hidden;pointer-events:none}
+.loader-mark{width:84px;height:auto;animation:breathe 1.6s ease-in-out infinite}
+.loader b{font-family:var(--font-display);font-weight:600;font-size:22px;letter-spacing:-.01em;color:var(--ink)}
+.loader .track{width:180px;height:4px;border-radius:99px;background:var(--line);overflow:hidden}
+.loader .track i{display:block;height:100%;width:40%;border-radius:99px;background:var(--pass);animation:slide 1.1s ease-in-out infinite}
+.loader small{font-family:var(--font-mono);font-size:12px;color:var(--slate);letter-spacing:.08em}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.06);opacity:1}}
+@keyframes slide{0%{transform:translateX(-120%)}100%{transform:translateX(320%)}}
+
+/* ---- top chrome ---- */
+html.js-book .book-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex:0 0 auto;height:58px;
+  padding:0 clamp(12px,3vw,24px);border-bottom:1px solid var(--line);background:var(--panel);position:relative;z-index:30}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.brand img{height:26px;width:auto;display:block}
+.brand b{font-family:var(--font-display);font-weight:600;font-size:16px}
+.top-actions{display:flex;align-items:center;gap:8px}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;min-width:44px;padding:0 12px;
+  border-radius:9px;cursor:pointer;background:transparent;border:1.5px solid var(--line);color:var(--ink);
+  font-family:var(--font-body);font-size:14px;font-weight:600}
+.icon-btn:hover{background:var(--panel-2)}
+.icon-btn svg{display:block;width:18px;height:18px}
+@media (max-width:560px){.icon-btn .label{display:none}.icon-btn{padding:0;width:44px}}
+
+/* ---- bookmark ribbon (primary CTA) ---- */
+html.js-book .ribbon{display:flex;position:absolute;top:58px;right:clamp(12px,3vw,32px);z-index:40}
+.ribbon a{display:inline-flex;align-items:center;gap:8px;min-height:44px;background:var(--pass);color:#fff;font-weight:700;
+  font-size:15px;padding:9px 18px 14px;border-radius:0 0 8px 8px;text-decoration:none;box-shadow:0 10px 20px -10px rgba(214,60,116,.6)}
+.ribbon a::after{content:'→'}
+.ribbon a:hover{background:var(--pass-ink)}
+@media (max-width:560px){.ribbon a{font-size:14px;padding:8px 14px 12px}}
+
+/* ---- the stage / desk ---- */
+html.js-book .book{flex:1 1 auto;position:relative;max-width:none;margin:0;padding:0;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(1200px 700px at 50% 40%, var(--desk), var(--desk-2))}
+html[data-theme="night"] .book{background:radial-gradient(1200px 700px at 50% 40%, var(--desk), var(--desk-2))}
+
+/* perspective wrapper */
+html.js-book .viewport{position:relative;width:calc(var(--pw) * 2);height:var(--ph);perspective:2600px;perspective-origin:50% 45%}
+
+/* the physical book: spine at horizontal center */
+html.js-book .book3d{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .6s ease}
+/* closed: shift so the front cover (right half) sits centered on the desk */
+html.js-book .viewport.closed .book3d{transform:translateX(calc(var(--pw) * -0.5))}
+/* ended: all pages turned — shift the other way so the back cover (now on the
+   left) sits centered, like a closed book seen from behind (no blank page) */
+html.js-book .viewport.ended .book3d{transform:translateX(calc(var(--pw) * 0.5))}
+
+/* a static "base" page under the stack so an open book has a left + right leaf */
+html.js-book .book-base{position:absolute;top:0;left:0;width:calc(var(--pw) * 2);height:var(--ph);
+  border-radius:4px;background:var(--page);box-shadow:var(--page-shadow)}
+html.js-book .viewport.closed .book-base,
+html.js-book .viewport.ended .book-base{opacity:0}
+html.js-book .book-base::after{content:'';position:absolute;top:0;bottom:0;left:50%;width:40px;transform:translateX(-50%);
+  background:linear-gradient(90deg,transparent,rgba(15,37,54,.14),transparent);pointer-events:none}
+
+/* sheets occupy the RIGHT half, hinged at the spine (their left edge) */
+html.js-book .sheet{position:absolute;top:0;left:var(--pw);width:var(--pw);height:var(--ph);
+  transform-origin:left center;transform-style:preserve-3d;
+  transition:transform .85s cubic-bezier(.46,.03,.25,.98);margin:0;max-width:none;border:0;box-shadow:none;background:none}
+html.js-book .sheet.flipped{transform:rotateY(-180deg)}
+
+/* faces */
+html.js-book .face{position:absolute;inset:0;margin:0;max-width:none;border-radius:0;border:0;box-shadow:none;
+  background:var(--page);overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  padding:clamp(24px,3.4vh,46px) clamp(22px,3.4vw,44px) clamp(22px,3.4vh,40px)}
+html.js-book .face.back{transform:rotateY(180deg)}
+/* page edge shading: front leaf shaded toward the spine, back toward the spine on its side */
+html.js-book .face.front{border-left:1px solid rgba(15,37,54,.07);
+  box-shadow:inset 14px 0 24px -18px rgba(15,37,54,.5)}
+html.js-book .face.back{border-right:1px solid rgba(15,37,54,.07);
+  box-shadow:inset -14px 0 24px -18px rgba(15,37,54,.5)}
+
+/* turning sheet sits above both stacks + casts a soft moving shadow */
+html.js-book .sheet.turning{z-index:60!important}
+
+/* ---- the hardcover (front of sheet 0): a designed clothbound cover ---- */
+html.js-book .face.cover{
+  background-color:var(--cover-cloth);
+  background-image:
+    radial-gradient(130% 90% at 50% 0%, rgba(255,255,255,.07), transparent 55%),
+    radial-gradient(120% 100% at 50% 125%, rgba(0,0,0,.5), transparent 60%),
+    repeating-linear-gradient(90deg, rgba(0,0,0,.05) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.012) 0 1px, transparent 1px 4px);
+  color:var(--cover-ink);
+  display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:space-between;gap:14px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.04), inset 16px 0 34px -18px rgba(0,0,0,.8), inset 0 0 110px rgba(0,0,0,.33);
+  border-left:7px solid rgba(0,0,0,.45);
+}
+/* faint binary motif behind the cover text (front + back) */
+.face.cover::before,.backface-cover::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='150'%20height='72'%3E%3Cg%20font-family='monospace'%20font-size='13'%20fill='%23F4ECDE'%20fill-opacity='0.06'%3E%3Ctext%20x='2'%20y='16'%3E01001100%3C/text%3E%3Ctext%20x='52'%20y='38'%3E10110100%3C/text%3E%3Ctext%20x='-14'%20y='60'%3E01101001%3C/text%3E%3C/g%3E%3C/svg%3E")}
+.face.cover > *,.backface-cover > *{position:relative;z-index:1}
+/* double-rule embossed frame */
+.face.cover .emboss{position:absolute;inset:16px;border:1px solid rgba(244,236,222,.3);border-radius:3px;pointer-events:none;z-index:1}
+.face.cover .emboss::after{content:'';position:absolute;inset:5px;border:1px solid rgba(244,236,222,.14);border-radius:2px}
+.cover-top{display:flex;flex-direction:column;align-items:center;gap:11px;padding-top:6px}
+/* cream medallion seal holding the mark (no filter, so it always shows) */
+.cover-seal{width:66px;height:66px;border-radius:50%;background:var(--cover-ink);border:3px solid var(--cover-accent);
+  display:flex;align-items:center;justify-content:center;box-shadow:0 12px 26px -12px rgba(0,0,0,.75),inset 0 0 0 1px rgba(0,0,0,.08)}
+.cover-seal img{height:30px;width:auto;display:block}
+.face.cover .kicker{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:rgba(244,236,222,.62)}
+.cover-mid{display:flex;flex-direction:column;align-items:center;gap:14px}
+.cover-title{color:var(--cover-ink);font-size:clamp(30px,5vw,52px);font-weight:600;letter-spacing:-.012em;line-height:1.0;margin:0}
+/* decorative diamond rule */
+.cover-rule{display:flex;align-items:center;justify-content:center;gap:9px}
+.cover-rule::before,.cover-rule::after{content:'';width:40px;height:1px;background:var(--cover-accent);opacity:.9}
+.cover-rule i{width:7px;height:7px;background:var(--cover-accent);transform:rotate(45deg);display:block}
+.cover-sub{font-family:var(--font-display);font-style:italic;font-size:clamp(15px,2vw,21px);
+  color:rgba(244,236,222,.92);max-width:22ch;margin:0;line-height:1.38}
+.cover-bottom{display:flex;flex-direction:column;align-items:center;gap:13px;padding-bottom:4px}
+.cover-author{display:flex;flex-direction:column;align-items:center;gap:7px}
+.cover-portrait{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:50% 28%;
+  border:2px solid var(--cover-accent);box-shadow:0 10px 24px -12px rgba(0,0,0,.7)}
+.cover-author-name{font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--cover-ink);line-height:1.05}
+.cover-author-role{font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--cover-accent)}
+.face.cover .open-cta{box-shadow:0 14px 30px -12px rgba(0,0,0,.6)}
+.face.cover .flip-hint{font-family:var(--font-mono);font-size:11px;color:rgba(244,236,222,.5);margin:0}
+
+/* mobile: single page at a time, soft slide/fade, no 3D */
+@media (max-width:767.98px){
+  html.js-book .viewport{width:min(94vw,var(--pw));perspective:none}
+  html.js-book .viewport.closed .book3d{transform:none}
+  html.js-book .book-base{display:none}
+  html.js-book .book3d{position:absolute;inset:0}
+  html.js-book .sheet{position:static;left:0;width:100%;transform:none!important;transition:none}
+  html.js-book .face{inset:0;width:100%;
+    opacity:0;transform:translateX(14%);pointer-events:none;visibility:hidden;
+    transition:transform .4s ease,opacity .4s ease;backface-visibility:visible}
+  html.js-book .face.back{transform:translateX(14%)}
+  html.js-book .face.is-active{opacity:1;transform:none;pointer-events:auto;visibility:visible;z-index:5}
+  html.js-book .face.is-prev{opacity:0;transform:translateX(-14%);visibility:hidden}
+  html.js-book .face.cover{border-left:0}
+}
+
+/* reduced motion: instant */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  html.js-book .sheet,html.js-book .book3d,html.js-book .face,.loader{transition:none!important}
+  .loader-mark,.loader .track i{animation:none!important}
+}
+
+/* ---- bottom chrome ---- */
+html.js-book .book-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex:0 0 auto;min-height:64px;
+  padding:8px clamp(12px,3vw,24px);padding-bottom:calc(8px + env(safe-area-inset-bottom));
+  border-top:1px solid var(--line);background:var(--panel);position:relative;z-index:30}
+.nav-btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:10px 20px;border-radius:10px;cursor:pointer;
+  font-family:var(--font-body);font-weight:600;font-size:16px;background:var(--ink);color:var(--paper);border:1.5px solid var(--ink)}
+.nav-btn:hover:not([disabled]){background:#1C3A52}
+html[data-theme="night"] .nav-btn{background:var(--pass);border-color:var(--pass);color:#fff}
+.nav-btn[disabled]{opacity:.4;cursor:not-allowed}
+.nav-btn svg{width:18px;height:18px;display:block}
+.pageinfo{text-align:center;min-width:0}
+.pageinfo .count{display:block;font-family:var(--font-mono);font-size:13px;font-weight:500;color:var(--slate)}
+.pageinfo .title{display:block;font-family:var(--font-display);font-size:15px;color:var(--ink);font-weight:600;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:40vw}
+@media (max-width:560px){.nav-btn .label{display:none}.nav-btn{padding:10px 16px}.pageinfo .title{max-width:46vw}}
+
+/* ---- first-visit hint ---- */
+html.js-book .hint{display:flex;align-items:center;gap:8px;position:absolute;right:clamp(12px,3vw,24px);bottom:76px;z-index:35;
+  background:var(--ink);color:var(--paper);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:500;
+  box-shadow:0 12px 28px -12px rgba(0,0,0,.5);animation:hint-in .4s ease both}
+html[data-theme="night"] .hint{background:var(--pass)}
+.hint svg{width:16px;height:16px}
+@keyframes hint-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.hint.gone{display:none}
+
+/* ---- corner tap zones (extra) ---- */
+html.js-book .corner{display:block;position:absolute;top:0;bottom:0;width:7%;min-width:28px;max-width:70px;z-index:8;
+  border:0;background:transparent;cursor:pointer}
+html.js-book .corner.prev{left:0}
+html.js-book .corner.next{right:0}
+@media (max-width:767.98px){html.js-book .corner{display:none}}
+
+/* ============================================================================
+   LEAF CONTENT
+   ========================================================================== */
+.leaf-title{font-size:clamp(26px,3.3vw,38px);margin-bottom:16px}
+.chap-num{display:inline-block;font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--pass);margin-bottom:10px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0 6px}
+.micro{font-family:var(--font-mono);font-size:13px;color:var(--slate);margin-top:14px}
+
+.toc{list-style:none;display:flex;flex-direction:column;gap:3px;margin-top:6px}
+.toc a{display:block;text-decoration:none;color:var(--ink);padding:11px 12px;border-radius:10px;border:1px solid transparent;
+  transition:background .15s ease,border-color .15s ease}
+.toc a:hover{background:var(--panel-2);border-color:var(--line)}
+.toc .t{display:flex;align-items:baseline;gap:10px;font-family:var(--font-display);font-weight:600;font-size:17px}
+.toc .n{font-family:var(--font-mono);font-size:13px;color:var(--pass);flex:0 0 auto}
+.toc .h{display:block;font-size:14px;color:var(--slate);margin-top:1px;padding-left:28px}
+
+.frame{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#0F2536;aspect-ratio:16/10;position:relative;
+  margin:6px 0 16px;box-shadow:var(--page-shadow)}
+.frame .bar{position:absolute;inset:0 0 auto 0;height:28px;background:rgba(255,255,255,.08);
+  border-bottom:1px solid rgba(255,255,255,.12);display:flex;align-items:center;gap:6px;padding:0 12px;z-index:2}
+.frame .bar i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35)}
+.frame iframe{position:absolute;top:28px;left:0;width:200%;height:calc((100% - 28px) * 2);border:0;background:#fff;
+  transform:scale(.5);transform-origin:top left;pointer-events:none}
+
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0 16px}
+.chip{font-family:var(--font-mono);font-size:12px;font-weight:500;padding:4px 11px;border-radius:999px;background:var(--pass-dim);color:var(--pass-ink)}
+.chip.n{background:var(--line-soft);color:var(--ink-soft)}
+
+.prod{display:flex;flex-direction:column;gap:12px;margin:8px 0 6px}
+.prod li{list-style:none;border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--panel-2)}
+.prod h3{display:flex;align-items:center;gap:10px;font-size:17px;margin-bottom:4px}
+.prod .live{font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--pass);background:var(--pass-dim);border-radius:999px;padding:2px 9px}
+.prod p{font-size:15px;margin-bottom:8px}
+.prod .links{display:flex;flex-wrap:wrap;gap:16px}
+.prod .links a{font-size:14.5px;font-weight:600;text-decoration:none}
+.prod .links a:hover{text-decoration:underline}
+
+.steps{list-style:none;counter-reset:step;display:flex;flex-direction:column;gap:12px;margin:8px 0 22px}
+.steps li{counter-increment:step;display:flex;gap:14px;align-items:flex-start}
+.steps li::before{content:counter(step);flex:0 0 auto;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-family:var(--font-mono);font-weight:600;font-size:15px;background:var(--pass);color:#fff}
+.steps h3{font-size:17px;margin-bottom:2px}
+.steps p{font-size:15px;margin:0}
+
+.price{display:flex;flex-direction:column;gap:11px;margin:8px 0 6px}
+.price li{list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:baseline;border-bottom:1px solid var(--line-soft);padding-bottom:11px}
+.price .k{font-family:var(--font-display);font-weight:600;font-size:16px;color:var(--ink)}
+.price .k small{display:block;font-family:var(--font-body);font-weight:400;font-size:13.5px;color:var(--slate)}
+.price .v{font-family:var(--font-mono);font-weight:600;font-size:16px;color:var(--pass-ink);white-space:nowrap}
+.price .v s{color:var(--slate);font-weight:400;margin-right:4px;text-decoration-thickness:1px}
+.faq s{color:var(--slate);font-weight:400;text-decoration-thickness:1px}
+
+.faq details{border:1px solid var(--line);border-radius:10px;margin-bottom:9px;background:var(--panel-2);overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:13px 14px;font-family:var(--font-display);font-weight:600;font-size:16px;color:var(--ink);
+  display:flex;justify-content:space-between;gap:14px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';color:var(--pass);font-weight:700;font-size:21px;line-height:1}
+.faq details[open] summary::after{content:'–'}
+.faq p{padding:0 14px 14px;font-size:15px;margin:0}
+
+.appendix details{border:1px solid var(--line);border-radius:10px;background:var(--panel-2);margin-bottom:14px}
+.appendix summary{list-style:none;cursor:pointer;padding:13px 14px;font-family:var(--font-display);font-weight:600;font-size:16px;
+  display:flex;justify-content:space-between;align-items:center}
+.appendix summary::-webkit-details-marker{display:none}
+.appendix summary::after{content:'+';color:var(--pass);font-weight:700;font-size:21px}
+.appendix details[open] summary::after{content:'–'}
+.appendix .body{padding:0 14px 14px}
+.skill-list{display:flex;flex-wrap:wrap;gap:7px}
+.selfserve{display:flex;flex-direction:column;gap:11px;margin-top:4px}
+.selfserve li{list-style:none;border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--panel)}
+.selfserve h3{font-size:16px;margin-bottom:4px}
+.selfserve p{font-size:14.5px;margin-bottom:10px}
+
+.cform{display:flex;flex-direction:column;gap:14px;margin-top:8px}
+.cform .field label{display:block;font-family:var(--font-mono);font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--slate);margin-bottom:6px}
+.cform .req{color:var(--pass)}
+.cform input,.cform textarea{width:100%;background:var(--panel-2);border:1.5px solid var(--line);border-radius:10px;padding:11px 13px;
+  color:var(--ink);font-family:var(--font-body);font-size:16px;outline:none;resize:vertical}
+.cform input:focus,.cform textarea:focus{border-color:var(--pass)}
+.cform textarea{min-height:104px}
+.cform .field.invalid input,.cform .field.invalid textarea{border-color:var(--pass)}
+.cform .err{display:none;color:var(--pass-ink);font-size:13.5px;margin-top:6px}
+.cform .field.invalid .err{display:block}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-note{font-family:var(--font-mono);font-size:13px;color:var(--slate)}
+.form-error{display:none;background:var(--pass-dim);border:1px solid var(--pass);color:var(--pass-ink);border-radius:10px;padding:12px 14px;font-size:14.5px}
+.form-error.show{display:block}
+.form-ok{display:none;text-align:center;padding:12px 0}
+.form-ok.show{display:block}
+.form-ok .mark{width:50px;height:50px;border-radius:50%;background:var(--pass-dim);color:var(--pass);display:flex;align-items:center;justify-content:center;font-size:25px;margin:0 auto 12px}
+.contact-lines{display:flex;flex-direction:column;gap:9px;margin-top:18px}
+.contact-lines a{font-family:var(--font-mono);font-size:15px;color:var(--ink);text-decoration:none;display:inline-flex;gap:10px;align-items:center}
+.contact-lines a::before{content:'→';color:var(--pass);font-weight:700}
+.contact-lines a:hover{color:var(--pass)}
+
+.backface-cover{background-color:var(--cover-cloth);
+  background-image:repeating-linear-gradient(90deg, rgba(0,0,0,.05) 0 1px, transparent 1px 3px),repeating-linear-gradient(0deg, rgba(255,255,255,.012) 0 1px, transparent 1px 4px);
+  color:var(--cover-ink);border-right:6px solid rgba(0,0,0,.4);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.04), inset -16px 0 34px -18px rgba(0,0,0,.75);
+  display:flex;flex-direction:column;justify-content:center;text-align:center;gap:10px}
+.backface-cover .emboss{position:absolute;inset:16px;border:1px solid rgba(244,236,222,.28);border-radius:3px;pointer-events:none}
+.backface-cover .emboss::after{content:'';position:absolute;inset:5px;border:1px solid rgba(244,236,222,.13);border-radius:2px}
+.backface-cover h2{color:var(--cover-ink)}
+.backface-cover p{color:rgba(244,236,222,.82);margin:0 auto;max-width:36ch}
+.backface-cover .social{display:flex;gap:18px;justify-content:center;margin:6px 0}
+.backface-cover .social a{font-family:var(--font-mono);font-size:15px;font-weight:600;color:var(--amber);text-decoration:none}
+.backface-cover .btn-primary{align-self:center}
+.backface-cover .copy{font-family:var(--font-mono);font-size:12.5px;color:rgba(244,236,222,.6);margin-top:12px}
+
+.leaf-title[tabindex]:focus{outline:none}
+.leaf-title[tabindex]:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+</style>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Person","@id":"https://wellwaltstudios.com/#ariel","name":"Ariel Walters","jobTitle":"Software Engineer",
+  "description":"Senior software engineer with 13+ years across mobile, full-stack, databases, and enterprise systems.",
+  "worksFor":{"@id":"https://wellwaltstudios.com/#studio"},"sameAs":["https://instagram.com/wellwaltstudios","https://github.com/awells4"]},
+ {"@type":"ProfessionalService","@id":"https://wellwaltstudios.com/#studio","name":"Well Walt Studios",
+  "description":"Done-for-you websites, apps, and automation for small businesses. You work directly with the engineer.",
+  "url":"https://wellwaltstudios.com/","email":"ariel@wellwaltstudios.com","founder":{"@id":"https://wellwaltstudios.com/#ariel"},
+  "areaServed":"US","address":{"@type":"PostalAddress","addressLocality":"New Orleans","addressRegion":"LA","addressCountry":"US"},"priceRange":"$$"}
+]}
+</script>
 </head>
 <body>
 
-<nav>
-  <div class="wrap nav-inner">
-    <a class="wordmark" href="/" aria-label="Well Walt Studios">
-      <img class="wm-mark" src="/logo-mark.png" alt="" width="235" height="148">
-      <span class="wm-text">Well Walt Studios</span>
-    </a>
-    <div class="nav-right">
-      <div class="nav-links" id="navLinks">
-        <a href="/portfolio">Portfolio</a>
-        <a href="/services">Services</a>
-        <a href="#about">About</a>
-        <a href="/faq">FAQ</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <a class="btn btn-pass nav-get-started plausible-event-name=Get+Started+-+Nav"
-         href="/start" data-wws-cta="service.start">Get started</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
-      </button>
-    </div>
-  </div>
-</nav>
+<a href="#leaf-epilogue" class="visually-hidden" data-toc>Skip to the contact page</a>
 
-<header class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <p class="eyebrow">Well Walt Studios · New Orleans</p>
-      <h1>An independent <span class="pass-word">software studio</span>.</h1>
-      <p class="hero-sub">Well Walt Studios brings 13+ years of senior software engineering to your business, mobile and web apps, databases, automation, and IT. From a done-for-you website to custom development, technical consulting, and project management.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-pass plausible-event-name=See+Offerings+-+Hero" href="/services">See what the studio does</a>
-        <a class="btn btn-ghost" href="#contact">Get in touch</a>
-      </div>
-    </div>
+<!-- ===== LOADING SCREEN ===== -->
+<div class="loader" id="loader" role="status" aria-live="polite">
+  <img class="loader-mark" src="/logo-mark.png" alt="" width="235" height="148">
+  <b>Well Walt Studios</b>
+  <div class="track"><i></i></div>
+  <small>Opening the book…</small>
+</div>
 
-    <div class="terminal" role="img" aria-label="Career history">
-      <div class="term-bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span>career, selected employers</span></div>
-      <pre><span class="p">$</span> cat career.txt
-Eaze Technologies       <span class="c">cannabis</span>
-BAE Systems             <span class="c">defense</span>
-Boeing                  <span class="c">defense</span>
-Whetstone Education     <span class="c">ed-tech</span>
-<span class="g">✓ 13+ years · mobile, full-stack, enterprise</span></pre>
-    </div>
+<!-- ===== TOP CHROME ===== -->
+<header class="book-top">
+  <a class="brand" id="brandHome" href="/" title="Back to the front of the book" aria-label="Back to the front of the book">
+    <img src="/logo-mark.png" alt="" width="235" height="148"><b>Well Walt Studios</b>
+  </a>
+  <div class="top-actions">
+    <button type="button" class="icon-btn" id="contentsBtn" aria-label="Go to contents">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h9"/></svg>
+      <span class="label">Contents</span>
+    </button>
+    <button type="button" class="icon-btn" id="themeBtn" aria-pressed="false" aria-label="Switch to night reading">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" id="themeIcon"><path d="M16 11.5A6 6 0 1 1 8.5 4a4.6 4.6 0 0 0 7.5 7.5Z"/></svg>
+      <span class="label" id="themeLabel">Night</span>
+    </button>
   </div>
 </header>
 
-<div class="promo-strip">
-  <div class="wrap promo-inner">
-    <p><span class="promo-tag">October special</span> A done-for-you website for <strong><span data-wws-text="sitePrice">$699</span></strong>, based on the live demo. Limited time.</p>
-    <a class="btn btn-pass plausible-event-name=See+Special+-+Home+Strip" href="/services#special">See the special →</a>
-  </div>
+<div class="ribbon"><a href="https://cal.com/wellwaltstudios/website-intro-call" data-wws-cta="service.book" data-cta="ribbon-book" class="plausible-event-name=Book+Call+-+Ribbon">Book a free call</a></div>
+
+<!-- ===== THE BOOK ===== -->
+<main class="book" id="book">
+  <button type="button" class="corner prev" id="cornerPrev" aria-hidden="true" tabindex="-1"></button>
+  <button type="button" class="corner next" id="cornerNext" aria-hidden="true" tabindex="-1"></button>
+
+  <div class="viewport closed" id="viewport">
+    <div class="book-base" aria-hidden="true"></div>
+    <div class="book3d" id="book3d">
+
+      <!-- SHEET 0 : cover (front) / contents (back) -->
+      <div class="sheet" data-sheet="0">
+        <!-- face 0 : CLOSED BOOK COVER -->
+        <article class="face front cover" id="leaf-cover" data-face="0" data-title="Cover" aria-label="Front cover">
+          <span class="emboss" aria-hidden="true"></span>
+          <div class="cover-top">
+            <span class="cover-seal"><img src="/logo-mark.png" alt="" width="235" height="148"></span>
+            <span class="kicker">A software studio · New Orleans</span>
+          </div>
+          <div class="cover-mid">
+            <h1 class="leaf-title cover-title" tabindex="-1">Well Walt Studios</h1>
+            <span class="cover-rule" aria-hidden="true"><i></i></span>
+            <p class="cover-sub">I build software that brings small businesses more customers.</p>
+          </div>
+          <div class="cover-bottom">
+            <div class="cover-author">
+              <!-- TODO: swap for a square headshot; this crops the landscape about-photo. -->
+              <picture>
+                <source type="image/webp" srcset="/about-ariel-480.webp">
+                <img class="cover-portrait" src="/about-ariel-480.jpg" width="64" height="64" alt="Ariel Walters">
+              </picture>
+              <span class="cover-author-name">Ariel Walters</span>
+              <span class="cover-author-role">CEO &amp; Software Engineer</span>
+            </div>
+            <button type="button" class="btn btn-primary btn-lg open-cta" id="openBtn" data-cta="open-book">Open the book →</button>
+            <p class="flip-hint">or turn the page with the arrows below</p>
+          </div>
+        </article>
+        <!-- face 1 : CONTENTS -->
+        <article class="face back" id="leaf-contents" data-face="1" data-title="What's inside" aria-label="Contents">
+          <span class="chap-num">Contents</span>
+          <h2 class="leaf-title" tabindex="-1">What's inside</h2>
+          <ul class="toc">
+            <li><a href="#leaf-prologue" data-toc><span class="t"><span class="n">01</span>Hello, I'm Ariel</span><span class="h">Who you'd actually be working with.</span></a></li>
+            <li><a href="#leaf-demo" data-toc><span class="t"><span class="n">02</span>A site like I'd build you</span><span class="h">Click through a real one, live now.</span></a></li>
+            <li><a href="#leaf-work" data-toc><span class="t"><span class="n">03</span>Things I've shipped</span><span class="h">Real apps you can open today.</span></a></li>
+            <li><a href="#leaf-how" data-toc><span class="t"><span class="n">04</span>How working together works</span><span class="h">Simple steps, and plain prices.</span></a></li>
+            <li><a href="#leaf-faq" data-toc><span class="t"><span class="n">05</span>Questions people ask me</span><span class="h">Timeline, cost, "can I edit it myself?"</span></a></li>
+            <li><a href="#leaf-appendix" data-toc><span class="t"><span class="n">06</span>The tech, if you're curious</span><span class="h">Tools, plus do-it-yourself products.</span></a></li>
+            <li><a href="#leaf-epilogue" data-toc><span class="t"><span class="n">07</span>Let's talk</span><span class="h">Tell me about your business.</span></a></li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- SHEET 1 : prologue (front) / demo (back) -->
+      <div class="sheet" data-sheet="1">
+        <article class="face front" id="leaf-prologue" data-face="2" data-title="Hello, I'm Ariel" aria-label="Prologue">
+          <span class="chap-num">Prologue</span>
+          <h2 class="leaf-title" tabindex="-1">Hello, I'm Ariel.</h2>
+          <p class="lead">I've spent 13+ years building software, the kind that has to work for thousands of people, for companies like Boeing, BAE Systems, Eaze, and Whetstone Education.</p>
+          <p>Well Walt Studios is where I bring that same care to small businesses. When you hire me, you get <strong>me</strong>, the person who designs it, builds it, and hands you the keys. No account managers. No passing your project to a junior team.</p>
+          <p>I'm based in New Orleans and I work with clients anywhere. I like plain talk over jargon, I'd rather you understand exactly what you're getting.</p>
+          <p>I started young. In 6th grade I figured out how to make pop-up messages appear on my classmates' screens in computer class, and I've been building things ever since. When I'm not working, I'm usually deep in a sci-fi book or show, baking something, or out in the garden.</p>
+        </article>
+        <article class="face back" id="leaf-demo" data-face="3" data-title="A site like I'd build you" aria-label="Chapter 2">
+          <span class="chap-num">Chapter 02</span>
+          <h2 class="leaf-title" tabindex="-1">See a site like I'd build you.</h2>
+          <p>Most small businesses lose customers to an old site, or no site at all. People look you up, don't find what they need, and call someone else.</p>
+          <div class="frame"><div class="bar"><i></i><i></i><i></i></div>
+            <iframe src="/demo" title="A live example small-business website" loading="lazy" tabindex="-1"></iframe></div>
+          <p>Here's a real, working example you can click through: easy to read on a phone, with <strong>online booking</strong> and a form that sends new inquiries straight to your inbox. You <strong>own it outright</strong>, no monthly platform fees.</p>
+          <div class="chips"><span class="chip">Works on phones</span><span class="chip">Online booking</span><span class="chip">Inquiries to your inbox</span><span class="chip">Found on Google</span></div>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="/demo" target="_blank" rel="noopener" data-wws-cta="service.demo" data-cta="demo-open" class="plausible-event-name=View+Live+Demo+-+Book">Open the live demo ↗</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- SHEET 2 : work (front) / how (back) -->
+      <div class="sheet" data-sheet="2">
+        <article class="face front" id="leaf-work" data-face="4" data-title="Things I've shipped" aria-label="Chapter 3">
+          <span class="chap-num">Chapter 03</span>
+          <h2 class="leaf-title" tabindex="-1">Things I've shipped.</h2>
+          <p>Proof I can build and launch real software, not just talk about it. Every one is live right now.</p>
+          <ul class="prod">
+            <li><h3>Aurova <span class="live">Live</span></h3><p>A habit and goal app with streaks and friendly challenges. On the iPhone and Android app stores.</p>
+              <div class="links"><a href="https://apps.apple.com/us/app/aurova/id6756036236" target="_blank" rel="noopener">App Store ↗</a><a href="https://play.google.com/store/apps/details?id=com.wws.aurova" target="_blank" rel="noopener">Google Play ↗</a></div></li>
+            <li><h3>Gypsy <span class="live">Live</span></h3><p>A tarot web app with custom spreads and card readings.</p>
+              <div class="links"><a href="https://gypsy-xi.vercel.app/" target="_blank" rel="noopener">Open it ↗</a></div></li>
+            <li><h3>Journal <span class="live">Live</span></h3><p>A private pocket journal. Your entries stay only on your own device, never saved anywhere else.</p>
+              <div class="links"><a href="https://awalters4.github.io/journal/" target="_blank" rel="noopener">Open it ↗</a></div></li>
+            <li><h3>Options Flow <span class="live">Live</span></h3><p>A browser game that teaches how options trading works.</p>
+              <div class="links"><a href="https://awalters4.github.io/options-flow/" target="_blank" rel="noopener">Play it ↗</a></div></li>
+          </ul>
+        </article>
+        <article class="face back" id="leaf-how" data-face="5" data-title="How working together works" aria-label="Chapter 4">
+          <span class="chap-num">Chapter 04</span>
+          <h2 class="leaf-title" tabindex="-1">How working together works.</h2>
+          <ol class="steps">
+            <li><div><h3>Tell me what you need</h3><p>A short form, about two minutes. No cost, no pressure.</p></div></li>
+            <li><div><h3>We talk it through</h3><p>A free call where I learn about your business and give you a clear plan and a fixed price.</p></div></li>
+            <li><div><h3>I build it</h3><p>I design and build the whole thing and keep you posted.</p></div></li>
+            <li><div><h3>We launch, and I'm there</h3><p>I put it live, show you how to run it, and stick around to help.</p></div></li>
+          </ol>
+          <h3 style="font-size:19px;margin-bottom:9px">What it costs</h3>
+          <ul class="price">
+            <li><span class="k">Done-for-you website <small>Based on the demo, yours to own. (2026 deal)</small></span><span class="v"><s data-wws-text="sitePriceWas">$699</s> <span data-wws-text="sitePrice">$500</span></span></li>
+            <li><span class="k">Custom work <small>Apps, redesigns, automation, per project.</small></span><span class="v">from <span data-wws-text="devRate">$200/hr</span></span></li>
+            <li><span class="k">After launch <small>First 6 months of help included.</small></span><span class="v">$0/mo</span></li>
+          </ul>
+          <p class="micro">No monthly plan, ever. After 6 months, help is <span data-wws-text="supportRate">$125/hr</span>, only when something comes up.</p>
+        </article>
+      </div>
+
+      <!-- SHEET 3 : faq (front) / appendix (back) -->
+      <div class="sheet" data-sheet="3">
+        <article class="face front" id="leaf-faq" data-face="6" data-title="Questions people ask me" aria-label="Chapter 5">
+          <span class="chap-num">Chapter 05</span>
+          <h2 class="leaf-title" tabindex="-1">Questions people ask me.</h2>
+          <div class="faq">
+            <details open><summary>How long does it take?</summary><p>Usually live within a few weeks. The biggest factor is how quickly your words and business details come together.</p></details>
+            <details><summary>What does it cost?</summary><p>The done-for-you website is <strong><s data-wws-text="sitePriceWas">$699</s> <span data-wws-text="sitePrice">$500</span></strong> for the rest of 2026, and you own it. Custom work is priced per project, from <span data-wws-text="devRate">$200/hr</span>. You'll always get a fixed price before we start.</p></details>
+            <details><summary>Do I need to buy hosting?</summary><p>I set you up with a <strong>free hosting option</strong> and a simple how-to guide. It's best if you already own your web address (your domain).</p></details>
+            <details><summary>Is there a monthly fee?</summary><p>No. The first <strong>6 months</strong> of help after launch are on me. After that there's no subscription, I help per issue at <span data-wws-text="supportRate">$125/hr</span>, only when you need me.</p></details>
+            <details><summary>Can I edit it myself afterward?</summary><p>Yes. Your site comes with a simple admin where you sign in and change your details, photos, and pages in plain form fields, then save to publish. I set it up and walk you through it.</p></details>
+            <details><summary>What if something breaks?</summary><p>You email me. During your first 6 months that's covered. After that I fix it per issue, no monthly plan holding you hostage.</p></details>
+            <details><summary>Who actually does the work?</summary><p>Me, Ariel, a senior engineer with 13+ years' experience. No account managers, no junior handoff.</p></details>
+          </div>
+        </article>
+        <article class="face back appendix" id="leaf-appendix" data-face="7" data-title="The tech, if you're curious" aria-label="Appendix">
+          <span class="chap-num">Appendix</span>
+          <h2 class="leaf-title" tabindex="-1">The tech, if you're curious.</h2>
+          <p>You don't need to read this to hire me. The short version: I've shipped apps and systems that real companies and app stores trust.</p>
+          <details><summary>Tools I work with</summary><div class="body"><div class="chips skill-list">
+            <span class="chip n">Websites</span><span class="chip n">iPhone &amp; Android apps</span><span class="chip n">React &amp; React Native</span>
+            <span class="chip n">Full-stack web</span><span class="chip n">Databases (Postgres, Supabase)</span><span class="chip n">Automation</span>
+            <span class="chip n">APIs &amp; integrations</span><span class="chip n">IT &amp; accounts</span><span class="chip n">Project management</span>
+          </div></div></details>
+          <h3 style="font-size:18px;margin:18px 0 9px">Rather do it yourself?</h3>
+          <ul class="selfserve">
+            <li><h3>WellTemp</h3><p>A do-it-yourself website template you set up and own, with booking, payments, and a simple admin.</p><a class="btn btn-ghost btn-sm" href="/welltemp">See WellTemp →</a></li>
+            <li><h3>WellShip</h3><p>For developers: a ready-to-ship starter kit for phone apps, plus a playbook that's passed App Store review.</p><a class="btn btn-ghost btn-sm" href="/wellship">See WellShip →</a></li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- SHEET 4 : epilogue (front) / back cover (back) -->
+      <div class="sheet" data-sheet="4">
+        <article class="face front" id="leaf-epilogue" data-face="8" data-title="Let's talk" aria-label="Epilogue">
+          <span class="chap-num">Epilogue</span>
+          <h2 class="leaf-title" tabindex="-1">Let's talk.</h2>
+          <p>Tell me a little about your business and what you're after. Short is fine. <strong>I reply within 24 hours.</strong></p>
+          <form class="cform" id="bookForm" novalidate>
+            <div class="form-error" id="bookFormError" role="alert"></div>
+            <div class="field"><label for="bf-name">Your name <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="bf-name" name="name" autocomplete="name" placeholder="Your name" required aria-required="true">
+              <p class="err">Please enter your name.</p></div>
+            <div class="field"><label for="bf-email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input type="email" id="bf-email" name="email" autocomplete="email" placeholder="you@business.com" required aria-required="true">
+              <p class="err">Please enter a valid email.</p></div>
+            <div class="field"><label for="bf-message">What do you need? <span class="req" aria-hidden="true">*</span></label>
+              <textarea id="bf-message" name="message" placeholder="A new website, a redesign, an app, or help with something." required aria-required="true"></textarea>
+              <p class="err">A sentence or two helps a lot.</p></div>
+            <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div><button type="submit" class="btn btn-primary btn-lg" id="bookSubmit" style="width:100%" data-cta="epilogue-submit">Send it →</button>
+              <p class="form-note" style="margin-top:10px;text-align:center">I reply within 24 hours. No spam, ever.</p></div>
+          </form>
+          <div class="form-ok" id="bookFormOk" role="status" aria-live="polite" tabindex="-1">
+            <div class="mark" aria-hidden="true">✓</div><h3 style="font-size:21px">Got it, <span id="bookOkName">thanks</span>.</h3>
+            <p>Your message is in. I read every one personally and I'll reply within 24 hours.</p></div>
+          <div class="contact-lines">
+            <a href="https://cal.com/wellwaltstudios/website-intro-call" data-wws-cta="service.book" data-cta="epilogue-call">Rather talk? Book a free call</a>
+            <a href="mailto:ariel@wellwaltstudios.com" data-cta="epilogue-email">ariel@wellwaltstudios.com</a>
+          </div>
+        </article>
+        <article class="face back backface-cover" id="leaf-back" data-face="9" data-title="The end" aria-label="Back cover">
+          <span class="emboss" aria-hidden="true"></span>
+          <h2 class="leaf-title" tabindex="-1">Thanks for reading.</h2>
+          <p>If any of this sounded like what you need, the quickest next step is to tell me about your business.</p>
+          <div class="cta-row" style="justify-content:center"><a class="btn btn-primary btn-lg" href="/start" data-wws-cta="service.start" data-cta="back-primary">Tell me what you need</a></div>
+          <div class="social"><a href="https://instagram.com/wellwaltstudios" target="_blank" rel="noopener">Instagram ↗</a><a href="https://github.com/awells4" target="_blank" rel="noopener">GitHub ↗</a><a href="mailto:ariel@wellwaltstudios.com">Email</a></div>
+          <p class="copy">© <span data-year></span> Well Walt Studios · New Orleans</p>
+        </article>
+      </div>
+
+    </div><!-- /book3d -->
+  </div><!-- /viewport -->
+</main>
+
+<!-- first-visit hint -->
+<div class="hint gone" id="hint" role="status" aria-hidden="true">
+  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 4l6 6-6 6"/></svg>
+  Tap the arrows to turn the page
 </div>
 
-<section id="work" class="band">
-  <div class="wrap">
-    <p class="sec-label">Work</p>
-    <h2>Things I've built.</h2>
-    <p class="sec-sub">Software I've designed and shipped end to end, the same engineering I bring to client work.</p>
+<!-- ===== BOTTOM CHROME ===== -->
+<nav class="book-bottom" aria-label="Page navigation">
+  <button type="button" class="nav-btn" id="prevBtn">
+    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M13 4l-6 6 6 6"/></svg>
+    <span class="label">Previous page</span>
+  </button>
+  <p class="pageinfo" aria-hidden="true"><span class="count" id="pageCount">Cover</span><span class="title" id="pageTitle"></span></p>
+  <button type="button" class="nav-btn" id="nextBtn">
+    <span class="label">Next page</span>
+    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M7 4l6 6-6 6"/></svg>
+  </button>
+</nav>
 
-    <div class="work-grid">
-      <div class="work-card">
-        <div class="work-head">
-          <h3>Aurova</h3>
-          <span class="badge">Live</span>
-        </div>
-        <p>A habit-tracking and productivity app, streaks, social challenges, and progress tracking. Live on iOS and Android.</p>
-        <div class="tags">
-          <span class="tag">React Native</span>
-          <span class="tag">iOS + Android</span>
-        </div>
-        <div class="work-links">
-          <a href="https://apps.apple.com/us/app/aurova/id6449732442" target="_blank" rel="noopener">App Store ↗</a>
-          <a href="https://play.google.com/store/apps/details?id=com.wws.aurova" target="_blank" rel="noopener">Google Play ↗</a>
-        </div>
-      </div>
-      <div class="work-card">
-        <div class="work-head">
-          <h3>Gypsy</h3>
-          <span class="badge">Live</span>
-        </div>
-        <p>A tarot web app with custom spreads and card interpretations.</p>
-        <div class="tags">
-          <span class="tag">Web app</span>
-          <span class="tag">Tarot</span>
-        </div>
-        <div class="work-links">
-          <a href="https://gypsy-xi.vercel.app/" target="_blank" rel="noopener">Open web app ↗</a>
-        </div>
-      </div>
-      <div class="work-card">
-        <div class="work-head">
-          <h3>Journal</h3>
-          <span class="badge">Live</span>
-        </div>
-        <p>A private, in-your-pocket journal, your entries live only on your own device and are never saved anywhere else.</p>
-        <div class="tags">
-          <span class="tag">Web app</span>
-          <span class="tag">Private &amp; local-only</span>
-        </div>
-        <div class="work-links">
-          <a href="https://awalters4.github.io/journal/" target="_blank" rel="noopener">Open web app ↗</a>
-        </div>
-      </div>
-      <div class="work-card">
-        <div class="work-head">
-          <h3>Options Flow</h3>
-          <span class="badge">Live</span>
-        </div>
-        <p>A browser game for learning how options trading works.</p>
-        <div class="tags">
-          <span class="tag">Web app</span>
-          <span class="tag">Game</span>
-        </div>
-        <div class="work-links">
-          <a href="https://awalters4.github.io/options-flow/" target="_blank" rel="noopener">Play it ↗</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="wrap about-grid">
-    <div class="about-copy">
-      <p class="sec-label">About</p>
-      <h2>Hi, I'm Ariel, and I'm the whole studio.</h2>
-      <p>I'm a senior software engineer with 13+ years across mobile, full-stack, databases, and enterprise systems, for companies like Boeing, BAE Systems, and Eaze. Well Walt Studios is where I bring that same engineering to your business: not just websites, but the apps, data, and IT behind them.</p>
-      <p>When you hire the studio, you work directly with me, no account managers, no handoff to a junior team. I design it, build it, and hand you the keys. Based in New Orleans, working with clients anywhere.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-pass" href="/start" data-wws-cta="service.start">Work with me</a>
-        <a class="btn btn-ghost" href="/portfolio">See the work</a>
-      </div>
-    </div>
-    <div class="about-media">
-      <picture>
-        <source type="image/webp" srcset="/about-ariel-480.webp 480w, /about-ariel-768.webp 768w, /about-ariel-1080.webp 1080w" sizes="(max-width:900px) 100vw, 46vw">
-        <img src="/about-ariel-768.jpg"
-             srcset="/about-ariel-480.jpg 480w, /about-ariel-768.jpg 768w, /about-ariel-1080.jpg 1080w"
-             sizes="(max-width:900px) 100vw, 46vw"
-             width="1080" height="832" loading="lazy" decoding="async"
-             alt="Ariel Deres working on a laptop outdoors by the water in New Orleans">
-      </picture>
-    </div>
-  </div>
-</section>
-
-<section id="offer">
-  <div class="wrap">
-    <p class="sec-label">For small businesses</p>
-    <h2>Need a website that wins you clients?</h2>
-    <p class="sec-sub">A done-for-you site based on the demo below, with client-intake automation and local-search setup, launched for you, yours to own outright. A limited-time <strong>October special</strong> at <span data-wws-text="sitePrice">$699</span>, no monthly platform fees. Need something custom instead? That's scoped per project, from <span data-wws-text="devRate">$200/hr</span>. See the live demo:</p>
-
-    <div class="demo">
-      <div class="demo-shot">
-        <div class="browser"><i></i><i></i><i></i></div>
-        <iframe src="/demo" title="Live small-business demo site" loading="lazy" tabindex="-1"></iframe>
-      </div>
-      <div class="demo-copy">
-        <span class="badge plain neutral">Demo</span>
-        <h2>See a site like the one I'd build you</h2>
-        <p>A complete example, homepage, services, booking, and an intake form, so you can click through exactly what your customers would experience.</p>
-        <div class="tags" style="margin-bottom:18px">
-          <span class="tag">Responsive</span>
-          <span class="tag">Booking</span>
-          <span class="tag">Intake automation</span>
-          <span class="tag">Local SEO</span>
-        </div>
-        <div>
-          <a class="btn btn-pass plausible-event-name=View+Live+Demo+-+Home" href="/demo" data-wws-cta="service.demo" target="_blank" rel="noopener">View live demo ↗</a>
-          <a class="btn btn-ghost" href="/services">See the offer</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-ctas" style="margin-top:28px">
-      <a class="btn btn-pass plausible-event-name=See+Offerings+-+Offer" href="/services">See what I offer</a>
-      <a class="btn btn-ghost plausible-event-name=Request+Call+-+Offer" href="https://cal.com/wellwaltstudios/website-intro-call" data-wws-cta="service.book">Request a call</a>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="band">
-  <div class="wrap contact-grid">
-    <div class="contact-copy">
-      <p class="sec-label">Contact</p>
-      <h2>Let's talk.</h2>
-      <p>Start with the two-minute intake form and I'll reply within 24 hours. Prefer email or a call? Both work too.</p>
-      <div class="contact-lines">
-        <a href="/start">Start the intake form</a>
-        <a href="https://cal.com/wellwaltstudios/website-intro-call" data-wws-cta="service.book">Request a call</a>
-        <a href="mailto:ariel@wellwaltstudios.com">ariel@wellwaltstudios.com</a>
-      </div>
-    </div>
-    <div class="contact-form">
-      <h3>Ready when you are</h3>
-      <p class="sub">New site, a product idea, or automation, start here.</p>
-      <a class="btn btn-pass plausible-event-name=Get+Started+-+Contact" href="/start" data-wws-cta="service.start" style="width:100%;text-align:center;display:block">Get started</a>
-      <p class="sub" style="margin:16px 0 0">Two minutes now, a reply within 24 hours.</p>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap foot-inner">
-    <span>© <span id="year"></span> Well Walt Studios</span>
-    <span>
-      <a href="/portfolio">Portfolio</a> ·
-      <a href="/services">Services</a> ·
-      <a href="/faq">FAQ</a> ·
-      <a href="/welltemp">WellTemp</a> ·
-      <a href="/wellship">WellShip</a> ·
-      <a href="/start">Get started</a> ·
-      <a href="mailto:ariel@wellwaltstudios.com">Email</a>
-    </span>
-  </div>
-</footer>
+<div class="visually-hidden" id="liveRegion" aria-live="polite" role="status"></div>
 
 <script src="/constants.js"></script>
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-  (function () {
-    var t = document.getElementById('navToggle'), l = document.getElementById('navLinks');
-    if (!t || !l) return;
-    t.addEventListener('click', function () {
-      var open = l.classList.toggle('open');
-      t.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    l.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') { l.classList.remove('open'); t.setAttribute('aria-expanded', 'false'); }
-    });
-  })();
-</script>
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // ===================== THEME =====================
+  var themeBtn = document.getElementById('themeBtn'), themeLabel = document.getElementById('themeLabel'), themeIcon = document.getElementById('themeIcon');
+  var sun = 'M10 2v2M10 16v2M4 10H2M18 10h-2M5 5l1.4 1.4M13.6 13.6L15 15M15 5l-1.4 1.4M6.4 13.6L5 15M10 6.5A3.5 3.5 0 1 0 10 13.5 3.5 3.5 0 0 0 10 6.5Z';
+  var moon = 'M16 11.5A6 6 0 1 1 8.5 4a4.6 4.6 0 0 0 7.5 7.5Z';
+  function applyTheme(t) {
+    root.setAttribute('data-theme', t); var night = t === 'night';
+    themeBtn.setAttribute('aria-pressed', night ? 'true' : 'false');
+    themeBtn.setAttribute('aria-label', night ? 'Switch to day reading' : 'Switch to night reading');
+    themeLabel.textContent = night ? 'Day' : 'Night'; themeIcon.setAttribute('d', night ? sun : moon);
+    try { localStorage.setItem('wws-theme', t); } catch (e) {}
+  }
+  var storedTheme; try { storedTheme = localStorage.getItem('wws-theme'); } catch (e) {}
+  applyTheme(storedTheme || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day'));
+  themeBtn.addEventListener('click', function () { applyTheme(root.getAttribute('data-theme') === 'night' ? 'day' : 'night'); });
+
+  // ===================== BOOK ENGINE =====================
+  var viewport = document.getElementById('viewport');
+  var sheets = Array.prototype.slice.call(document.querySelectorAll('.sheet'));
+  var faces  = Array.prototype.slice.call(document.querySelectorAll('.face'));
+  var NS = sheets.length;            // number of sheets (5)
+  var NF = faces.length;             // number of faces (10)
+  var FMAX = NS;                     // max flip count (all sheets flipped)
+  var idToFace = {};
+  faces.forEach(function (f) { idToFace[f.id] = parseInt(f.getAttribute('data-face'), 10); });
+
+  var mq = window.matchMedia('(min-width:768px)');
+  function isDesktop() { return mq.matches; }
+
+  var f = 0;        // desktop: number of flipped sheets (0=closed .. FMAX)
+  var pos = 0;      // mobile: current face index (0..NF-1)
+  var reached = {};
+
+  var prevBtn = document.getElementById('prevBtn'), nextBtn = document.getElementById('nextBtn');
+  var pageCount = document.getElementById('pageCount'), pageTitle = document.getElementById('pageTitle');
+  var live = document.getElementById('liveRegion'), hint = document.getElementById('hint');
+
+  // primary (focus/announce) face for the current state
+  function primaryFace() {
+    if (isDesktop()) return f === 0 ? 0 : Math.min(2 * f, NF - 1);
+    return pos;
+  }
+  // which faces are visible right now
+  function visibleFaces() {
+    if (!isDesktop()) return [pos];
+    if (f === 0) return [0];
+    var left = 2 * f - 1, right = 2 * f;
+    return right <= NF - 1 ? [left, right] : [left];
+  }
+
+  function renderDesktop() {
+    viewport.classList.toggle('closed', f === 0);
+    viewport.classList.toggle('ended', f === FMAX);
+    sheets.forEach(function (sh, s) {
+      var flipped = s < f;
+      sh.classList.toggle('flipped', flipped);
+      sh.style.zIndex = flipped ? (s + 1) : (NS - s + 1);
+    });
+    // a11y + scroll reset: only visible faces are interactive
+    var vis = visibleFaces();
+    faces.forEach(function (fc, i) {
+      var on = vis.indexOf(i) !== -1;
+      if (on) { fc.removeAttribute('aria-hidden'); fc.removeAttribute('inert'); fc.scrollTop = 0; }
+      else { fc.setAttribute('aria-hidden', 'true'); fc.setAttribute('inert', ''); }
+      fc.classList.remove('is-active', 'is-prev');
+    });
+  }
+
+  function renderMobile() {
+    viewport.classList.remove('closed');
+    viewport.classList.remove('ended');
+    sheets.forEach(function (sh) { sh.classList.remove('flipped'); sh.style.zIndex = ''; });
+    faces.forEach(function (fc, i) {
+      var on = i === pos;
+      fc.classList.toggle('is-active', on);
+      fc.classList.toggle('is-prev', i < pos);
+      if (on) { fc.removeAttribute('aria-hidden'); fc.removeAttribute('inert'); fc.scrollTop = 0; }
+      else { fc.setAttribute('aria-hidden', 'true'); fc.setAttribute('inert', ''); }
+    });
+  }
+
+  function render() { isDesktop() ? renderDesktop() : renderMobile(); updateChrome(); }
+
+  function updateChrome() {
+    var vis = visibleFaces(), pf = primaryFace();
+    if (isDesktop()) {
+      if (f === 0) pageCount.textContent = 'Front cover';
+      else if (f === FMAX) pageCount.textContent = 'Back cover';
+      else if (vis.length === 2) pageCount.textContent = 'Pages ' + vis[0] + '–' + vis[1] + ' of ' + (NF - 1);
+      else pageCount.textContent = 'Page ' + vis[0] + ' of ' + (NF - 1);
+    } else {
+      pageCount.textContent = pos === 0 ? 'Front cover' : 'Page ' + pos + ' of ' + (NF - 1);
+    }
+    pageTitle.textContent = faces[pf].getAttribute('data-title') || '';
+    prevBtn.disabled = isDesktop() ? f <= 0 : pos <= 0;
+    nextBtn.disabled = isDesktop() ? f >= FMAX : pos >= NF - 1;
+    live.textContent = pageCount.textContent + '. ' + pageTitle.textContent + '.';
+  }
+
+  function focusPrimary() {
+    var h = faces[primaryFace()].querySelector('.leaf-title');
+    if (h) { try { h.focus({ preventScroll: true }); } catch (e) { h.focus(); } }
+  }
+
+  function trackReach() {
+    visibleFaces().forEach(function (i) {
+      var id = faces[i].id;
+      if (!reached[id] && window.plausible) { reached[id] = 1; window.plausible('Chapter Reached', { props: { chapter: id } }); }
+    });
+  }
+
+  // flag the turning sheet so it rides above both stacks during the animation
+  function markTurning(index) {
+    var sh = sheets[index]; if (!sh) return;
+    sh.classList.add('turning');
+    setTimeout(function () { sh.classList.remove('turning'); }, reduce ? 0 : 900);
+  }
+
+  function syncFromFace(k) {
+    pos = k;
+    f = k === 0 ? 0 : Math.floor((k + 1) / 2);
+    if (f > FMAX) f = FMAX;
+  }
+
+  function commit(opts) {
+    opts = opts || {};
+    render();
+    var id = faces[primaryFace()].id;
+    if (opts.push !== false) { try { history.pushState({ k: primaryFace() }, '', '#' + id); } catch (e) { location.hash = id; } }
+    if (opts.focus !== false) focusPrimary();
+    trackReach(); dismissHint();
+  }
+
+  function goToFace(k, opts) { syncFromFace(Math.max(0, Math.min(k, NF - 1))); commit(opts); }
+
+  function next() {
+    if (isDesktop()) { if (f >= FMAX) return; markTurning(f); f += 1; pos = Math.min(primaryFace(), NF - 1); commit(); }
+    else { if (pos >= NF - 1) return; pos += 1; f = pos === 0 ? 0 : Math.floor((pos + 1) / 2); commit(); }
+  }
+  function prev() {
+    if (isDesktop()) { if (f <= 0) return; markTurning(f - 1); f -= 1; pos = primaryFace(); commit(); }
+    else { if (pos <= 0) return; pos -= 1; f = pos === 0 ? 0 : Math.floor((pos + 1) / 2); commit(); }
+  }
+
+  prevBtn.addEventListener('click', prev);
+  nextBtn.addEventListener('click', next);
+  document.getElementById('cornerPrev').addEventListener('click', prev);
+  document.getElementById('cornerNext').addEventListener('click', next);
+  document.getElementById('openBtn').addEventListener('click', next);
+  document.getElementById('contentsBtn').addEventListener('click', function () { goToFace(idToFace['leaf-contents']); });
+  document.getElementById('brandHome').addEventListener('click', function (e) { e.preventDefault(); goToFace(0); });
+
+  document.querySelectorAll('[data-toc]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var id = (a.getAttribute('href') || '').replace('#', '');
+      if (id && idToFace[id] != null) { e.preventDefault(); goToFace(idToFace[id]); }
+    });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    var t = e.target;
+    if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); next(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); prev(); }
+    else if (e.key === 'Home') { e.preventDefault(); goToFace(0); }
+    else if (e.key === 'End') { e.preventDefault(); goToFace(NF - 1); }
+  });
+
+  // swipe (extra)
+  var bookEl = document.getElementById('book'), sx = 0, sy = 0, sw = false;
+  bookEl.addEventListener('touchstart', function (e) { if (e.touches.length !== 1) return; sx = e.touches[0].clientX; sy = e.touches[0].clientY; sw = true; }, { passive: true });
+  bookEl.addEventListener('touchend', function (e) {
+    if (!sw) return; sw = false;
+    var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+    if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.6) { dx < 0 ? next() : prev(); }
+  }, { passive: true });
+
+  window.addEventListener('popstate', function () {
+    var id = location.hash.replace('#', '');
+    goToFace(idToFace[id] != null ? idToFace[id] : 0, { push: false });
+  });
+
+  // ---- responsive book sizing ----
+  function sizeBook() {
+    var b = bookEl.getBoundingClientRect();
+    var W = b.width, H = b.height, pad = 0.94, ar = 0.72, pw, ph;
+    if (isDesktop()) { ph = Math.min(H * pad, (W * pad) / (2 * ar)); pw = ph * ar; }
+    else { pw = Math.min(W * pad, H * pad * ar); ph = pw / ar; if (ph > H * pad) { ph = H * pad; pw = ph * ar; } }
+    root.style.setProperty('--pw', Math.round(pw) + 'px');
+    root.style.setProperty('--ph', Math.round(ph) + 'px');
+  }
+
+  var wasDesktop = isDesktop();
+  function onResize() {
+    var now = isDesktop();
+    if (now !== wasDesktop) { // keep place across the breakpoint
+      if (now) { f = pos === 0 ? 0 : Math.floor((pos + 1) / 2); } else { pos = primaryFace(); }
+      wasDesktop = now;
+    }
+    sizeBook(); render();
+  }
+  window.addEventListener('resize', onResize);
+  if (mq.addEventListener) mq.addEventListener('change', onResize);
+
+  // ---- first-visit hint ----
+  function dismissHint() {
+    if (hint && !hint.classList.contains('gone')) { hint.classList.add('gone'); try { localStorage.setItem('wws-book-hinted', '1'); } catch (e) {} }
+  }
+  var hinted; try { hinted = localStorage.getItem('wws-book-hinted'); } catch (e) {}
+
+  // ---- drop-off analytics ----
+  window.addEventListener('pagehide', function () {
+    if (window.plausible) window.plausible('Drop-off', { props: { chapter: faces[primaryFace()].id } });
+  });
+
+  // ---- boot: size, respect deep link, then lift the loader ----
+  sizeBook();
+  var startId = location.hash.replace('#', '');
+  if (idToFace[startId] != null && idToFace[startId] !== 0) syncFromFace(idToFace[startId]); else { f = 0; pos = 0; }
+  render();
+  updateChrome();
+
+  var loader = document.getElementById('loader');
+  var lifted = false;
+  function lift() {
+    if (lifted) return; lifted = true;
+    loader.classList.add('hide');
+    if (f === 0 && pos === 0 && !hinted) { hint.classList.remove('gone'); hint.setAttribute('aria-hidden', 'false'); setTimeout(dismissHint, 6000); }
+    if (location.hash) setTimeout(focusPrimary, 120);
+  }
+  // The book is in the DOM the moment this script runs, so if the page is
+  // already up there's nothing to wait for — lift on the next paint. No
+  // artificial minimum, and we do NOT wait on window.load (that would block on
+  // the demo iframe). The static loader only shows while the browser is still
+  // downloading/parsing on a slow connection, before this script has run.
+  requestAnimationFrame(function () { requestAnimationFrame(lift); });
+  loader.addEventListener('click', lift);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lifted) lift(); });
+
+  // ===================== CONTACT FORM =====================
+  var form = document.getElementById('bookForm'), formErr = document.getElementById('bookFormError'),
+      formOk = document.getElementById('bookFormOk'), okName = document.getElementById('bookOkName'), submitBtn = document.getElementById('bookSubmit');
+  function mark(el, bad) { var fl = el.closest('.field'); if (fl) fl.classList.toggle('invalid', bad); return !bad; }
+  form.addEventListener('input', function (e) { var fl = e.target.closest('.field'); if (fl) fl.classList.remove('invalid'); });
+  form.addEventListener('submit', function (e) {
+    e.preventDefault(); formErr.classList.remove('show');
+    var name = document.getElementById('bf-name'), email = document.getElementById('bf-email'), message = document.getElementById('bf-message');
+    var ok = true, firstBad = null;
+    [[name, !name.value.trim()], [email, !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())], [message, !message.value.trim()]]
+      .forEach(function (p) { mark(p[0], p[1]); if (p[1]) { ok = false; if (!firstBad) firstBad = p[0]; } });
+    if (!ok) { if (firstBad) firstBad.focus(); return; }
+    var payload = { name: name.value.trim(), email: email.value.trim(), business_name: '', business_desc: '',
+      needs: 'Message from the book', details: message.value.trim(), budget: '', timeline: '', botcheck: form.botcheck.checked };
+    submitBtn.disabled = true; submitBtn.textContent = 'Sending…';
+    fetch('/api/intake', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }).catch(function () {});
+    var web3 = { access_key: (typeof WEB3FORMS_KEY !== 'undefined') ? WEB3FORMS_KEY : '', subject: 'New lead (book) - ' + payload.name,
+      from_name: payload.name, name: payload.name, email: payload.email, message: payload.details, needs: payload.needs, botcheck: payload.botcheck };
+    fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(web3) })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data && data.success) {
+          if (window.plausible) window.plausible('Lead Submitted', { props: { source: 'book' } });
+          okName.textContent = payload.name.split(/\s+/)[0] || 'thanks';
+          form.style.display = 'none'; formOk.classList.add('show'); try { formOk.focus(); } catch (e) {}
+        } else { throw new Error((data && data.message) || 'failed'); }
+      })
+      .catch(function () {
+        submitBtn.disabled = false; submitBtn.textContent = 'Send it →';
+        var mail = (typeof LEAD_EMAIL !== 'undefined') ? LEAD_EMAIL : 'ariel@wellwaltstudios.com';
+        formErr.innerHTML = 'Something went wrong sending your message. Please email me directly at <a href="mailto:' + mail + '">' + mail + '</a>.';
+        formErr.classList.add('show');
+      });
+  });
+})();
+</script>
 </body>
 </html>

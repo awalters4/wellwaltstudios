@@ -4,10 +4,13 @@
 // Update it, and every page that loads /constants.js picks up the change.
 // ─────────────────────────────────────────────────────────────────────────────
 
-// ── OCTOBER SPECIAL — edit these ─────────────────────────────────────────────
-// Price for the limited-time October special: a done-for-you site based on the
-// demo, launched for you. Shown anywhere with data-wws-text="sitePrice".
-var SITE_PRICE     = '$699';
+// ── 2026 DEAL — edit these ───────────────────────────────────────────────────
+// Price for the 2026-only done-for-you site (based on the demo, launched for
+// you). SITE_PRICE is the live deal price, shown with data-wws-text="sitePrice".
+// SITE_PRICE_WAS is the original price, shown struck through via
+// data-wws-text="sitePriceWas". Ends with 2026.
+var SITE_PRICE     = '$500';
+var SITE_PRICE_WAS = '$699';
 
 // Starting hourly rate for custom development, consulting, IT, and project
 // management — all scoped per project. Shown with data-wws-text="devRate".
@@ -75,6 +78,7 @@ var WWS_LINKS = {
 // Editable text tokens (prices) injected into [data-wws-text] elements.
 var WWS_TEXT = {
   sitePrice:     SITE_PRICE,
+  sitePriceWas:  SITE_PRICE_WAS,
   devRate:       DEV_RATE,
   supportWindow: SUPPORT_WINDOW,
   supportRate:   SUPPORT_RATE,
