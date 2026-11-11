@@ -289,6 +289,14 @@ html[data-theme="night"] .hint{background:var(--pass)}
 .hint svg{width:16px;height:16px}
 @keyframes hint-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .hint.gone{display:none}
+.hint{cursor:pointer}
+/* mobile: smaller, tucked at the bottom edge, tap to dismiss */
+@media (max-width:767.98px){
+  html.js-book .hint{right:50%;transform:translateX(50%);bottom:72px;gap:6px;
+    padding:6px 12px;font-size:12px;box-shadow:0 8px 20px -10px rgba(0,0,0,.5)}
+  .hint svg{width:13px;height:13px}
+  @keyframes hint-in{from{opacity:0;transform:translateX(50%) translateY(8px)}to{opacity:1;transform:translateX(50%)}}
+}
 
 /* ---- corner tap zones (extra) ---- */
 html.js-book .corner{display:block;position:absolute;top:0;bottom:0;width:7%;min-width:28px;max-width:70px;z-index:8;
@@ -879,6 +887,7 @@ html.js-book .corner.next{right:0}
     if (hint && !hint.classList.contains('gone')) { hint.classList.add('gone'); try { localStorage.setItem('wws-book-hinted', '1'); } catch (e) {} }
   }
   var hinted; try { hinted = localStorage.getItem('wws-book-hinted'); } catch (e) {}
+  if (hint) hint.addEventListener('click', dismissHint);
 
   // ---- drop-off analytics ----
   window.addEventListener('pagehide', function () {
