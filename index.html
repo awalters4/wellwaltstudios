@@ -245,8 +245,10 @@ html.js-book .face.cover{
   html.js-book .viewport{width:min(94vw,var(--pw));perspective:none}
   html.js-book .viewport.closed .book3d{transform:none}
   html.js-book .book-base{display:none}
-  html.js-book .book3d{position:absolute;inset:0}
-  html.js-book .sheet{position:static;left:0;width:100%;transform:none!important;transition:none}
+  /* flatten the 3D context on mobile: inside preserve-3d iOS Safari ignores
+     z-index and mis-composites the stacked faces, hiding pages 2+ */
+  html.js-book .book3d{position:absolute;inset:0;transform-style:flat}
+  html.js-book .sheet{position:static;left:0;width:100%;transform:none!important;transition:none;transform-style:flat}
   html.js-book .face{inset:0;width:100%;
     opacity:0;transform:translateX(14%);pointer-events:none;visibility:hidden;
     transition:transform .4s ease,opacity .4s ease;backface-visibility:visible}
