@@ -237,6 +237,8 @@ html.js-book .face.cover{
   border:2px solid var(--cover-accent);box-shadow:0 10px 24px -12px rgba(0,0,0,.7)}
 .cover-author-name{font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--cover-ink);line-height:1.05}
 .cover-author-role{font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--cover-accent)}
+.prologue-portrait{width:72px;height:72px;border-radius:50%;object-fit:cover;display:block;margin:2px 0 10px;
+  border:2px solid var(--amber);box-shadow:0 10px 24px -12px rgba(0,0,0,.5)}
 .face.cover .open-cta{box-shadow:0 14px 30px -12px rgba(0,0,0,.6)}
 .face.cover .flip-hint{font-family:var(--font-mono);font-size:11px;color:rgba(244,236,222,.5);margin:0}
 
@@ -487,10 +489,9 @@ html.js-book .corner.next{right:0}
           </div>
           <div class="cover-bottom">
             <div class="cover-author">
-              <!-- TODO: swap for a square headshot; this crops the landscape about-photo. -->
               <picture>
-                <source type="image/webp" srcset="/about-ariel-480.webp">
-                <img class="cover-portrait" src="/about-ariel-480.jpg" width="64" height="64" alt="Ariel Walters">
+                <source type="image/webp" srcset="/ariel-portrait-480.webp">
+                <img class="cover-portrait" src="/ariel-portrait-480.jpg" width="64" height="64" alt="Ariel Walters">
               </picture>
               <span class="cover-author-name">Ariel Walters</span>
               <span class="cover-author-role">CEO &amp; Software Engineer</span>
@@ -519,6 +520,10 @@ html.js-book .corner.next{right:0}
       <div class="sheet" data-sheet="1">
         <article class="face front" id="leaf-prologue" data-face="2" data-title="Hello, I'm Ariel" aria-label="Prologue">
           <span class="chap-num">Prologue</span>
+          <picture>
+            <source type="image/webp" srcset="/ariel-portrait-480.webp">
+            <img class="prologue-portrait" src="/ariel-portrait-480.jpg" width="72" height="72" alt="Ariel Walters" loading="lazy">
+          </picture>
           <h2 class="leaf-title" tabindex="-1">Hello, I'm Ariel.</h2>
           <p class="lead">I've spent 13+ years building software, the kind that has to work for thousands of people, for companies like Boeing, BAE Systems, Eaze, and Whetstone Education.</p>
           <p>Well Walt Studios is where I bring that same care to small businesses. When you hire me, you get <strong>me</strong>, the person who designs it, builds it, and hands you the keys. No account managers. No passing your project to a junior team.</p>
