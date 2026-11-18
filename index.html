@@ -24,12 +24,10 @@
 <link rel="icon" href="/favicon.ico">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-<!-- Privacy-friendly analytics by Plausible -->
-<script async src="https://plausible.io/js/pa-CyDgqZdvlwHkpG3KPLmfK.js"></script>
-<script>
-  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
-</script>
+<!-- Vercel Web Analytics -->
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/va-events.js"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -798,7 +796,7 @@ html.js-book .corner.next{right:0}
   function trackReach() {
     visibleFaces().forEach(function (i) {
       var id = faces[i].id;
-      if (!reached[id] && window.plausible) { reached[id] = 1; window.plausible('Chapter Reached', { props: { chapter: id } }); }
+      if (!reached[id] && window.va) { reached[id] = 1; window.va('event', { name: 'Chapter Reached', data: { chapter: id } }); }
     });
   }
 
@@ -904,7 +902,7 @@ html.js-book .corner.next{right:0}
 
   // ---- drop-off analytics ----
   window.addEventListener('pagehide', function () {
-    if (window.plausible) window.plausible('Drop-off', { props: { chapter: faces[primaryFace()].id } });
+    if (window.va) window.va('event', { name: 'Drop-off', data: { chapter: faces[primaryFace()].id } });
   });
 
   // ---- boot: size, respect deep link, then lift the loader ----
@@ -953,7 +951,7 @@ html.js-book .corner.next{right:0}
       .then(function (r) { return r.json(); })
       .then(function (data) {
         if (data && data.success) {
-          if (window.plausible) window.plausible('Lead Submitted', { props: { source: 'book' } });
+          if (window.va) window.va('event', { name: 'Lead Submitted', data: { source: 'book' } });
           okName.textContent = payload.name.split(/\s+/)[0] || 'thanks';
           form.style.display = 'none'; formOk.classList.add('show'); try { formOk.focus(); } catch (e) {}
         } else { throw new Error((data && data.message) || 'failed'); }

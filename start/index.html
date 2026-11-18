@@ -15,12 +15,10 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://wellwaltstudios.com/logo.png">
 <link rel="icon" href="/favicon.ico">
-<!-- Privacy-friendly analytics by Plausible -->
-<script async src="https://plausible.io/js/pa-CyDgqZdvlwHkpG3KPLmfK.js"></script>
-<script>
-  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
-</script>
+<!-- Vercel Web Analytics -->
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/va-events.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -424,7 +422,7 @@
       .then(function (r) { return r.json(); })
       .then(function (data) {
         if (data && data.success) {
-          if (window.plausible) window.plausible('Lead Submitted');
+          if (window.va) window.va('event', { name: 'Lead Submitted' });
           var fullName = document.getElementById('name').value.trim();
           confirmName.textContent = fullName ? fullName.split(/\s+/)[0] : 'there';
           form.style.display = 'none';
