@@ -12,6 +12,15 @@
 var SITE_PRICE     = '$500';
 var SITE_PRICE_WAS = '$699';
 
+// Stripe Payment Link for the $500 2026 done-for-you website deal — a hosted
+// Stripe checkout URL (no API keys, no serverless code of ours). Create it in
+// the Stripe dashboard → Payment Links: set the price to SITE_PRICE, enable
+// "collect customer name" and add custom fields (e.g. business name, current
+// website), then paste the URL here. Wired to data-wws-cta="service.deal".
+// Until this is set, those Buy buttons stay hidden so nothing links to a dead
+// checkout. (The buy flow collects details + payment in Stripe's one step.)
+var SITE_DEAL_URL  = 'https://buy.stripe.com/3cIfZgb7abvngB1cr3awo00';
+
 // Starting hourly rate for custom development, consulting, IT, and project
 // management — all scoped per project. Shown with data-wws-text="devRate".
 var DEV_RATE       = '$200/hr';
@@ -57,6 +66,7 @@ var WWS_LINKS = {
   service: {
     start:   '/start',                                                         // primary path — intake form
     book:    INTRO_CALL_URL,                                                    // free website intro call
+    deal:    SITE_DEAL_URL,                                                     // $500 2026 website deal — Stripe Payment Link (buy now)
     consult: CONSULT_URL,                                                       // paid consultation / audit
     scope: 'mailto:' + LEAD_EMAIL
           + '?subject=New%20project%20enquiry%20%E2%80%94%20Well%20Walt%20Studios'
@@ -93,6 +103,15 @@ document.addEventListener('DOMContentLoaded', function () {
     var group = WWS_LINKS[parts[0]];
     if (group && group[parts[1]]) el.href = group[parts[1]];
   });
+
+  // Hide the $500-deal Buy affordances until the Stripe Payment Link is set, so
+  // a half-wired checkout never ships as a live-but-dead button. ([hidden] can't
+  // win over .btn's display:inline-flex, so set display directly on the wrapper.)
+  if (!SITE_DEAL_URL) {
+    document.querySelectorAll('.js-deal-cta').forEach(function (el) {
+      el.style.display = 'none';
+    });
+  }
 
   // Wire text: data-wws-text="key"
   document.querySelectorAll('[data-wws-text]').forEach(function (el) {
